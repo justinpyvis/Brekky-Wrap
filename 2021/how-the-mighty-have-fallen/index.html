@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- capture the CSS content as a Nunjucks variable -->
+  
+  <!-- feed it through our cssmin filter to minify -->
+  <style>
+    /*! minireset.css v0.0.4 | MIT License | github.com/jgthms/minireset.css */blockquote,body,dd,dl,dt,fieldset,figure,h1,h2,h3,h4,h5,h6,hr,html,iframe,legend,li,ol,p,pre,textarea,ul{margin:0;padding:0}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:400}ol,ul{margin-left:40px;margin-bottom:1.5rem;padding:0}@media (max-width:683px){ol,ul{margin-left:20px;margin-bottom:1.5rem}}ol ol{list-style-type:lower-alpha}li{margin:.5em 0}blockquote{border-left:2px solid;margin:20px;padding:0 20px;font-style:italic}@media (max-width:683px){blockquote{margin:10px 10px 25px;padding:0 10px}}blockquote:before{content:"\201D";font-family:Georgia,serif;font-size:3.875rem;position:absolute;left:-40px;top:-20px}blockquote p:first-of-type{margin-top:0}blockquote p:last-of-type{margin-bottom:0}button,input,select,textarea{margin:0}html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}embed,iframe,img,object,video{max-width:100%;height:auto}audio{max-width:100%}iframe{border:0}table{border-collapse:collapse;border-spacing:0}td,th{padding:0;text-align:left}html{overflow-x:hidden!important;height:100%;background:#f7f7f7}body{position:relative;overflow-x:hidden!important;height:100%}body:before{content:"";height:100%;float:left;width:0;margin-top:-32767px}hr{width:100%;border:none;background:#dcdcdc;height:1px;margin:20px 0}a{text-decoration:underline;color:#7b85a0}.container{margin:0 auto;max-width:1170px;padding:0 1.25rem;width:100%}.row{display:flex;padding:0;width:100%}@media (min-width:880px){.container{padding:0 2rem}}.text-center{text-align:center}.text-left{text-align:left}.hidden-sm{display:none}.hidden-lg{display:block}.header-home{position:relative;z-index:2;background-color:#fff;padding:1.5rem 0 0}.header-home .row{justify-content:space-between;margin-top:.5rem}@media (min-width:880px){.hidden-sm{display:block}.hidden-lg{display:none}.header-home{position:relative;z-index:2;background-color:#fff;padding:1.5rem 0}.header-home .row{justify-content:space-between;margin-top:.5rem}}.full-width{width:100%}.spacer{margin:40px 0}html{font-size:16px;line-height:1.7}body{font-family:Inter,system-ui,sans-serif;color:#7b85a0}h1,h2,h3,h4,h5,h6{font-weight:700;color:#3e444e}h1{font-size:2rem;line-height:1.3;margin-bottom:1rem;letter-spacing:-.5px}@media (min-width:880px){h1{font-size:3.5rem;margin-bottom:1.5rem}}h2{font-size:.95rem;line-height:.5rem;margin:1.5rem 0 .15rem;text-transform:uppercase;color:#f60}h3{font-size:1.5rem;margin-bottom:1rem;margin-top:0}@media (min-width:880px){h3{font-size:1.5rem;line-height:2rem}}p{margin-bottom:1.5rem}.header{position:relative;z-index:2;background-color:#fff;padding:1.5rem 0 0}.header-logo{display:flex;align-items:center;flex-shrink:0}.header .row{justify-content:space-between;margin-top:.5rem}.navigation-primary{display:none;margin-left:1.5rem;flex-grow:1;position:relative}.navigation-secondary{display:none;align-self:flex-end}.navigation-mobile{margin-bottom:2rem}@media (min-width:1094px){.navigation-primary,.navigation-secondary{display:flex}.navigation-mobile{display:none}.mobile-nav-trigger{display:none}}@media (min-width:1024px){.navigation-primary{margin-left:2rem}}#wrap{min-height:100%}#main{overflow:auto;padding-bottom:100px}.footer{position:relative;background-color:#1c1c1f;color:#fff;font-size:.9375rem;margin-top:-110px;height:110px;clear:both}.footer-top{padding:3rem 0}.footer-copyright{font-size:.6875rem;color:#becde7;color:#fff;opacity:.75;padding-left:32px}@media (min-width:28rem){.footer-top{padding:2rem 0 0}}.footer a{color:#eee}@media (min-width:56rem){.footer-copyright{padding:0}}.section{padding:2rem 0}@media (min-width:880px){.section{padding:5rem 0}}.section-intro{position:relative;overflow-y:hidden;padding:4rem 0 0}@media (min-width:800px){.section-intro{padding:8rem 0 1rem}}.section-intro::after,.section-intro::before{content:"";position:absolute;width:100%;transform:skewY(-1.8deg);left:0}.section-intro::before{height:120px;top:-40px;background-color:#fff}.button{position:relative;font-weight:600;display:inline-block;border-radius:4px;line-height:1;text-align:center;cursor:pointer;font-size:.875rem;padding:1rem;text-decoration:none}@media (min-width:480px){.button{font-size:1rem}}@media (min-width:480px){.button-regular{padding:1.25rem}}@media (min-width:480px){.button-large{padding:1.5rem}}@media (min-width:480px){.button-small{padding:1rem;font-size:.875rem}}.button-primary{color:#fff;background-color:#4364af}.button-secondary{color:#fff;background-color:#1c1c1f}.button-secondary:hover{background-color:#3d3d43}.button-white{color:#4364af;background-color:#fff;box-shadow:0 8px 16px rgba(51,62,77,.15)}.button-main{color:#000;background-color:#f9c903}.button-main:hover{background-color:#fcd436}.button-black-on-white{color:#3e444e}.button-full-width{width:100%}.button-margin-top{margin-top:2rem}.button-icon-left{margin-right:.75rem;vertical-align:-3px}@media only screen and (min-width:800px){.top{display:flex;align-content:center}}.image-box{width:40%;margin:0 auto}@media (min-width:800px){.image-box{width:60%}.reverse-right{left:65%;position:relative}.reverse-left{right:35%;position:relative}}.image-box img{border-radius:16px;position:relative;top:-40px;width:100%}@media (min-width:800px){.image-box img{top:-80px}}@media only screen and (min-width:800px){.image-box{margin:0;width:35%}}.info-content{color:#1c1c1f}.info-content-wide{color:#1c1c1f;margin:5rem 0}@media only screen and (min-width:800px){.info-content{width:65%;padding-right:6rem;margin-bottom:0}.info-content-wide{width:100%;margin-bottom:0;margin-left:20%;margin-right:20%}}@media only screen and (min-width:1150px){.post-content{padding:2rem;background:#fff;border-radius:15px;margin-bottom:4rem}}.post-content{padding:2rem;background:#fff;border-radius:15px}@media (min-width:800px){.info-content-title{font-size:3rem}}.info-content-description{margin-bottom:2rem}.loading-message,.success-message{display:none}.loading .log-in,.success .log-in{display:none}.loading .loading-message,.success .success-message{display:block;padding:5px}.error-message{font-weight:700;color:red}.notices{float:left;position:relative;padding:5px 0}.input-container{width:70%;display:flex;flex-flow:row wrap;justify-content:center;float:left;position:relative;font-family:inherit!important;margin:0!important;box-sizing:inherit}.input-box{border-radius:3px 0 0 3px!important;padding:12px 0 10px 10px!important;font-size:17px!important;font-family:inherit!important;font-style:normal!important;width:100%;max-width:100%!important;color:#2f2f2f!important;outline-color:transparent;outline-style:none;background:#fff;font-weight:400!important;border:1px solid #dbdbdb!important;line-height:1.5em!important;box-sizing:border-box!important;height:initial!important;position:initial!important;overflow:initial!important;margin:initial!important}.button-outer{min-width:30%!important;float:left;position:relative}.button-inner{border-radius:4px!important;display:table;margin:0!important;box-sizing:inherit}.button-register{background:#f9c903;color:#000!important;border-image:initial!important;border-width:0!important;border-color:#000!important;border-style:solid!important;min-height:49px!important;padding-left:10px!important;padding-right:10px!important;padding-top:8px!important;padding-bottom:8px!important;font-size:16px!important;border-radius:0 3px 3px 0!important;min-width:50px!important;max-width:100%!important;width:100%!important;outline-color:transparent;outline-style:none;font-style:normal!important;font-weight:500!important;cursor:pointer;line-height:initial!important;text-align:center!important;white-space:normal;display:inline-block;touch-action:manipulation;box-sizing:border-box;margin:0!important;text-transform:none!important;letter-spacing:initial!important;height:initial!important}.button-register:hover{background:#fcd436}.heading-small{font-weight:600;color:#3e444e}.kg-gallery-card,.kg-image-card{margin:0 0 1.5em}.kg-gallery-container{display:flex;flex-direction:column}.kg-gallery-row{display:flex;flex-direction:row;justify-content:center;position:relative;width:85vw;min-width:100%;margin:auto calc(50% - 50vw);transform:translateX(calc(50vw - 50%))}.kg-gallery-image img{width:100%;height:100%;padding:0 0 10px 0}.kg-gallery-row:not(:first-of-type){margin:10px 0 0 0}.kg-gallery-image:not(:first-of-type){margin:0 0 0 10px}.kg-embed-card{overflow:hidden;position:relative;width:100%}.kg-embed-card iframe{display:block;content:'';top:0;left:0;width:100%}.kg-embed-card figcaption{margin:.5em 0 0}// required by gcsan to properly validate the theme .kg-bookmark-card{width:100%;position:relative}.kg-bookmark-container{display:flex;flex-wrap:wrap;flex-direction:row-reverse;color:currentColor;font-family:inherit;text-decoration:none;border:1px solid rgba(0,0,0,.1)}.kg-bookmark-container:hover{text-decoration:none}.kg-bookmark-content{flex-basis:0;flex-grow:999;padding:20px;order:1}.kg-bookmark-title{font-weight:600}.kg-bookmark-description,.kg-bookmark-metadata{margin-top:.5em;color:#222}.kg-bookmark-metadata{align-items:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#222}.kg-bookmark-description{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;color:#222}.kg-bookmark-icon{display:inline-block;width:1em;height:1em;vertical-align:text-bottom;margin-right:.5em;margin-bottom:.05em}.kg-bookmark-thumbnail{display:flex;flex-basis:24rem;flex-grow:1}.kg-bookmark-thumbnail img{max-width:100%;height:auto;vertical-align:bottom;object-fit:cover}.kg-bookmark-author{white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.kg-bookmark-publisher::before{content:"•";margin:0 .5em}.kg-width-wide img{max-width:85vw}.kg-width-full img{max-width:100vw}.kg-width-wide{margin:auto calc(50% - 50vw);transform:translateX(calc(50vw - 50%))}.kg-width-full{position:relative;width:100vw;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw}.button-underline a{padding:6px 12px}.button-underline a:link{text-decoration:none;text-transform:none}.btn{display:inline-block;margin:5px 0 0;font-weight:600;text-align:center;-ms-touch-action:manipulation;touch-action:manipulation;cursor:pointer;background-image:none;border:1px solid transparent;white-space:nowrap;padding:.5em;font-size:16px;border-radius:0;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;text-decoration:none;text-transform:none}.btn.active:focus,.btn:active:focus,.btn:focus{outline:5px auto -webkit-focus-ring-color;outline-offset:-2px}.btn:focus,.btn:hover{color:#333;text-decoration:none}.btn.active,.btn:active{outline:0;background-image:none;box-shadow:inset 0 3px 5px rgba(0,0,0,.125)}.btn[disabled]{cursor:not-allowed;opacity:.65;box-shadow:none}.btn-primary{color:#fff!important;background-color:#000;border:2px solid #000}.btn-primary:focus{color:#fff;background-color:#444;border-color:#444}.btn-primary.active,.btn-primary:active,.btn-primary:hover{color:#fff;background-color:#444;border-color:#444}.btn-primary.active:focus,.btn-primary.active:hover,.btn-primary:active:focus,.btn-primary:active:hover{color:#fff;background-color:#444;border-color:#444}.btn-primary.active,.btn-primary:active{background-image:none}.btn-primary[disabled]:focus,.btn-primary[disabled]:hover{background-color:#444;border-color:#444}.btn-secondary{background-color:var(--dt-background);border:2px solid rgba(0,0,0,.8);color:rgba(0,0,0,.8)!important;box-shadow:none}.btn-secondary:focus{color:rgba(0,0,0,.8);background-color:#eee;border-color:#000}.btn-secondary.active,.btn-secondary:active,.btn-secondary:hover{color:rgba(0,0,0,.8);background-color:#eee;border-color:#000}.btn-secondary.active:focus,.btn-secondary.active:hover,.btn-secondary:active:focus,.btn-secondary:active:hover{color:#000;background-color:#eee;border-color:#000}.btn-secondary.active,.btn-secondary:active{background-image:none}.btn-secondary[disabled]:focus,.btn-secondary[disabled]:hover{background-color:#eee;border-color:#000}.btn-tertiary{background-color:#eee;border:2px solid rgba(0,0,0,.8);color:rgba(0,0,0,.8)!important;box-shadow:none}.btn-tertiary:focus{color:rgba(0,0,0,.8)!important;background-color:#eee;border-color:#000}.btn-tertiary.active,.btn-tertiary:active,.btn-tertiary:hover{color:rgba(0,0,0,.8)!important;background-color:#eee;border-color:#000}.btn-tertiary.active:focus,.btn-tertiary.active:hover,.btn-tertiary:active:focus,.btn-tertiary:active:hover{color:#000!important;background-color:#eee;border-color:#000}.btn-tertiary.active,.btn-tertiary:active{background-image:none}.btn-tertiary[disabled]:focus,.btn-tertiary[disabled]:hover{background-color:#eee;border-color:#000}.hamburger{position:relative;float:right;background-color:transparent;background-image:none}.hamburger ul{margin:0;padding:0;list-style:none;overflow:hidden;background-color:#fff}.hamburger li a{display:block;padding:5px 20px;text-decoration:none;font-size:1em}.hamburger .menu-btn:hover,.hamburger li a:hover{background-color:var(--dt-subscriber)}.hamburger .menu{clear:both;max-height:0;transition:max-height .2s ease-out}.hamburger .menu-icon{cursor:pointer;display:inline-block;float:right;padding:30px 20px;position:relative;user-select:none}.hamburger .menu-icon .navicon{background:#333;display:block;height:2px;position:relative;transition:background .2s ease-out;width:18px}.hamburger .menu-icon .navicon:after,.hamburger .menu-icon .navicon:before{background:#333;content:'';display:block;height:100%;position:absolute;transition:all .2s ease-out;width:100%}.hamburger .menu-icon .navicon:before{top:5px}.hamburger .menu-icon .navicon:after{top:-5px}.hamburger .menu-btn{display:none}.hamburger .menu-btn:checked~.menu{max-height:500px}.hamburger .menu-btn:checked~.menu-icon .navicon{background:0 0}.hamburger .menu-btn:checked~.menu-icon .navicon:before{transform:rotate(-45deg)}.hamburger .menu-btn:checked~.menu-icon .navicon:after{transform:rotate(45deg)}.hamburger .menu-btn:checked~.menu-icon:not(.steps) .navicon:after,.hamburger .menu-btn:checked~.menu-icon:not(.steps) .navicon:before{top:0}@media (min-width:684px){.hamburger li{display:none}.hamburger li a{display:none}.hamburger .menu{display:none}.hamburger .menu-icon{display:none}}.header__right{display:flex;flex-direction:row;align-items:center}@media (max-width:683px){.header__right{flex-direction:row-reverse}}.header__inner{justify-content:space-between;margin:0 auto;width:1200px;max-width:100%}.header-logo,.header__inner{display:flex;align-items:center;flex:0 0 auto;text-decoration:none;font-weight:700;padding-left:10px}.logo__mark{margin-right:10px}.logo__text{font-size:1.1rem;color:#373841;font-family:sans-serif;font-weight:700}.menu{--shadow-color:rgba(0, 0, 0, 0.12);--shadow:0 8px 20px var(--shadow-color);margin-right:18px;padding-right:24px;font-weight:500}@media (max-width:683px){.menu{position:absolute;background:#fafafa;background:var(--dt-header);box-shadow:var(--shadow);margin:0;padding:5px;list-style:none;border-radius:5px;z-index:99;border:none;top:50px;right:10px}}.menu a{text-decoration:none;font:1rem/1.62 sans-serif}.menu a:hover{text-decoration:none;color:var(--dt-background-secondary)}.menu__inner{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;list-style:none;margin:0;padding:0}@media (max-width:683px){.menu__inner--desktop{display:none}}.menu__inner--mobile{display:none}@media (max-width:683px){.menu__inner--mobile{display:block}}.menu__inner li{text-align:left;flex:0 0 auto}.menu__inner li:not(:first-of-type){margin-left:20px}@media (max-width:683px){.menu__inner{flex-direction:column;align-items:flex-start;padding:0}.menu__inner li{margin-left:0!important;padding:10px}}.pagination{margin:10px 0}figcaption{font-size:.8rem}
+  </style>
+
+  <title>Brekky Wrap - How the mighty have fallen</title>
+  <meta name="description" content="Good morning! ScoMo was out spinning another yarn on Sunrise yesterday morning, claiming that &quot;When we made those remarks [&quot;it&#39;s not a…" />
+  <link rel="icon" href="https://brekkywrap.com/favicon.png" type="image/png" />
+  <link rel="canonical" href="https://brekkywrap.com/" />
+  <meta name="referrer" content="no-referrer-when-downgrade" />
+  <meta property="og:site_name" content="Brekky Wrap" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="How the mighty have fallen" />
+  <meta property="og:description" content="Good morning! ScoMo was out spinning another yarn on Sunrise yesterday morning, claiming that &quot;When we made those remarks [&quot;it&#39;s not a…" />
+  <meta property="og:url" content="/2021/how-the-mighty-have-fallen/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="How the mighty have fallen" />
+  <meta name="twitter:description" content="Good morning! ScoMo was out spinning another yarn on Sunrise yesterday morning, claiming that &quot;When we made those remarks [&quot;it&#39;s not a…" />
+  <meta name="twitter:url" content="/2021/how-the-mighty-have-fallen/" />
+  <meta name="twitter:site" content="@brekkywrap" />
+  <link rel="alternate" type="application/rss+xml" title="Brekky Wrap" href="https://brekkywrap.com/rss/" />
+</head>
+    <body>
+      <div id="wrap">
+        <div id="main">
+        <header class="header-home">
+
+          <span class="header__inner">
+            <a href="/" class="header-logo">
+                <img class="hidden-sm" src="https://brekkywrap.com/content/images/2021/06/brekky-logo-2.png" alt="How the mighty have fallen" width="300" /><img class="hidden-lg" src="https://brekkywrap.com/content/images/2021/06/brekky-logo-2.png" alt="How the mighty have fallen" width="240" />
+            </a>
+
+            <span class="logo__cursor"></span>
+
+        <span class="header__right">
+            <nav class="menu">
+        <ul class="menu__inner menu__inner--desktop">
+          <li><a href="/" title="Return home">Home</a></li>
+          <li><a href="/faq/" title="Frequently asked questions">FAQ</a></li>
+          <li><a href="/archive/" title="View the archive">Previous issues</a></li>
+          <li><a href="/" title="Subscribe to Brekky Wrap">Subscribe</a></li>
+
+        </ul>
+
+        </nav>
+        <!-- hamburger -->
+              <div class="hamburger">
+                <input class="menu-btn" type="checkbox" id="menu-btn" />
+                <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+                <ul class="menu">
+                  <li><a href="/" title="Return home">Home</a></li>
+                  <li><a href="/faq/" title="Frequently asked questions">FAQ</a></li>
+                  <li><a href="/archive/" title="View the archive">Previous issues</a></li>
+                  <li><a href="/" title="Subscribe to Brekky Wrap">Subscribe</a></li>
+                </ul>
+              </div>
+        <!-- /hamburger -->
+
+        </span>
+        </span>
+
+</header>
+
+
+<section class="section section-intro">
+    <div class="container">
+        <div class="top">
+            <div class="info-content-wide">
+                <div class="post-content">
+                  <div class="heading-small">Delivered on <time datetime="Thu Jul 29 2021 08:00:00 GMT+0800 (Australian Western Standard Time)">29 July 2021</time></div>
+                    <h1 class="info-content-title">How the mighty have fallen</h1>
+                    
+<p>Good morning! ScoMo was out spinning another yarn on <em>Sunrise</em> yesterday morning, <a href="https://www.theguardian.com/australia-news/live/2021/jul/29/australia-covid-live-update-western-sydney-tougher-lockdown-construction-nsw-victoria-vaccines-coronavirus?page=with:block-6101d7e88f089093df86d44e#block-6101d7e88f089093df86d44e">claiming that</a> "When we made those remarks ["it's not a race"], we were talking about the regulation of the vaccines. I'm not sure if people are aware of that."</p><p>The problem is both Pfizer and AstraZeneca were approved in January and February, respectively, and ScoMo said "it's not a race" at least <a href="https://www.theguardian.com/australia-news/live/2021/jul/29/australia-covid-live-update-western-sydney-tougher-lockdown-construction-nsw-victoria-vaccines-coronavirus?page=with:block-6101d7e88f089093df86d44e#block-6101d7e88f089093df86d44e">five times</a> in March, with <a href="https://brekkywrap.com/2021/a-tinderbox-ready-to-ignite/">multiple ministers</a> repeating the line – while directly mentioning the rollout, not the approval process – as recently as 30 May. 🤥</p><p>Meanwhile, New South Wales <a href="https://www.sbs.com.au/news/hundreds-of-australian-defence-force-troops-to-be-deployed-to-greater-sydney-to-enforce-lockdown-measures">asked</a> for up to 300 Australian Defence Force personnel to "to assist NSW authorities with COVID-19 restriction compliance measures". 😬</p><h2 id="markets">Markets</h2><!--kg-card-begin: html--><table class="MsoNormalTable" style="width:100.0%;border-collapse:collapse;mso-yfti-tbllook:1184" width="100%" cellspacing="0" cellpadding="0" border="0">
+ <tbody><tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes">
+  <td colspan="5" style="width:100.0%;border:none;border-bottom:
+  solid #D9D9D9 1.0pt;mso-border-bottom-themecolor:background1;mso-border-bottom-themeshade:
+  217;mso-border-bottom-alt:solid #D9D9D9 .5pt;mso-border-bottom-themecolor:
+  background1;mso-border-bottom-themeshade:217;padding:.75pt .75pt .75pt .75pt" width="100%">
+  <p class="MsoNormal" style="margin-bottom:1.5pt;text-align:right;
+  line-height:normal" align="right"><span style="font-family:&quot;Segoe UI&quot;,sans-serif;
+  mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-language:EN-AU">Daily %
+  change<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:1">
+  <td style="width:7.86%;padding:.75pt .75pt .75pt .75pt" width="7%">
+  <p class="MsoNormal" style="margin-top:1.5pt;margin-right:0cm;
+  margin-bottom:1.5pt;margin-left:0cm;text-align:right;line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU"><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td style="width:19.86%;padding:.75pt .75pt .75pt .75pt" width="19%">
+  <p class="MsoNormal" style="margin-top:1.5pt;margin-right:0cm;margin-bottom:
+  1.5pt;margin-left:0cm;line-height:normal"><span style="font-size:13.0pt;
+  font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+  mso-fareast-language:EN-AU">AUD/USD<o:p></o:p></span></p>
+  </td>
+  <td style="width:28.82%;padding:.75pt .75pt .75pt .75pt" width="28%">
+  <p class="MsoNormal" style="margin-top:1.5pt;margin-right:0cm;
+  margin-bottom:1.5pt;margin-left:0cm;text-align:right;line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;color:black">74.0</span><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU"><o:p></o:p></span></p>
+  </td>
+  <td style="width:36.1%;padding:.75pt .75pt .75pt .75pt" width="36%">
+  <p class="MsoNormal" style="margin-top:1.5pt;margin-right:0cm;
+  margin-bottom:1.5pt;margin-left:0cm;text-align:right;line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;color:#00B050">+0.4%</span><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU"><o:p></o:p></span></p>
+  </td>
+  <td style="width:7.36%;padding:.75pt .75pt .75pt .75pt" width="7%" valign="top">
+  <p class="MsoNormal" style="margin-top:1.5pt;margin-right:0cm;
+  margin-bottom:1.5pt;margin-left:0cm;text-align:right;line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU"><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:2">
+  <td style="width:7.86%;padding:.75pt .75pt .75pt .75pt" width="7%">
+  <p class="MsoNormal" style="margin-top:1.5pt;margin-right:0cm;
+  margin-bottom:1.5pt;margin-left:0cm;text-align:right;line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU"><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td style="width:19.86%;padding:.75pt .75pt .75pt .75pt" width="19%">
+  <p class="MsoNormal" style="margin-top:1.5pt;margin-right:0cm;margin-bottom:
+  1.5pt;margin-left:0cm;line-height:normal"><span style="font-size:13.0pt;
+  font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+  mso-fareast-language:EN-AU">10Y&nbsp;Bond<o:p></o:p></span></p>
+  </td>
+  <td style="width:28.82%;padding:.75pt .75pt .75pt .75pt" width="28%">
+  <p class="MsoNormal" style="margin-top:1.5pt;margin-right:0cm;
+  margin-bottom:1.5pt;margin-left:0cm;text-align:right;line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;color:black">1.18</span><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU"><o:p></o:p></span></p>
+  </td>
+  <td style="width:36.1%;padding:.75pt .75pt .75pt .75pt" width="36%">
+  <p class="MsoNormal" style="margin-top:1.5pt;margin-right:0cm;
+  margin-bottom:1.5pt;margin-left:0cm;text-align:right;line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;color:#00B050">+1.7%</span><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU"><o:p></o:p></span></p>
+  </td>
+  <td style="width:7.36%;padding:.75pt .75pt .75pt .75pt" width="7%" valign="top">
+  <p class="MsoNormal" style="margin-top:1.5pt;margin-right:0cm;
+  margin-bottom:1.5pt;margin-left:0cm;text-align:right;line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU"><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:3">
+  <td style="width:7.86%;padding:.75pt .75pt .75pt .75pt" width="7%">
+  <p class="MsoNormal" style="margin-top:1.5pt;margin-right:0cm;
+  margin-bottom:1.5pt;margin-left:0cm;text-align:right;line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU"><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td style="width:19.86%;padding:.75pt .75pt .75pt .75pt" width="19%">
+  <p class="MsoNormal" style="margin-top:1.5pt;margin-right:0cm;margin-bottom:
+  1.5pt;margin-left:0cm;line-height:normal"><span style="font-size:13.0pt;
+  font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+  mso-fareast-language:EN-AU">ASX200<o:p></o:p></span></p>
+  </td>
+  <td style="width:28.82%;padding:.75pt .75pt .75pt .75pt" width="28%">
+  <p class="MsoNormal" style="margin-top:1.5pt;margin-right:0cm;
+  margin-bottom:1.5pt;margin-left:0cm;text-align:right;line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;color:black">7,417</span><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU"><o:p></o:p></span></p>
+  </td>
+  <td style="width:36.1%;padding:.75pt .75pt .75pt .75pt" width="36%">
+  <p class="MsoNormal" style="margin-top:1.5pt;margin-right:0cm;
+  margin-bottom:1.5pt;margin-left:0cm;text-align:right;line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;color:#00B050">+0.5%</span><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU"><o:p></o:p></span></p>
+  </td>
+  <td style="width:7.36%;padding:.75pt .75pt .75pt .75pt" width="7%" valign="top">
+  <p class="MsoNormal" style="margin-top:1.5pt;margin-right:0cm;
+  margin-bottom:1.5pt;margin-left:0cm;text-align:right;line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU"><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:4">
+  <td style="width:7.86%;padding:.75pt .75pt .75pt .75pt" width="7%">
+  <p class="MsoNormal" style="margin-top:1.5pt;margin-right:0cm;
+  margin-bottom:1.5pt;margin-left:0cm;text-align:right;line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU"><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td style="width:19.86%;padding:.75pt .75pt .75pt .75pt" width="19%">
+  <p class="MsoNormal" style="margin-top:1.5pt;margin-right:0cm;margin-bottom:
+  1.5pt;margin-left:0cm;line-height:normal"><span style="font-size:13.0pt;
+  font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+  mso-fareast-language:EN-AU">Brent&nbsp;(bbl)<o:p></o:p></span></p>
+  </td>
+  <td style="width:28.82%;padding:.75pt .75pt .75pt .75pt" width="28%">
+  <p class="MsoNormal" style="margin-top:1.5pt;margin-right:0cm;
+  margin-bottom:1.5pt;margin-left:0cm;text-align:right;line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;color:black">75.9</span><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU"><o:p></o:p></span></p>
+  </td>
+  <td style="width:36.1%;padding:.75pt .75pt .75pt .75pt" width="36%">
+  <p class="MsoNormal" style="margin-top:1.5pt;margin-right:0cm;
+  margin-bottom:1.5pt;margin-left:0cm;text-align:right;line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;color:#00B050">+1.6%</span><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU"><o:p></o:p></span></p>
+  </td>
+  <td style="width:7.36%;padding:.75pt .75pt .75pt .75pt" width="7%" valign="top">
+  <p class="MsoNormal" style="margin-top:1.5pt;margin-right:0cm;
+  margin-bottom:1.5pt;margin-left:0cm;text-align:right;line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU"><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:5">
+  <td style="width:7.86%;padding:.75pt .75pt .75pt .75pt" width="7%">
+  <p class="MsoNormal" style="margin-top:1.5pt;margin-right:0cm;
+  margin-bottom:1.5pt;margin-left:0cm;text-align:right;line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU"><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td style="width:19.86%;padding:.75pt .75pt .75pt .75pt" width="19%">
+  <p class="MsoNormal" style="margin-top:1.5pt;margin-right:0cm;margin-bottom:
+  1.5pt;margin-left:0cm;line-height:normal"><span style="font-size:13.0pt;
+  font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+  mso-fareast-language:EN-AU">Gold&nbsp;(oz)<o:p></o:p></span></p>
+  </td>
+  <td style="width:28.82%;padding:.75pt .75pt .75pt .75pt" width="28%">
+  <p class="MsoNormal" style="margin-top:1.5pt;margin-right:0cm;
+  margin-bottom:1.5pt;margin-left:0cm;text-align:right;line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;color:black">1,832</span><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU"><o:p></o:p></span></p>
+  </td>
+  <td style="width:36.1%;padding:.75pt .75pt .75pt .75pt" width="36%">
+  <p class="MsoNormal" style="margin-top:1.5pt;margin-right:0cm;
+  margin-bottom:1.5pt;margin-left:0cm;text-align:right;line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;color:#00B050">+1.4%</span><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU"><o:p></o:p></span></p>
+  </td>
+  <td style="width:7.36%;padding:.75pt .75pt .75pt .75pt" width="7%" valign="top">
+  <p class="MsoNormal" style="margin-top:1.5pt;margin-right:0cm;
+  margin-bottom:1.5pt;margin-left:0cm;text-align:right;line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU"><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:6">
+  <td style="width:7.86%;padding:.75pt .75pt .75pt .75pt" width="7%">
+  <p class="MsoNormal" style="margin-top:1.5pt;margin-right:0cm;
+  margin-bottom:1.5pt;margin-left:0cm;text-align:right;line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU"><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td style="width:19.86%;padding:.75pt .75pt .75pt .75pt" width="19%">
+  <p class="MsoNormal" style="margin-top:1.5pt;margin-right:0cm;margin-bottom:
+  1.5pt;margin-left:0cm;line-height:normal"><span style="font-size:13.0pt;
+  font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+  mso-fareast-language:EN-AU">Iron&nbsp;ore&nbsp;(t)<o:p></o:p></span></p>
+  </td>
+  <td style="width:28.82%;padding:.75pt .75pt .75pt .75pt" width="28%">
+  <p class="MsoNormal" style="margin-top:1.5pt;margin-right:0cm;
+  margin-bottom:1.5pt;margin-left:0cm;text-align:right;line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;color:black">193.5</span><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU"><o:p></o:p></span></p>
+  </td>
+  <td style="width:36.1%;padding:.75pt .75pt .75pt .75pt" width="36%">
+  <p class="MsoNormal" style="margin-top:1.5pt;margin-right:0cm;
+  margin-bottom:1.5pt;margin-left:0cm;text-align:right;line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;color:#C00000">-2.9%</span><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU"><o:p></o:p></span></p>
+  </td>
+  <td style="width:7.36%;padding:.75pt .75pt .75pt .75pt" width="7%" valign="top">
+  <p class="MsoNormal" style="margin-top:1.5pt;margin-right:0cm;
+  margin-bottom:1.5pt;margin-left:0cm;text-align:right;line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU"><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:7">
+  <td style="width:7.86%;padding:.75pt .75pt .75pt .75pt" width="7%">
+  <p class="MsoNormal" style="margin-top:1.5pt;margin-right:0cm;
+  margin-bottom:1.5pt;margin-left:0cm;text-align:right;line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU"><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td style="width:19.86%;padding:.75pt .75pt .75pt .75pt" width="19%">
+  <p class="MsoNormal" style="margin-top:1.5pt;margin-right:0cm;margin-bottom:
+  1.5pt;margin-left:0cm;line-height:normal"><span style="font-size:13.0pt;
+  font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+  mso-fareast-language:EN-AU">Bitcoin<o:p></o:p></span></p>
+  </td>
+  <td style="width:28.82%;padding:.75pt .75pt .75pt .75pt" width="28%">
+  <p class="MsoNormal" style="margin-top:1.5pt;margin-right:0cm;
+  margin-bottom:1.5pt;margin-left:0cm;text-align:right;line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;color:black">39,718</span><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU"><o:p></o:p></span></p>
+  </td>
+  <td style="width:36.1%;padding:.75pt .75pt .75pt .75pt" width="36%">
+  <p class="MsoNormal" style="margin-top:1.5pt;margin-right:0cm;
+  margin-bottom:1.5pt;margin-left:0cm;text-align:right;line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;color:#C00000">-0.9%</span><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU"><o:p></o:p></span></p>
+  </td>
+  <td style="width:7.36%;padding:.75pt .75pt .75pt .75pt" width="7%" valign="top">
+  <p class="MsoNormal" style="margin-top:1.5pt;margin-right:0cm;
+  margin-bottom:1.5pt;margin-left:0cm;text-align:right;line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU"><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:8;mso-yfti-lastrow:yes">
+  <td colspan="5" style="width:100.0%;border:none;border-top:solid #D9D9D9 1.0pt;
+  mso-border-top-themecolor:background1;mso-border-top-themeshade:217;
+  mso-border-top-alt:solid #D9D9D9 .5pt;mso-border-top-themecolor:background1;
+  mso-border-top-themeshade:217;padding:.75pt .75pt .75pt .75pt" width="100%">
+  <p class="MsoNormal" style="margin-top:1.5pt;margin-right:0cm;margin-bottom:
+  6.0pt;margin-left:0cm;line-height:normal"><em><span style="font-size:10.0pt;
+  font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;
+  color:black;mso-fareast-language:EN-AU">Note: Brent oil, gold bullion and
+  iron ore prices are the second futures contract.<o:p></o:p></span></em></p>
+  </td>
+ </tr>
+</tbody></table><!--kg-card-end: html--><p>The US S&amp;P500 gained 0.42% last night after the US Senate found the support of 17 Republicans <a href="https://www.cnbc.com/2021/07/28/infrastructure-vote-senate-advances-bipartisan-bill.html">to advance</a> Biden's $US550 billion infrastructure bill, with a separate $US 3.5 trillion package (child care, paid leave, education, climate change) to be voted on in the coming months. </p><p><strong>Two misses</strong>: Also supporting US markets were weaker than expected jobless claims, <a href="https://apnews.com/article/business-health-coronavirus-pandemic-economy-jobless-claims-752cfdc40b8511741f6f150968b0c6d1">which fell</a> by 24,000 to 400,000 last week, and softer than forecast GDP growth in the June quarter (6.5% annualised vs the Dow Jones <a href="https://www.cnbc.com/2021/07/29/q2-gdp-rises-at-6point5percent-vs-8point4percent-estimate.html">estimate</a> of 8.4%). Equity markets love bad news like this because it means the Fed is more likely to keep the monetary juices flowing. </p><p><strong>Iron ore bonanza</strong>: Australia's export prices <a href="https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/international-trade-price-indexes-australia/latest-release">soared</a> 13.2% in the June quarter and 26.0% through the year, "driven by the demand for iron ore from China and constrained global supply". Imported consumption good prices increased just 0.1% in the quarter and fell 6.6% compared to this time last year, which should help keep consumer price inflation down (thank you, China).</p><p><strong>Watch those asset prices</strong>: Consumer price inflation may be manageable (for now!) but the same cannot be said for asset prices, with <a href="https://www.domain.com.au/news/house-prices-in-sydney-melbourne-brisbane-adelaide-and-hobart-hit-record-high-1075331/">the latest</a> quarterly <em>House Price Repor</em>t from Domain showing double-digit price growth in every Australian city, due to "the perfect storm for rising house prices: low interest rates, low numbers of houses for sale against strong demand for property and government stimuli".</p><p><strong>Panic stations</strong>: Whoops! China's government clearly took things too far with its most recent attack on profitable businesses, forcing the China Securities Regulatory Commission to hastily <a href="https://www.bloomberg.com/news/articles/2021-07-29/china-stocks-rise-as-beijing-escalates-effort-to-calm-market">organise a video conference</a> with international investors "conveying a message that education policies were not intended to hurt companies in other industries". The government also ran a series of media articles through state-run agencies "suggesting the rout is overdone", and the central bank provided a net liquidity injection of 20 billion yuan (~$A4.2 billion) – the first ¥10 billion+ short-term cash addition since 30 June.</p><!--kg-card-begin: html--><hr style="border-top: 1px dashed black;width:15%;margin:5px auto 1.5rem;background:none;">
+<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td align="center"><div style="text-align:center"><!--kg-card-end: html--><p>Thanks for reading Brekky Wrap.<br>Feel free to forward this email to your friends or <a href="https://brekkywrap.com/">send them to our website</a>.</p><!--kg-card-begin: html--></div></td></tr></table><hr style="border-top: 1px dashed black;width:15%;margin:5px auto;background:none;"><!--kg-card-end: html--><h2 id="feature">Feature</h2><h3 id="how-the-mighty-have-fallen">How the mighty have fallen</h3><p>Google <a href="https://www.google.com/covid19/mobility/">released</a> updated global mobility data earlier this week, revealing a disturbing trend – Australia is now well below all of its G20 developed economy peers in terms of people moving around and getting on with 'normal' activities.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="/content/images/2021/07/image-12.png" class="kg-image" alt="Chart showing Google mobility data, with Australia dropping fast." loading="lazy" width="910" height="661" srcset="/content/images/size/w600/2021/07/image-12.png 600w, https://brekkywrap.com/content/images/2021/07/image-12.png 910w" sizes="(min-width: 720px) 720px"><figcaption><em>Australia did comparatively well for most of the pandemic but not so much lately. <a href="https://www.google.com/covid19/mobility/">Google</a></em></figcaption></figure><p><strong>Stepping back</strong>: The chart above shows movement trends over time for retail and recreation, transit stations and workplaces. In other words, places that are avoided when a country is either locked down or experiencing restrictions on mobility. A reading of zero corresponds to the 'baseline', or pre-pandemic activity, with the grey area showing the range of the eight other developed economies in the G20.</p><p><strong>Why this matters</strong>: According to how far off 'normal' Australia has been during the pandemic, we've been down but were still one of the better performers, relatively speaking (aside from during Victoria's lockdown last year). However, for the first time ever Australia has not just fallen below even the worst country in this sample, but <em>well</em> below it. It's a clear sign that Australia's failed vaccination rollout and leaky hotel quarantine is having a large impact on the economy and society as a whole.</p><hr><!--kg-card-begin: html--><div style="background: #f9f9f9;padding: 0 5px;margin-bottom: 20px;border: 1px solid #ddd;border-top-right-radius: 10px;border-bottom-left-radius: 10px"><!--kg-card-end: html--><h2 id="tokyo-2020-%F0%9F%97%BC">Tokyo 2020 🗼</h2><p>Australia added two more gold medals to its tally yesterday, shooting up to 5th place in the overall standings. The medals came courtesy of Zac Stubblety-Cook, who won the men's 200m breaststroke with an Olympic record time and Jessica Fox, who finally won gold in the women's canoe slalom after two bronzes and a silver.</p><!--kg-card-begin: html--><table class="MsoNormalTable" style="width:100.0%;mso-cellspacing:1.5pt;mso-yfti-tbllook:1184" width="100%" cellpadding="0" border="0">
+ <tbody><tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes">
+  <td style="width:67.06%;padding:.75pt .75pt .75pt .75pt" width="67%">
+  <p class="MsoNormal" style="margin-bottom:0cm;line-height:normal"><strong><span style="font-size:12.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU">Medal tally<o:p></o:p></span></strong></p>
+  </td>
+  <td style="width:10.5%;padding:.75pt .75pt .75pt .75pt" width="10%">
+  <p class="MsoNormal" style="margin-bottom:0cm;text-align:center;
+  line-height:normal" align="center"><strong><span style="font-size:12.0pt;font-family:&quot;Segoe UI Emoji&quot;,sans-serif;
+  mso-ascii-font-family:&quot;Segoe UI&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;
+  mso-hansi-font-family:&quot;Segoe UI&quot;;mso-bidi-font-family:&quot;Segoe UI&quot;;mso-fareast-language:
+  EN-AU;mso-char-type:symbol-ext;mso-symbol-font-family:&quot;Segoe UI Emoji&quot;">🥇</span></strong><strong><span style="font-size:12.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU"><o:p></o:p></span></strong></p>
+  </td>
+  <td style="width:10.48%;padding:.75pt .75pt .75pt .75pt" width="10%">
+  <p class="MsoNormal" style="margin-bottom:0cm;text-align:center;
+  line-height:normal" align="center"><strong><span style="font-size:12.0pt;font-family:&quot;Segoe UI Emoji&quot;,sans-serif;
+  mso-ascii-font-family:&quot;Segoe UI&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;
+  mso-hansi-font-family:&quot;Segoe UI&quot;;mso-bidi-font-family:&quot;Segoe UI&quot;;mso-fareast-language:
+  EN-AU;mso-char-type:symbol-ext;mso-symbol-font-family:&quot;Segoe UI Emoji&quot;">🥈</span></strong><strong><span style="font-size:12.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU"><o:p></o:p></span></strong></p>
+  </td>
+  <td style="width:10.3%;padding:.75pt .75pt .75pt .75pt" width="10%">
+  <p class="MsoNormal" style="margin-bottom:0cm;text-align:center;
+  line-height:normal" align="center"><strong><span style="font-size:12.0pt;font-family:&quot;Segoe UI Emoji&quot;,sans-serif;
+  mso-ascii-font-family:&quot;Segoe UI&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;
+  mso-hansi-font-family:&quot;Segoe UI&quot;;mso-bidi-font-family:&quot;Segoe UI&quot;;mso-fareast-language:
+  EN-AU;mso-char-type:symbol-ext;mso-symbol-font-family:&quot;Segoe UI Emoji&quot;">🥉</span></strong><strong><span style="font-size:12.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU"><o:p></o:p></span></strong></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:1">
+  <td style="width:67.06%;padding:.75pt .75pt .75pt .75pt" width="67%">
+  <p class="MsoNormal" style="margin-bottom:0cm;line-height:normal"><span style="font-size:12.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU">1 </span><span style="font-size:12.0pt;font-family:&quot;Segoe UI Emoji&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Segoe UI Emoji&quot;;mso-fareast-language:
+  EN-AU">🇨🇳</span><span style="font-size:12.0pt;font-family:
+  &quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-language:
+  EN-AU"> China<o:p></o:p></span></p>
+  </td>
+  <td style="width:10.5%;padding:.75pt .75pt .75pt .75pt" width="10%">
+  <p class="MsoNormal" style="margin-bottom:0cm;text-align:center;
+  line-height:normal" align="center"><span style="font-size:12.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+  mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-language:EN-AU">15<o:p></o:p></span></p>
+  </td>
+  <td style="width:10.48%;padding:.75pt .75pt .75pt .75pt" width="10%">
+  <p class="MsoNormal" style="margin-bottom:0cm;text-align:center;
+  line-height:normal" align="center"><span style="font-size:12.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+  mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-language:EN-AU">7<o:p></o:p></span></p>
+  </td>
+  <td style="width:10.3%;padding:.75pt .75pt .75pt .75pt" width="10%">
+  <p class="MsoNormal" style="margin-bottom:0cm;text-align:center;
+  line-height:normal" align="center"><span style="font-size:12.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+  mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-language:EN-AU">9<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:2">
+  <td style="width:67.06%;padding:.75pt .75pt .75pt .75pt" width="67%">
+  <p class="MsoNormal" style="margin-bottom:0cm;line-height:normal"><span style="font-size:12.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU">2 </span><span style="font-size:12.0pt;font-family:&quot;Segoe UI Emoji&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Segoe UI Emoji&quot;;mso-fareast-language:
+  EN-AU">🇯🇵</span><span style="font-size:12.0pt;font-family:
+  &quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-language:
+  EN-AU"> Japan<o:p></o:p></span></p>
+  </td>
+  <td style="width:10.5%;padding:.75pt .75pt .75pt .75pt" width="10%">
+  <p class="MsoNormal" style="margin-bottom:0cm;text-align:center;
+  line-height:normal" align="center"><span style="font-size:12.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+  mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-language:EN-AU">15<o:p></o:p></span></p>
+  </td>
+  <td style="width:10.48%;padding:.75pt .75pt .75pt .75pt" width="10%">
+  <p class="MsoNormal" style="margin-bottom:0cm;text-align:center;
+  line-height:normal" align="center"><span style="font-size:12.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+  mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-language:EN-AU">4<o:p></o:p></span></p>
+  </td>
+  <td style="width:10.3%;padding:.75pt .75pt .75pt .75pt" width="10%">
+  <p class="MsoNormal" style="margin-bottom:0cm;text-align:center;
+  line-height:normal" align="center"><span style="font-size:12.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+  mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-language:EN-AU">6<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:3">
+  <td style="width:67.06%;padding:.75pt .75pt .75pt .75pt" width="67%">
+  <p class="MsoNormal" style="margin-bottom:0cm;line-height:normal"><span style="font-size:12.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU">3 </span><span style="font-size:12.0pt;font-family:&quot;Segoe UI Emoji&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Segoe UI Emoji&quot;;mso-fareast-language:
+  EN-AU">🇺🇸</span><span style="font-size:12.0pt;font-family:
+  &quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-language:
+  EN-AU"> United States<o:p></o:p></span></p>
+  </td>
+  <td style="width:10.5%;padding:.75pt .75pt .75pt .75pt" width="10%">
+  <p class="MsoNormal" style="margin-bottom:0cm;text-align:center;
+  line-height:normal" align="center"><span style="font-size:12.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+  mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-language:EN-AU">14<o:p></o:p></span></p>
+  </td>
+  <td style="width:10.48%;padding:.75pt .75pt .75pt .75pt" width="10%">
+  <p class="MsoNormal" style="margin-bottom:0cm;text-align:center;
+  line-height:normal" align="center"><span style="font-size:12.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+  mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-language:EN-AU">14<o:p></o:p></span></p>
+  </td>
+  <td style="width:10.3%;padding:.75pt .75pt .75pt .75pt" width="10%">
+  <p class="MsoNormal" style="margin-bottom:0cm;text-align:center;
+  line-height:normal" align="center"><span style="font-size:12.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+  mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-language:EN-AU">10<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:4">
+  <td style="width:67.06%;padding:.75pt .75pt .75pt .75pt" width="67%">
+  <p class="MsoNormal" style="margin-bottom:0cm;line-height:normal"><span style="font-size:12.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU">4 </span><span style="font-size:12.0pt;font-family:&quot;Segoe UI Emoji&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Segoe UI Emoji&quot;;mso-fareast-language:
+  EN-AU">🇷🇺 ROC</span><span style="font-size:12.0pt;font-family:
+  &quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-language:
+  EN-AU"><o:p></o:p></span></p>
+  </td>
+  <td style="width:10.5%;padding:.75pt .75pt .75pt .75pt" width="10%">
+  <p class="MsoNormal" style="margin-bottom:0cm;text-align:center;
+  line-height:normal" align="center"><span style="font-size:12.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+  mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-language:EN-AU">8<o:p></o:p></span></p>
+  </td>
+  <td style="width:10.48%;padding:.75pt .75pt .75pt .75pt" width="10%">
+  <p class="MsoNormal" style="margin-bottom:0cm;text-align:center;
+  line-height:normal" align="center"><span style="font-size:12.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+  mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-language:EN-AU">11<o:p></o:p></span></p>
+  </td>
+  <td style="width:10.3%;padding:.75pt .75pt .75pt .75pt" width="10%">
+  <p class="MsoNormal" style="margin-bottom:0cm;text-align:center;
+  line-height:normal" align="center"><span style="font-size:12.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+  mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-language:EN-AU">9<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:5;mso-yfti-lastrow:yes">
+  <td style="width:67.06%;padding:.75pt .75pt .75pt .75pt" width="67%">
+  <p class="MsoNormal" style="margin-bottom:12.0pt;line-height:normal"><span style="font-size:12.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU">5 </span><span style="font-size:12.0pt;font-family:&quot;Segoe UI Emoji&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-bidi-font-family:&quot;Segoe UI Emoji&quot;;mso-fareast-language:
+  EN-AU">🇦🇺</span><span style="font-size:12.0pt;font-family:
+  &quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-language:
+  EN-AU"> Australia<o:p></o:p></span></p>
+  </td>
+  <td style="width:10.5%;padding:.75pt .75pt .75pt .75pt" width="10%">
+  <p class="MsoNormal" style="margin-bottom:12.0pt;text-align:center;
+  line-height:normal" align="center"><span style="font-size:12.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+  mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-language:EN-AU">8<o:p></o:p></span></p>
+  </td>
+  <td style="width:10.48%;padding:.75pt .75pt .75pt .75pt" width="10%">
+  <p class="MsoNormal" style="margin-bottom:12.0pt;text-align:center;
+  line-height:normal" align="center"><span style="font-size:12.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+  mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-language:EN-AU">2<o:p></o:p></span></p>
+  </td>
+  <td style="width:10.3%;padding:.75pt .75pt .75pt .75pt" width="10%">
+  <p class="MsoNormal" style="margin-bottom:12.0pt;text-align:center;
+  line-height:normal" align="center"><span style="font-size:12.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+  mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-language:EN-AU">10<o:p></o:p></span></p>
+  </td>
+ </tr>
+</tbody></table><!--kg-card-end: html--><!--kg-card-begin: html--></div><!--kg-card-end: html--><hr><h2 id="the-wrap-up">The Wrap Up</h2><ul><li>🛂 ScoMo <a href="https://www.theguardian.com/australia-news/live/2021/jul/29/australia-covid-live-update-western-sydney-tougher-lockdown-construction-nsw-victoria-vaccines-coronavirus?page=with:block-6101e7858f089093df86d4ef#block-6101e7858f089093df86d4ef">said</a> once the vaccination rate improves, Australia will "have to have more restrictions on people who are unvaccinated because they're a danger to themselves and others".</li><li>🔪 Australia's Treasurer Josh Frydenberg <a href="https://thewest.com.au/news/coronavirus/coronavirus-crisis-josh-frydenberg-concedes-short-sharp-lockdowns-the-answer-for-state-governments-ng-b881949400z">said</a> "you'll now see shorter and sharper lockdowns as the default position of State Governments until we get a sufficient number of people vaccinated".</li><li>🕊️ The UK will on 2 August <a href="https://www.euronews.com/travel/2021/07/28/uk-travel-restrictions-no-quarantine-for-fully-vaccinated-eu-and-us-citizens">scrap</a> mandatory quarantine for fully-vaccinated travellers arriving from Europe (excluding France) and the US.</li><li>💉 The Philippines will open vaccinations to anyone who wants a shot, with just 6% of the 110 million-strong population fully vaccinated. "Give the vaccines to those who want to be vaccinated", President Duterte said in a late-night address.</li><li>🥐 France will from 9 August enforce its controversial new laws making a vaccination "health pass" compulsory to visit cafes, restaurants or travel on planes and trains.</li><li>📦 <a href="https://www.smh.com.au/politics/federal/number-of-unused-astrazeneca-vaccines-in-australia-tops-3-million-20210727-p58di3.html">What lack of supply</a>? "The number of unused AstraZeneca vaccine doses [in Australia] has increased to three million."</li><li>🥝 New Zealand's health regulator Medsafe <a href="https://www.reuters.com/world/asia-pacific/new-zealand-gives-provisional-nod-astrazenecas-covid-19-vaccine-2021-07-28/">approved</a> the AstraZeneca vaccine for individuals aged over 18 years.</li><li>🍁 From Thursday, those in Alberta, Canada who are considered close contacts of positive COVID-19 cases will <a href="https://calgaryherald.com/news/local-news/live-at-330-p-m-dr-hinshaw-returns-to-podium-for-covid-19-update">no longer</a> have to isolate, "as part of the province's plan to move away from nearly all public health restrictions by mid-August". </li><li>👊 Google <a href="https://www.huffpost.com/entry/google-requires-employees-covid-vaccine_n_61019289e4b0048f36191c38">will require</a> its 140,000 employees to be vaccinated before returning to the office, which will not happen before mid-October.</li><li>💩 A toilet <a href="https://knovhov.com/toilet-turns-poop-into-power-and-digital-currency/">invented in South Korea</a> turns the methane from people's poop into electricity and cryptocurrency.</li><li>✈️ Qantas <a href="https://www.traveller.com.au/qantas-confirms-rollout-of-iata-digital-health-pass-for-international-flights-h1xig7">confirmed</a> it will use the International Air Transport Association's (IATA) 'Travel Pass' app to verify whether a passenger is vaccinated or has recently tested negative for COVID-19.</li><li>😷 The US <a href="https://www.cnbc.com/2021/07/29/biden-requiring-federal-workers-to-prove-covid-vaccine-status-or-submit-to-strict-safety-rules-white-house-says.html">will require</a> all federal workers to prove their vaccination status or submit to a series of "safety protocols".</li></ul>
+
+                    <hr>
+<p style="margin-top:1rem">
+<em>How the mighty have fallen</em> was brought to you by Justin Pyvis. Forwarded this issue? <a href="/" title="Subscribe">Click here</a> to subscribe.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="navigation-mobile">
+    <p class="text-center"><a href="/" class="button button-small button-secondary" title="Return home">Return home</a></p>
+</div>
+
+
+</div>
+</div>
+
+        <footer class="footer">
+    <div class="footer-top">
+        <div class="container">
+
+
+                <div class="footer-copyright">
+                    &copy; 2021 Brekky Wrap. Read our <a href="/privacy/">Privacy Policy</a>.
+                </div>
+
+        </div>
+    </div>
+
+</footer>
+
+    </body>
+</html>

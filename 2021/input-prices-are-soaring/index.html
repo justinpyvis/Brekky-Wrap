@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- capture the CSS content as a Nunjucks variable -->
+  
+  <!-- feed it through our cssmin filter to minify -->
+  <style>
+    /*! minireset.css v0.0.4 | MIT License | github.com/jgthms/minireset.css */blockquote,body,dd,dl,dt,fieldset,figure,h1,h2,h3,h4,h5,h6,hr,html,iframe,legend,li,ol,p,pre,textarea,ul{margin:0;padding:0}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:400}ol,ul{margin-left:40px;margin-bottom:1.5rem;padding:0}@media (max-width:683px){ol,ul{margin-left:20px;margin-bottom:1.5rem}}ol ol{list-style-type:lower-alpha}li{margin:.5em 0}blockquote{border-left:2px solid;margin:20px;padding:0 20px;font-style:italic}@media (max-width:683px){blockquote{margin:10px 10px 25px;padding:0 10px}}blockquote:before{content:"\201D";font-family:Georgia,serif;font-size:3.875rem;position:absolute;left:-40px;top:-20px}blockquote p:first-of-type{margin-top:0}blockquote p:last-of-type{margin-bottom:0}button,input,select,textarea{margin:0}html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}embed,iframe,img,object,video{max-width:100%;height:auto}audio{max-width:100%}iframe{border:0}table{border-collapse:collapse;border-spacing:0}td,th{padding:0;text-align:left}html{overflow-x:hidden!important;height:100%;background:#f7f7f7}body{position:relative;overflow-x:hidden!important;height:100%}body:before{content:"";height:100%;float:left;width:0;margin-top:-32767px}hr{width:100%;border:none;background:#dcdcdc;height:1px;margin:20px 0}a{text-decoration:underline;color:#7b85a0}.container{margin:0 auto;max-width:1170px;padding:0 1.25rem;width:100%}.row{display:flex;padding:0;width:100%}@media (min-width:880px){.container{padding:0 2rem}}.text-center{text-align:center}.text-left{text-align:left}.hidden-sm{display:none}.hidden-lg{display:block}.header-home{position:relative;z-index:2;background-color:#fff;padding:1.5rem 0 0}.header-home .row{justify-content:space-between;margin-top:.5rem}@media (min-width:880px){.hidden-sm{display:block}.hidden-lg{display:none}.header-home{position:relative;z-index:2;background-color:#fff;padding:1.5rem 0}.header-home .row{justify-content:space-between;margin-top:.5rem}}.full-width{width:100%}.spacer{margin:40px 0}html{font-size:16px;line-height:1.7}body{font-family:Inter,system-ui,sans-serif;color:#7b85a0}h1,h2,h3,h4,h5,h6{font-weight:700;color:#3e444e}h1{font-size:2rem;line-height:1.3;margin-bottom:1rem;letter-spacing:-.5px}@media (min-width:880px){h1{font-size:3.5rem;margin-bottom:1.5rem}}h2{font-size:.95rem;line-height:.5rem;margin:1.5rem 0 .15rem;text-transform:uppercase;color:#f60}h3{font-size:1.5rem;margin-bottom:1rem;margin-top:0}@media (min-width:880px){h3{font-size:1.5rem;line-height:2rem}}p{margin-bottom:1.5rem}.header{position:relative;z-index:2;background-color:#fff;padding:1.5rem 0 0}.header-logo{display:flex;align-items:center;flex-shrink:0}.header .row{justify-content:space-between;margin-top:.5rem}.navigation-primary{display:none;margin-left:1.5rem;flex-grow:1;position:relative}.navigation-secondary{display:none;align-self:flex-end}.navigation-mobile{margin-bottom:2rem}@media (min-width:1094px){.navigation-primary,.navigation-secondary{display:flex}.navigation-mobile{display:none}.mobile-nav-trigger{display:none}}@media (min-width:1024px){.navigation-primary{margin-left:2rem}}#wrap{min-height:100%}#main{overflow:auto;padding-bottom:100px}.footer{position:relative;background-color:#1c1c1f;color:#fff;font-size:.9375rem;margin-top:-110px;height:110px;clear:both}.footer-top{padding:3rem 0}.footer-copyright{font-size:.6875rem;color:#becde7;color:#fff;opacity:.75;padding-left:32px}@media (min-width:28rem){.footer-top{padding:2rem 0 0}}.footer a{color:#eee}@media (min-width:56rem){.footer-copyright{padding:0}}.section{padding:2rem 0}@media (min-width:880px){.section{padding:5rem 0}}.section-intro{position:relative;overflow-y:hidden;padding:4rem 0 0}@media (min-width:800px){.section-intro{padding:8rem 0 1rem}}.section-intro::after,.section-intro::before{content:"";position:absolute;width:100%;transform:skewY(-1.8deg);left:0}.section-intro::before{height:120px;top:-40px;background-color:#fff}.button{position:relative;font-weight:600;display:inline-block;border-radius:4px;line-height:1;text-align:center;cursor:pointer;font-size:.875rem;padding:1rem;text-decoration:none}@media (min-width:480px){.button{font-size:1rem}}@media (min-width:480px){.button-regular{padding:1.25rem}}@media (min-width:480px){.button-large{padding:1.5rem}}@media (min-width:480px){.button-small{padding:1rem;font-size:.875rem}}.button-primary{color:#fff;background-color:#4364af}.button-secondary{color:#fff;background-color:#1c1c1f}.button-secondary:hover{background-color:#3d3d43}.button-white{color:#4364af;background-color:#fff;box-shadow:0 8px 16px rgba(51,62,77,.15)}.button-main{color:#000;background-color:#f9c903}.button-main:hover{background-color:#fcd436}.button-black-on-white{color:#3e444e}.button-full-width{width:100%}.button-margin-top{margin-top:2rem}.button-icon-left{margin-right:.75rem;vertical-align:-3px}@media only screen and (min-width:800px){.top{display:flex;align-content:center}}.image-box{width:40%;margin:0 auto}@media (min-width:800px){.image-box{width:60%}.reverse-right{left:65%;position:relative}.reverse-left{right:35%;position:relative}}.image-box img{border-radius:16px;position:relative;top:-40px;width:100%}@media (min-width:800px){.image-box img{top:-80px}}@media only screen and (min-width:800px){.image-box{margin:0;width:35%}}.info-content{color:#1c1c1f}.info-content-wide{color:#1c1c1f;margin:5rem 0}@media only screen and (min-width:800px){.info-content{width:65%;padding-right:6rem;margin-bottom:0}.info-content-wide{width:100%;margin-bottom:0;margin-left:20%;margin-right:20%}}@media only screen and (min-width:1150px){.post-content{padding:2rem;background:#fff;border-radius:15px;margin-bottom:4rem}}.post-content{padding:2rem;background:#fff;border-radius:15px}@media (min-width:800px){.info-content-title{font-size:3rem}}.info-content-description{margin-bottom:2rem}.loading-message,.success-message{display:none}.loading .log-in,.success .log-in{display:none}.loading .loading-message,.success .success-message{display:block;padding:5px}.error-message{font-weight:700;color:red}.notices{float:left;position:relative;padding:5px 0}.input-container{width:70%;display:flex;flex-flow:row wrap;justify-content:center;float:left;position:relative;font-family:inherit!important;margin:0!important;box-sizing:inherit}.input-box{border-radius:3px 0 0 3px!important;padding:12px 0 10px 10px!important;font-size:17px!important;font-family:inherit!important;font-style:normal!important;width:100%;max-width:100%!important;color:#2f2f2f!important;outline-color:transparent;outline-style:none;background:#fff;font-weight:400!important;border:1px solid #dbdbdb!important;line-height:1.5em!important;box-sizing:border-box!important;height:initial!important;position:initial!important;overflow:initial!important;margin:initial!important}.button-outer{min-width:30%!important;float:left;position:relative}.button-inner{border-radius:4px!important;display:table;margin:0!important;box-sizing:inherit}.button-register{background:#f9c903;color:#000!important;border-image:initial!important;border-width:0!important;border-color:#000!important;border-style:solid!important;min-height:49px!important;padding-left:10px!important;padding-right:10px!important;padding-top:8px!important;padding-bottom:8px!important;font-size:16px!important;border-radius:0 3px 3px 0!important;min-width:50px!important;max-width:100%!important;width:100%!important;outline-color:transparent;outline-style:none;font-style:normal!important;font-weight:500!important;cursor:pointer;line-height:initial!important;text-align:center!important;white-space:normal;display:inline-block;touch-action:manipulation;box-sizing:border-box;margin:0!important;text-transform:none!important;letter-spacing:initial!important;height:initial!important}.button-register:hover{background:#fcd436}.heading-small{font-weight:600;color:#3e444e}.kg-gallery-card,.kg-image-card{margin:0 0 1.5em}.kg-gallery-container{display:flex;flex-direction:column}.kg-gallery-row{display:flex;flex-direction:row;justify-content:center;position:relative;width:85vw;min-width:100%;margin:auto calc(50% - 50vw);transform:translateX(calc(50vw - 50%))}.kg-gallery-image img{width:100%;height:100%;padding:0 0 10px 0}.kg-gallery-row:not(:first-of-type){margin:10px 0 0 0}.kg-gallery-image:not(:first-of-type){margin:0 0 0 10px}.kg-embed-card{overflow:hidden;position:relative;width:100%}.kg-embed-card iframe{display:block;content:'';top:0;left:0;width:100%}.kg-embed-card figcaption{margin:.5em 0 0}// required by gcsan to properly validate the theme .kg-bookmark-card{width:100%;position:relative}.kg-bookmark-container{display:flex;flex-wrap:wrap;flex-direction:row-reverse;color:currentColor;font-family:inherit;text-decoration:none;border:1px solid rgba(0,0,0,.1)}.kg-bookmark-container:hover{text-decoration:none}.kg-bookmark-content{flex-basis:0;flex-grow:999;padding:20px;order:1}.kg-bookmark-title{font-weight:600}.kg-bookmark-description,.kg-bookmark-metadata{margin-top:.5em;color:#222}.kg-bookmark-metadata{align-items:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#222}.kg-bookmark-description{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;color:#222}.kg-bookmark-icon{display:inline-block;width:1em;height:1em;vertical-align:text-bottom;margin-right:.5em;margin-bottom:.05em}.kg-bookmark-thumbnail{display:flex;flex-basis:24rem;flex-grow:1}.kg-bookmark-thumbnail img{max-width:100%;height:auto;vertical-align:bottom;object-fit:cover}.kg-bookmark-author{white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.kg-bookmark-publisher::before{content:"•";margin:0 .5em}.kg-width-wide img{max-width:85vw}.kg-width-full img{max-width:100vw}.kg-width-wide{margin:auto calc(50% - 50vw);transform:translateX(calc(50vw - 50%))}.kg-width-full{position:relative;width:100vw;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw}.button-underline a{padding:6px 12px}.button-underline a:link{text-decoration:none;text-transform:none}.btn{display:inline-block;margin:5px 0 0;font-weight:600;text-align:center;-ms-touch-action:manipulation;touch-action:manipulation;cursor:pointer;background-image:none;border:1px solid transparent;white-space:nowrap;padding:.5em;font-size:16px;border-radius:0;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;text-decoration:none;text-transform:none}.btn.active:focus,.btn:active:focus,.btn:focus{outline:5px auto -webkit-focus-ring-color;outline-offset:-2px}.btn:focus,.btn:hover{color:#333;text-decoration:none}.btn.active,.btn:active{outline:0;background-image:none;box-shadow:inset 0 3px 5px rgba(0,0,0,.125)}.btn[disabled]{cursor:not-allowed;opacity:.65;box-shadow:none}.btn-primary{color:#fff!important;background-color:#000;border:2px solid #000}.btn-primary:focus{color:#fff;background-color:#444;border-color:#444}.btn-primary.active,.btn-primary:active,.btn-primary:hover{color:#fff;background-color:#444;border-color:#444}.btn-primary.active:focus,.btn-primary.active:hover,.btn-primary:active:focus,.btn-primary:active:hover{color:#fff;background-color:#444;border-color:#444}.btn-primary.active,.btn-primary:active{background-image:none}.btn-primary[disabled]:focus,.btn-primary[disabled]:hover{background-color:#444;border-color:#444}.btn-secondary{background-color:var(--dt-background);border:2px solid rgba(0,0,0,.8);color:rgba(0,0,0,.8)!important;box-shadow:none}.btn-secondary:focus{color:rgba(0,0,0,.8);background-color:#eee;border-color:#000}.btn-secondary.active,.btn-secondary:active,.btn-secondary:hover{color:rgba(0,0,0,.8);background-color:#eee;border-color:#000}.btn-secondary.active:focus,.btn-secondary.active:hover,.btn-secondary:active:focus,.btn-secondary:active:hover{color:#000;background-color:#eee;border-color:#000}.btn-secondary.active,.btn-secondary:active{background-image:none}.btn-secondary[disabled]:focus,.btn-secondary[disabled]:hover{background-color:#eee;border-color:#000}.btn-tertiary{background-color:#eee;border:2px solid rgba(0,0,0,.8);color:rgba(0,0,0,.8)!important;box-shadow:none}.btn-tertiary:focus{color:rgba(0,0,0,.8)!important;background-color:#eee;border-color:#000}.btn-tertiary.active,.btn-tertiary:active,.btn-tertiary:hover{color:rgba(0,0,0,.8)!important;background-color:#eee;border-color:#000}.btn-tertiary.active:focus,.btn-tertiary.active:hover,.btn-tertiary:active:focus,.btn-tertiary:active:hover{color:#000!important;background-color:#eee;border-color:#000}.btn-tertiary.active,.btn-tertiary:active{background-image:none}.btn-tertiary[disabled]:focus,.btn-tertiary[disabled]:hover{background-color:#eee;border-color:#000}.hamburger{position:relative;float:right;background-color:transparent;background-image:none}.hamburger ul{margin:0;padding:0;list-style:none;overflow:hidden;background-color:#fff}.hamburger li a{display:block;padding:5px 20px;text-decoration:none;font-size:1em}.hamburger .menu-btn:hover,.hamburger li a:hover{background-color:var(--dt-subscriber)}.hamburger .menu{clear:both;max-height:0;transition:max-height .2s ease-out}.hamburger .menu-icon{cursor:pointer;display:inline-block;float:right;padding:30px 20px;position:relative;user-select:none}.hamburger .menu-icon .navicon{background:#333;display:block;height:2px;position:relative;transition:background .2s ease-out;width:18px}.hamburger .menu-icon .navicon:after,.hamburger .menu-icon .navicon:before{background:#333;content:'';display:block;height:100%;position:absolute;transition:all .2s ease-out;width:100%}.hamburger .menu-icon .navicon:before{top:5px}.hamburger .menu-icon .navicon:after{top:-5px}.hamburger .menu-btn{display:none}.hamburger .menu-btn:checked~.menu{max-height:500px}.hamburger .menu-btn:checked~.menu-icon .navicon{background:0 0}.hamburger .menu-btn:checked~.menu-icon .navicon:before{transform:rotate(-45deg)}.hamburger .menu-btn:checked~.menu-icon .navicon:after{transform:rotate(45deg)}.hamburger .menu-btn:checked~.menu-icon:not(.steps) .navicon:after,.hamburger .menu-btn:checked~.menu-icon:not(.steps) .navicon:before{top:0}@media (min-width:684px){.hamburger li{display:none}.hamburger li a{display:none}.hamburger .menu{display:none}.hamburger .menu-icon{display:none}}.header__right{display:flex;flex-direction:row;align-items:center}@media (max-width:683px){.header__right{flex-direction:row-reverse}}.header__inner{justify-content:space-between;margin:0 auto;width:1200px;max-width:100%}.header-logo,.header__inner{display:flex;align-items:center;flex:0 0 auto;text-decoration:none;font-weight:700;padding-left:10px}.logo__mark{margin-right:10px}.logo__text{font-size:1.1rem;color:#373841;font-family:sans-serif;font-weight:700}.menu{--shadow-color:rgba(0, 0, 0, 0.12);--shadow:0 8px 20px var(--shadow-color);margin-right:18px;padding-right:24px;font-weight:500}@media (max-width:683px){.menu{position:absolute;background:#fafafa;background:var(--dt-header);box-shadow:var(--shadow);margin:0;padding:5px;list-style:none;border-radius:5px;z-index:99;border:none;top:50px;right:10px}}.menu a{text-decoration:none;font:1rem/1.62 sans-serif}.menu a:hover{text-decoration:none;color:var(--dt-background-secondary)}.menu__inner{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;list-style:none;margin:0;padding:0}@media (max-width:683px){.menu__inner--desktop{display:none}}.menu__inner--mobile{display:none}@media (max-width:683px){.menu__inner--mobile{display:block}}.menu__inner li{text-align:left;flex:0 0 auto}.menu__inner li:not(:first-of-type){margin-left:20px}@media (max-width:683px){.menu__inner{flex-direction:column;align-items:flex-start;padding:0}.menu__inner li{margin-left:0!important;padding:10px}}.pagination{margin:10px 0}figcaption{font-size:.8rem}
+  </style>
+
+  <title>Brekky Wrap - Input prices are soaring</title>
+  <meta name="description" content="Good morning! Peter Gutwein and the Liberal Party were reinstated following Tasmania&#39;s election on the weekend, although there was a slight…" />
+  <link rel="icon" href="https://brekkywrap.com/favicon.png" type="image/png" />
+  <link rel="canonical" href="https://brekkywrap.com/" />
+  <meta name="referrer" content="no-referrer-when-downgrade" />
+  <meta property="og:site_name" content="Brekky Wrap" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Input prices are soaring" />
+  <meta property="og:description" content="Good morning! Peter Gutwein and the Liberal Party were reinstated following Tasmania&#39;s election on the weekend, although there was a slight…" />
+  <meta property="og:url" content="/2021/input-prices-are-soaring/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Input prices are soaring" />
+  <meta name="twitter:description" content="Good morning! Peter Gutwein and the Liberal Party were reinstated following Tasmania&#39;s election on the weekend, although there was a slight…" />
+  <meta name="twitter:url" content="/2021/input-prices-are-soaring/" />
+  <meta name="twitter:site" content="@brekkywrap" />
+  <link rel="alternate" type="application/rss+xml" title="Brekky Wrap" href="https://brekkywrap.com/rss/" />
+</head>
+    <body>
+      <div id="wrap">
+        <div id="main">
+        <header class="header-home">
+
+          <span class="header__inner">
+            <a href="/" class="header-logo">
+                <img class="hidden-sm" src="https://brekkywrap.com/content/images/2021/06/brekky-logo-2.png" alt="Input prices are soaring" width="300" /><img class="hidden-lg" src="https://brekkywrap.com/content/images/2021/06/brekky-logo-2.png" alt="Input prices are soaring" width="240" />
+            </a>
+
+            <span class="logo__cursor"></span>
+
+        <span class="header__right">
+            <nav class="menu">
+        <ul class="menu__inner menu__inner--desktop">
+          <li><a href="/" title="Return home">Home</a></li>
+          <li><a href="/faq/" title="Frequently asked questions">FAQ</a></li>
+          <li><a href="/archive/" title="View the archive">Previous issues</a></li>
+          <li><a href="/" title="Subscribe to Brekky Wrap">Subscribe</a></li>
+
+        </ul>
+
+        </nav>
+        <!-- hamburger -->
+              <div class="hamburger">
+                <input class="menu-btn" type="checkbox" id="menu-btn" />
+                <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+                <ul class="menu">
+                  <li><a href="/" title="Return home">Home</a></li>
+                  <li><a href="/faq/" title="Frequently asked questions">FAQ</a></li>
+                  <li><a href="/archive/" title="View the archive">Previous issues</a></li>
+                  <li><a href="/" title="Subscribe to Brekky Wrap">Subscribe</a></li>
+                </ul>
+              </div>
+        <!-- /hamburger -->
+
+        </span>
+        </span>
+
+</header>
+
+
+<section class="section section-intro">
+    <div class="container">
+        <div class="top">
+            <div class="info-content-wide">
+                <div class="post-content">
+                  <div class="heading-small">Delivered on <time datetime="Sun May 02 2021 08:00:00 GMT+0800 (Australian Western Standard Time)">2 May 2021</time></div>
+                    <h1 class="info-content-title">Input prices are soaring</h1>
+                    
+<p>Good morning! Peter Gutwein and the Liberal Party were <a href="https://www.abc.net.au/news/2021-05-02/tasmania-election-2021-peter-gutwein-liberal-result-analysis/100099748">reinstated</a> following Tasmania's election on the weekend, although there was a slight swing against the party (-1.2%). Not a great outcome given that he called the election more than a year early, hoping to capitalise on the hard border fad (which recently saw WA's Labor Premier, Mark McGowan, <a href="https://brekkywrap.com/2021/the-big-biden-stimulus/">win in a landslide</a>).</p><p>However, the result was even worse for the opposition Labor party, which saw a swing of -4.4% against them. The <a href="https://www.abc.net.au/news/elections/tas/2021/results/party-totals">chief beneficiaries</a> were the Greens (+1.7%), single-issue parties and independents.</p><p>Keeping the coronavirus out has so far seen every Premier that has faced an election re-elected, although this was the narrowest victory to date. Perhaps people have become fatigued by the constant political spin and lack of progress on the next step – namely, vaccinations and opening up (Australia <a href="https://www.nytimes.com/interactive/2021/world/covid-vaccinations-tracker.html">ranks 80th</a> in the world, behind Jordan but just ahead of Kazakhstan). 🤷‍♂️</p><h2 id="market-wrap">Market Wrap</h2><!--kg-card-begin: html--><table class="MsoNormalTable" style="width:100.0%;border-collapse:collapse;mso-yfti-tbllook:1184;mso-padding-alt:
+ 0cm 0cm 0cm 0cm" width="100%" cellspacing="0" cellpadding="0" border="0">
+ <tbody><tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes">
+  <td style="border:none;border-bottom:solid #D9D9D9 1.0pt;mso-border-bottom-themecolor:
+  background1;mso-border-bottom-themeshade:217;mso-border-bottom-alt:solid #D9D9D9 .5pt;
+  mso-border-bottom-themecolor:background1;mso-border-bottom-themeshade:217;
+  padding:0cm 0cm 0cm 0cm">
+  <p class="MsoNormal" style="margin-bottom:2.0pt;text-align:right;
+  line-height:normal" align="right"><span style="font-family:&quot;Segoe UI&quot;,sans-serif;
+  mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-language:EN-AU">Daily %
+  change<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:1;height:31.2pt">
+  <td style="border:none;mso-border-top-alt:solid #D9D9D9 .5pt;mso-border-top-themecolor:
+  background1;mso-border-top-themeshade:217;padding:0cm 2.85pt 0cm 2.85pt;
+  height:31.2pt">
+  <div align="center">
+  <table class="MsoNormalTable" style="width:85.5%;border-collapse:collapse;mso-yfti-tbllook:1184;
+   mso-padding-alt:0cm 0cm 0cm 0cm" width="85%" cellspacing="0" cellpadding="0" border="0">
+   <tbody><tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes">
+    <td style="width:101.6pt;padding:7.5pt 0cm 7.5pt 0cm" width="135">
+    <p class="MsoNormal" style="margin-bottom:0cm;line-height:normal"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+    &quot;Times New Roman&quot;;color:black;mso-fareast-language:EN-AU">AUD/USD<o:p></o:p></span></p>
+    </td>
+    <td style="width:140.6pt;padding:7.5pt 0cm 7.5pt 0cm" width="187">
+    <p class="MsoNormal" style="margin-bottom:0cm;text-align:right;
+    line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+    color:black">77.2</span><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+    mso-fareast-font-family:&quot;Times New Roman&quot;;color:black;mso-fareast-language:
+    EN-AU"><o:p></o:p></span></p>
+    </td>
+    <td style="width:138.8pt;padding:7.5pt 0cm 7.5pt 0cm" width="185">
+    <p class="MsoNormal" style="margin-bottom:0cm;text-align:right;
+    line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+    color:#C00000">-0.6%</span><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+    mso-fareast-font-family:&quot;Times New Roman&quot;;color:black;mso-fareast-language:
+    EN-AU"><o:p></o:p></span></p>
+    </td>
+   </tr>
+  </tbody></table>
+  </div>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:2;height:31.2pt">
+  <td style="padding:0cm 2.85pt 0cm 2.85pt;height:31.2pt">
+  <div align="center">
+  <table class="MsoNormalTable" style="width:85.5%;border-collapse:collapse;mso-yfti-tbllook:1184;
+   mso-padding-alt:0cm 0cm 0cm 0cm" width="85%" cellspacing="0" cellpadding="0" border="0">
+   <tbody><tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes">
+    <td style="width:101.6pt;padding:7.5pt 0cm 7.5pt 0cm" width="135">
+    <p class="MsoNormal" style="margin-bottom:0cm;line-height:normal"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+    &quot;Times New Roman&quot;;color:black;mso-fareast-language:EN-AU">10Y&nbsp;Bond<o:p></o:p></span></p>
+    </td>
+    <td style="width:140.6pt;padding:7.5pt 0cm 7.5pt 0cm" width="187">
+    <p class="MsoNormal" style="margin-bottom:0cm;text-align:right;
+    line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+    color:black">1.69</span><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+    mso-fareast-font-family:&quot;Times New Roman&quot;;color:black;mso-fareast-language:
+    EN-AU"><o:p></o:p></span></p>
+    </td>
+    <td style="width:138.8pt;padding:7.5pt 0cm 7.5pt 0cm" width="185">
+    <p class="MsoNormal" style="margin-bottom:0cm;text-align:right;
+    line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+    color:#00B050">0.9%</span><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+    mso-fareast-font-family:&quot;Times New Roman&quot;;color:black;mso-fareast-language:
+    EN-AU"><o:p></o:p></span></p>
+    </td>
+   </tr>
+  </tbody></table>
+  </div>
+  <p class="MsoNormal" style="margin-bottom:0cm;line-height:normal"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;color:black;mso-fareast-language:EN-AU"><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:3;height:31.2pt">
+  <td style="padding:0cm 2.85pt 0cm 2.85pt;height:31.2pt">
+  <div align="center">
+  <table class="MsoNormalTable" style="width:85.5%;border-collapse:collapse;mso-yfti-tbllook:1184;
+   mso-padding-alt:0cm 0cm 0cm 0cm" width="85%" cellspacing="0" cellpadding="0" border="0">
+   <tbody><tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes">
+    <td style="width:101.6pt;padding:7.5pt 0cm 7.5pt 0cm" width="135">
+    <p class="MsoNormal" style="margin-bottom:0cm;line-height:normal"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+    &quot;Times New Roman&quot;;color:black;mso-fareast-language:EN-AU">ASX200<o:p></o:p></span></p>
+    </td>
+    <td style="width:140.6pt;padding:7.5pt 0cm 7.5pt 0cm" width="187">
+    <p class="MsoNormal" style="margin-bottom:0cm;text-align:right;
+    line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+    color:black">7,026</span><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+    mso-fareast-font-family:&quot;Times New Roman&quot;;color:black;mso-fareast-language:
+    EN-AU"><o:p></o:p></span></p>
+    </td>
+    <td style="width:138.8pt;padding:7.5pt 0cm 7.5pt 0cm" width="185">
+    <p class="MsoNormal" style="margin-bottom:0cm;text-align:right;
+    line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+    color:#C00000">-0.8%</span><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+    mso-fareast-font-family:&quot;Times New Roman&quot;;color:black;mso-fareast-language:
+    EN-AU"><o:p></o:p></span></p>
+    </td>
+   </tr>
+  </tbody></table>
+  </div>
+  <p class="MsoNormal" style="margin-bottom:0cm;line-height:normal"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;color:black;mso-fareast-language:EN-AU"><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:4;height:31.2pt">
+  <td style="padding:0cm 2.85pt 0cm 2.85pt;height:31.2pt">
+  <div align="center">
+  <table class="MsoNormalTable" style="width:85.5%;border-collapse:collapse;mso-yfti-tbllook:1184;
+   mso-padding-alt:0cm 0cm 0cm 0cm" width="85%" cellspacing="0" cellpadding="0" border="0">
+   <tbody><tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes">
+    <td style="width:101.6pt;padding:7.5pt 0cm 7.5pt 0cm" width="135">
+    <p class="MsoNormal" style="margin-bottom:0cm;line-height:normal"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+    &quot;Times New Roman&quot;;color:black;mso-fareast-language:EN-AU">Brent&nbsp;(bbl)<o:p></o:p></span></p>
+    </td>
+    <td style="width:140.6pt;padding:7.5pt 0cm 7.5pt 0cm" width="187">
+    <p class="MsoNormal" style="margin-bottom:0cm;text-align:right;
+    line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+    color:black">66.8</span><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+    mso-fareast-font-family:&quot;Times New Roman&quot;;color:black;mso-fareast-language:
+    EN-AU"><o:p></o:p></span></p>
+    </td>
+    <td style="width:138.8pt;padding:7.5pt 0cm 7.5pt 0cm" width="185">
+    <p class="MsoNormal" style="margin-bottom:0cm;text-align:right;
+    line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+    color:#C00000">-2.5%</span><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+    mso-fareast-font-family:&quot;Times New Roman&quot;;color:black;mso-fareast-language:
+    EN-AU"><o:p></o:p></span></p>
+    </td>
+   </tr>
+  </tbody></table>
+  </div>
+  <p class="MsoNormal" style="margin-bottom:0cm;line-height:normal"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;color:black;mso-fareast-language:EN-AU"><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:5;height:31.2pt">
+  <td style="padding:0cm 2.85pt 0cm 2.85pt;height:31.2pt">
+  <div align="center">
+  <table class="MsoNormalTable" style="width:85.5%;border-collapse:collapse;mso-yfti-tbllook:1184;
+   mso-padding-alt:0cm 0cm 0cm 0cm" width="85%" cellspacing="0" cellpadding="0" border="0">
+   <tbody><tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes">
+    <td style="width:101.6pt;padding:7.5pt 0cm 7.5pt 0cm" width="135">
+    <p class="MsoNormal" style="margin-bottom:0cm;line-height:normal"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+    &quot;Times New Roman&quot;;color:black;mso-fareast-language:EN-AU">Gold&nbsp;(oz)<o:p></o:p></span></p>
+    </td>
+    <td style="width:140.6pt;padding:7.5pt 0cm 7.5pt 0cm" width="187">
+    <p class="MsoNormal" style="margin-bottom:0cm;text-align:right;
+    line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+    color:black">1,768</span><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+    mso-fareast-font-family:&quot;Times New Roman&quot;;color:black;mso-fareast-language:
+    EN-AU"><o:p></o:p></span></p>
+    </td>
+    <td style="width:138.8pt;padding:7.5pt 0cm 7.5pt 0cm" width="185">
+    <p class="MsoNormal" style="margin-bottom:0cm;text-align:right;
+    line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+    color:#C00000">-0.3%</span><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+    mso-fareast-font-family:&quot;Times New Roman&quot;;color:black;mso-fareast-language:
+    EN-AU"><o:p></o:p></span></p>
+    </td>
+   </tr>
+  </tbody></table>
+  </div>
+  <p class="MsoNormal" style="margin-bottom:0cm;line-height:normal"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;color:black;mso-fareast-language:EN-AU"><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:6;height:31.2pt">
+  <td style="padding:0cm 2.85pt 0cm 2.85pt;height:31.2pt">
+  <div align="center">
+  <table class="MsoNormalTable" style="width:85.5%;border-collapse:collapse;mso-yfti-tbllook:1184;
+   mso-padding-alt:0cm 0cm 0cm 0cm" width="85%" cellspacing="0" cellpadding="0" border="0">
+   <tbody><tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes">
+    <td style="width:101.6pt;padding:7.5pt 0cm 7.5pt 0cm" width="135">
+    <p class="MsoNormal" style="margin-bottom:0cm;line-height:normal"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+    &quot;Times New Roman&quot;;color:black;mso-fareast-language:EN-AU">Iron&nbsp;ore&nbsp;(t)<o:p></o:p></span></p>
+    </td>
+    <td style="width:140.6pt;padding:7.5pt 0cm 7.5pt 0cm" width="187">
+    <p class="MsoNormal" style="margin-bottom:0cm;text-align:right;
+    line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+    color:black">184.3</span><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+    mso-fareast-font-family:&quot;Times New Roman&quot;;color:black;mso-fareast-language:
+    EN-AU"><o:p></o:p></span></p>
+    </td>
+    <td style="width:138.8pt;padding:7.5pt 0cm 7.5pt 0cm" width="185">
+    <p class="MsoNormal" style="margin-bottom:0cm;text-align:right;
+    line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+    color:#C00000">-1.9%</span><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+    mso-fareast-font-family:&quot;Times New Roman&quot;;color:black;mso-fareast-language:
+    EN-AU"><o:p></o:p></span></p>
+    </td>
+   </tr>
+  </tbody></table>
+  </div>
+  <p class="MsoNormal" style="margin-bottom:0cm;line-height:normal"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;color:black;mso-fareast-language:EN-AU"><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:7;height:31.2pt">
+  <td style="border:none;border-bottom:solid #D9D9D9 1.0pt;mso-border-bottom-themecolor:
+  background1;mso-border-bottom-themeshade:217;mso-border-bottom-alt:solid #D9D9D9 .5pt;
+  mso-border-bottom-themecolor:background1;mso-border-bottom-themeshade:217;
+  padding:0cm 2.85pt 0cm 2.85pt;height:31.2pt">
+  <div align="center">
+  <table class="MsoNormalTable" style="width:85.6%;border-collapse:collapse;mso-yfti-tbllook:1184;
+   mso-padding-alt:0cm 0cm 0cm 0cm" width="85%" cellspacing="0" cellpadding="0" border="0">
+   <tbody><tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes">
+    <td style="width:102.2pt;padding:7.5pt 0cm 7.5pt 0cm" width="136">
+    <p class="MsoNormal" style="margin-bottom:0cm;line-height:normal"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+    &quot;Times New Roman&quot;;color:black;mso-fareast-language:EN-AU">Bitcoin<o:p></o:p></span></p>
+    </td>
+    <td style="width:141.15pt;padding:7.5pt 0cm 7.5pt 0cm" width="188">
+    <p class="MsoNormal" style="margin-bottom:0cm;text-align:right;
+    line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+    color:black">56,918</span><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+    mso-fareast-font-family:&quot;Times New Roman&quot;;color:black;mso-fareast-language:
+    EN-AU"><o:p></o:p></span></p>
+    </td>
+    <td style="width:138.1pt;padding:7.5pt 0cm 7.5pt 0cm" width="184">
+    <p class="MsoNormal" style="margin-bottom:0cm;text-align:right;
+    line-height:normal" align="right"><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+    color:#00B050">7.0%</span><span style="font-size:13.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;
+    mso-fareast-font-family:&quot;Times New Roman&quot;;color:black;mso-fareast-language:
+    EN-AU"><o:p></o:p></span></p>
+    </td>
+   </tr>
+  </tbody></table>
+  </div>
+  </td>
+ </tr>
+ <tr style="mso-yfti-irow:8;mso-yfti-lastrow:yes">
+  <td style="border:none;mso-border-top-alt:solid #D9D9D9 .5pt;mso-border-top-themecolor:
+  background1;mso-border-top-themeshade:217;padding:2.25pt 11.25pt 7.5pt 11.25pt">
+  <p class="MsoNormal" style="margin-bottom:6.0pt;line-height:16.5pt"><em><span style="font-size:10.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;color:black;mso-fareast-language:EN-AU">Note: Brent oil, gold
+  bullion and iron ore prices are the second futures contract.</span></em><span style="font-size:10.0pt;font-family:&quot;Segoe UI&quot;,sans-serif;mso-fareast-font-family:
+  &quot;Times New Roman&quot;;mso-fareast-language:EN-AU"> <o:p></o:p></span></p>
+  </td>
+ </tr>
+</tbody></table><!--kg-card-end: html--><p>Sell in May and go away? The US S&amp;P500 fell 0.72% on Friday despite strong earnings reports. Currently <a href="https://www.marketwatch.com/story/stock-futures-rise-after-blowout-tech-earnings-fed-meeting-11619696767">about</a> 86% of the S&amp;P500 companies that have reported have beaten market estimates, with 77% exceeding revenue expectations. Local markets fared similarly, with the ASX200 slipping 0.8%. </p><p><strong>China stimulus</strong>: Mixed results from China's manufacturing sector on Friday, an important bellwether of domestic activity and iron ore prices (a reading above 50 indicates expansion, while below 50 represents contraction):</p><ul><li>The official NBS Manufacturing PMI for April recorded an expansion of 51.1, down from  51.9 in March. Companies <a href="https://www.scmp.com/economy/china-economy/article/3131698/chinas-economic-sentiment-down-more-expected-april-growth">cited the</a> "chip shortage, clogged international logistics, container shortage and rising freight rates" as the reason for the slower expansion.</li><li>The Caixin Manufacturing PMI rose to 51.9 in April, the highest reading since December and the 12th straight month of expansion. That was up from 50.6 in March, with companies <a href="https://www.caixinglobal.com/2021-04-30/china-manufacturing-expansion-picks-up-speed-caixin-pmi-shows-101703873.html">reporting that</a> "overseas demand remained solid and the job market recovered".</li></ul><p><strong>Different than it used to be</strong>: The US economy is almost back to trend growth but there <a href="https://www.nytimes.com/2021/04/29/upshot/economy-gdp-report.html">has been</a> a "huge reallocation of economic activity toward durable goods". Spending on cars, trucks, furnishings, durable household equipment, recreational goods and residential investment has surged. However, that's come almost entirely at the expense of restaurants and hotels, transportation, services exports (e.g. education), and recreational services. The big question is whether spending reverts to trend when things normalise and how disruptive that shift (if it comes) will be.</p><hr><h2 id="econ-wrap">Econ Wrap</h2><h3 id="input-prices-are-soaring">Input prices are soaring</h3><figure class="kg-card kg-image-card kg-card-hascaption"><img src="/content/images/2021/05/bloomberg-commodity-prices-apr-2021.png" class="kg-image" alt="Commodity prices are soaring, but will it translate into consumer price inflation?" loading="lazy" width="615" height="475" srcset="/content/images/size/w600/2021/05/bloomberg-commodity-prices-apr-2021.png 600w, https://brekkywrap.com/content/images/2021/05/bloomberg-commodity-prices-apr-2021.png 615w"><figcaption><em>Commodity prices are soaring, but will it translate into consumer price inflation? <a href="https://www.bloomberg.com/news/articles/2021-05-01/the-price-of-the-stuff-that-makes-everything-is-surging">Bloomberg</a></em></figcaption></figure><p>Eddie Spence and Megan Durisin had a good article over the weekend in Bloomberg called<em> <a href="https://www.bloomberg.com/news/articles/2021-05-01/the-price-of-the-stuff-that-makes-everything-is-surging">The Price of the Stuff That Makes Everything Is Surging</a></em>:</p><blockquote>"From steel and copper to corn and lumber, commodities started 2021 with a bang, surging to levels not seen for years. The rally threatens to raise the cost of goods from the lunchtime sandwich to gleaming skyscrapers. It's also lit the fuse on the massive reflation trade that’s gripped markets this year and pushed up inflation expectations."</blockquote><p><strong>Inflation risks</strong>: If input prices are rising, there is a reasonable chance that they eventually flow through to higher prices for consumer goods as firms see their margins eroded.</p><p><strong>A rock and a hard place</strong>: The pace of the increase poses a problem if it flows through to consumer prices, as central banks currently have monetary policy in 'ultra-easy' mode. Rapidly rising consumer prices could force them into a dilemma – allow inflation to run wild (remember US Fed chair Powell <a href="https://brekkywrap.com/2021/deeper-in-debt/">believes</a> any rising prices this year will be "transitory") or risk overreacting and ending the pandemic recovery prematurely.</p><p>Compounding these risks is large fiscal stimulus around the world, even as employment has rapidly recovered. We saw <a href="https://brekkywrap.com/2021/deeper-in-debt/">on Friday</a> that the Australian government is planning to keep its foot on the accelerator with a big-spending Budget (nothing to do with the looming election, of course 🙄). The same is true elsewhere in the world – US President Biden has so far committed to stimulus <a href="https://www.wsj.com/articles/bidens-4-trillion-framework-now-in-congresss-hands-11619790547">worth $US4 trillion</a>, and some European countries <a href="https://www.bloomberg.com/news/articles/2021-04-15/italy-targeting-11-8-budget-deficit-to-keep-economy-afloat">plan to take on</a> debt levels that would see them exceed records set in the aftermath of the World Wars. </p><p>As Spence and Durisin conclude: </p><blockquote>"Of course, rising commodities don’t immediately show up on grocery shelves and cafe menus. They make up just a part of the costs for retailers, which often absorb the initial increase to keep customers coming back. But there’s a limit to that margin hit, and high prices could ultimately feed through to consumers."</blockquote><p>Historically, inflation tends to <a href="https://www.nationalreview.com/2021/04/inflation-the-ingredients-are-in-the-pot-and-the-fire-is-on/">sneak up on you</a>. It "grows suddenly, unexpectedly and intractably", and can "spiral" out of control once it's baked into expectations.</p><hr><h2 id="the-wrap-up">The Wrap Up</h2><ul><li>Budget 2021-22: Craft beer lovers <a href="https://www.news.com.au/finance/economy/federal-budget/federal-budget-2021-liquor-producers-to-get-tax-cuts-of-up-to-250000-a-year/news-story/f408b6d64ad1e8928e75d6f40f357805">rejoice</a> – from 1 July, brewers and distillers will be able to claim a full refund on any excise tax they pay up to $350,000 annually (currently 60% up to $100,000).</li><li>Budget 2021-22: A $A1.7 billion childcare boost <a href="https://www.theguardian.com/australia-news/2021/may/02/coalition-to-offer-17bn-childcare-budget-boost-to-encourage-return-of-female-workforce">will be included</a> in next week's budget, with "an average household saving of $2,260 per year" on childcare fees.</li><li>WA had <em>yet another</em> <a href="https://7news.com.au/lifestyle/health-wellbeing/hotel-quarantine-security-tests-positive-for-covid-in-wa-c-2732621">hotel quarantine breach</a> over the weekend, with a security guard and two of his housemates testing positive for coronavirus. Apparently the guard had only received his first vaccine dose a week ago, i.e. it wouldn't have offered much protection. Why quarantine workers – the single biggest risk to Australia's COVID-free status – are only now receiving their first dose really does boggle the mind. 🤯</li><li>As with everything else during this pandemic, we're still <a href="https://www.smh.com.au/business/companies/no-move-on-aussie-vaccine-passport-as-europe-prepares-ticket-to-fly-20210430-p57nry.html">months behind</a> the rest of the world. "Australia is yet to decide if and how it will issue and recognise COVID-19 vaccine certificates for international travellers." 😴</li><li>The US <a href="https://www.theguardian.com/us-news/2021/may/01/us-cites-indian-variant-in-implementing-travel-ban-from-tuesday">banned travel</a> from India due to the "Indian variant", although permanent US residents and close relatives of US citizens will be exempt. The US had already banned flights from China, Iran, Brazil, South Africa, the UK and Ireland.</li><li>The World Health Organisation <a href="https://www.aljazeera.com/news/2021/5/1/who-approves-modernas-covid-19-vaccine-for-emergency-use">approved</a> Moderna's COVID-19 vaccine for emergency use. Still not legal in Australia, not that it matters as we haven't ordered any...</li><li>Huawei <a href="https://www.theaustralian.com.au/business/technology/microchip-crisis-hitting-gaming-phones-and-cars/news-story/2e73acdbe0169b9237cd0d93919d1737">may have</a> snapped up as many as five billion microchips, or about 6 months' supply, after former US President Donald Trump's blacklisting of the company. That, followed by booming durable goods demand (see the <em>Market Wrap</em> above), helped create the global chip shortage.</li><li>If you think there's no value in crypto, where does that leave the Danish kroner? Retail depositors with more than 100,000 kroner ($US16,000) <a href="https://www.bloomberg.com/news/articles/2021-05-02/greed-bankers-and-politics-star-in-danish-negative-rate-debacle">will now pay</a> 0.6% per annum to park savings exceeding that amount with Danske Bank, Denmark's biggest lender.</li></ul>
+
+                    <hr>
+<p style="margin-top:1rem">
+<em>Input prices are soaring</em> was brought to you by Justin Pyvis. Forwarded this issue? <a href="/" title="Subscribe">Click here</a> to subscribe.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="navigation-mobile">
+    <p class="text-center"><a href="/" class="button button-small button-secondary" title="Return home">Return home</a></p>
+</div>
+
+
+</div>
+</div>
+
+        <footer class="footer">
+    <div class="footer-top">
+        <div class="container">
+
+
+                <div class="footer-copyright">
+                    &copy; 2021 Brekky Wrap. Read our <a href="/privacy/">Privacy Policy</a>.
+                </div>
+
+        </div>
+    </div>
+
+</footer>
+
+    </body>
+</html>
