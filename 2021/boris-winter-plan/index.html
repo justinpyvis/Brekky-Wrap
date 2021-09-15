@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- capture the CSS content as a Nunjucks variable -->
+  
+  <!-- feed it through our cssmin filter to minify -->
+  <style>
+    /*! minireset.css v0.0.4 | MIT License | github.com/jgthms/minireset.css */blockquote,body,dd,dl,dt,fieldset,figure,h1,h2,h3,h4,h5,h6,hr,html,iframe,legend,li,ol,p,pre,textarea,ul{margin:0;padding:0}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:400}ol,ul{margin-left:40px;margin-bottom:1.5rem;padding:0}@media (max-width:683px){ol,ul{margin-left:20px;margin-bottom:1.5rem}}ol ol{list-style-type:lower-alpha}li{margin:.5em 0}blockquote{border-left:2px solid;margin:20px;padding:0 20px;font-style:italic}@media (max-width:683px){blockquote{margin:10px 10px 25px;padding:0 10px}}blockquote:before{content:"\201D";font-family:Georgia,serif;font-size:3.875rem;position:absolute;left:-40px;top:-20px}blockquote p:first-of-type{margin-top:0}blockquote p:last-of-type{margin-bottom:0}button,input,select,textarea{margin:0}html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}embed,iframe,img,object,video{max-width:100%;height:auto}audio{max-width:100%}iframe{border:0}table{border-collapse:collapse;border-spacing:0}td,th{padding:0;text-align:left}html{overflow-x:hidden!important;height:100%;background:#f7f7f7}body{position:relative;overflow-x:hidden!important;height:100%}body:before{content:"";height:100%;float:left;width:0;margin-top:-32767px}a{text-decoration:underline;color:#565e76}.container{margin:0 auto;max-width:1170px;padding:0 1.25rem;width:100%}.row{display:flex;padding:0;width:100%}@media (min-width:880px){.container{padding:0 2rem}}.text-center{text-align:center}.text-left{text-align:left}.hidden-sm{display:none}.hidden-lg{display:block}.header-home{position:relative;z-index:2;background-color:#fff;padding:1.5rem 0 0}.header-home .row{justify-content:space-between;margin-top:.5rem}@media (min-width:880px){.hidden-sm{display:block}.hidden-lg{display:none}.header-home{position:relative;z-index:2;background-color:#fff;padding:1.5rem 0}.header-home .row{justify-content:space-between;margin-top:.5rem}}.full-width{width:100%}.spacer{margin:40px 0}html{font-size:16px;line-height:1.7}body{font-family:'Open Sans',Helvetica,Arial,sans-serif;color:#7b85a0}h1,h2,h3,h4,h5,h6{font-weight:700;color:#3e444e}h1{font-size:2rem;line-height:1.3;margin-bottom:1rem;letter-spacing:-.5px}@media (min-width:880px){h1{font-size:3.5rem;margin-bottom:1.5rem}}h2{font-size:.95rem;line-height:.5rem;margin:1.5rem 0 .15rem;text-transform:uppercase;color:#f60}h3{font-size:1.5rem;margin-bottom:1rem;margin-top:0}@media (min-width:880px){h3{font-size:1.5rem;line-height:2rem}}.header{position:relative;z-index:2;background-color:#fff;padding:1.5rem 0 0}.header-logo{display:flex;align-items:center;flex-shrink:0}.header .row{justify-content:space-between;margin-top:.5rem}.navigation-primary{display:none;margin-left:1.5rem;flex-grow:1;position:relative}.navigation-secondary{display:none;align-self:flex-end}.navigation-mobile{margin-bottom:2rem}@media (min-width:1094px){.navigation-primary,.navigation-secondary{display:flex}.navigation-mobile{display:none}.mobile-nav-trigger{display:none}}@media (min-width:1024px){.navigation-primary{margin-left:2rem}}#wrap{min-height:100%}#main{overflow:auto;padding-bottom:100px}.footer{position:relative;background-color:#1c1c1f;color:#fff;font-size:.9375rem;margin-top:-110px;height:110px;clear:both}.footer-top{padding:3rem 0}.footer-copyright{font-size:.6875rem;color:#becde7;color:#fff;opacity:.75;padding-left:32px}@media (min-width:28rem){.footer-top{padding:2rem 0 0}}.footer a{color:#eee}@media (min-width:56rem){.footer-copyright{padding:0}}.section{padding:2rem 0}@media (min-width:880px){.section{padding:5rem 0}}.section-intro{position:relative;overflow-y:hidden;padding:4rem 0 0}@media (min-width:800px){.section-intro{padding:8rem 0 1rem}}.section-intro::after,.section-intro::before{content:"";position:absolute;width:100%;transform:skewY(-1.8deg);left:0}.section-intro::before{height:120px;top:-40px;background-color:#fff}.button{position:relative;font-weight:600;display:inline-block;border-radius:4px;line-height:1;text-align:center;cursor:pointer;font-size:.875rem;padding:1rem;text-decoration:none}@media (min-width:480px){.button{font-size:1rem}}@media (min-width:480px){.button-regular{padding:1.25rem}}@media (min-width:480px){.button-large{padding:1.5rem}}@media (min-width:480px){.button-small{padding:1rem;font-size:.875rem}}.button-primary{color:#fff;background-color:#4364af}.button-secondary{color:#fff;background-color:#1c1c1f}.button-secondary:hover{background-color:#3d3d43}.button-white{color:#4364af;background-color:#fff;box-shadow:0 8px 16px rgba(51,62,77,.15)}.button-main{color:#000;background-color:#f9c903}.button-main:hover{background-color:#fcd436}.button-black-on-white{color:#3e444e}.button-full-width{width:100%}.button-margin-top{margin-top:2rem}.button-icon-left{margin-right:.75rem;vertical-align:-3px}@media only screen and (min-width:800px){.top{display:flex;align-content:center}}.image-box{width:40%;margin:0 auto}@media (min-width:800px){.image-box{width:60%}.reverse-right{left:65%;position:relative}.reverse-left{right:35%;position:relative}}.image-box img{border-radius:16px;position:relative;top:-40px;width:100%}@media (min-width:800px){.image-box img{top:-80px}}@media only screen and (min-width:800px){.image-box{margin:0;width:35%}}.info-content{color:#1c1c1f}.info-content-wide{color:#1c1c1f;margin:5rem 0}@media only screen and (min-width:800px){.info-content{width:65%;padding-right:6rem;margin-bottom:0}.info-content-wide{width:100%;margin-bottom:0;margin-left:20%;margin-right:20%}}@media only screen and (min-width:1150px){.post-content{padding:2rem;background:#fff;border-radius:15px;margin-bottom:4rem}}.post-content{padding:2rem;background:#fff;border-radius:15px}@media (min-width:800px){.info-content-title{font-size:3rem}}.info-content-description{margin-bottom:2rem}.kg-gallery-card,.kg-image-card{margin:0 0 1.5em}.kg-gallery-container{display:flex;flex-direction:column}.kg-gallery-row{display:flex;flex-direction:row;justify-content:center;position:relative;width:85vw;min-width:100%;margin:auto calc(50% - 50vw);transform:translateX(calc(50vw - 50%))}.kg-gallery-image img{width:100%;height:100%;padding:0 0 10px 0}.kg-gallery-row:not(:first-of-type){margin:10px 0 0 0}.kg-gallery-image:not(:first-of-type){margin:0 0 0 10px}.kg-embed-card{overflow:hidden;position:relative;width:100%}.kg-embed-card iframe{display:block;content:'';top:0;left:0;width:100%}.kg-embed-card figcaption{margin:.5em 0 0}// required by gcsan to properly validate the theme .kg-bookmark-card{width:100%;position:relative}.kg-bookmark-container{display:flex;flex-wrap:wrap;flex-direction:row-reverse;color:currentColor;font-family:inherit;text-decoration:none;border:1px solid rgba(0,0,0,.1)}.kg-bookmark-container:hover{text-decoration:none}.kg-bookmark-content{flex-basis:0;flex-grow:999;padding:20px;order:1}.kg-bookmark-title{font-weight:600}.kg-bookmark-description,.kg-bookmark-metadata{margin-top:.5em;color:#222}.kg-bookmark-metadata{align-items:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#222}.kg-bookmark-description{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;color:#222}.kg-bookmark-icon{display:inline-block;width:1em;height:1em;vertical-align:text-bottom;margin-right:.5em;margin-bottom:.05em}.kg-bookmark-thumbnail{display:flex;flex-basis:24rem;flex-grow:1}.kg-bookmark-thumbnail img{max-width:100%;height:auto;vertical-align:bottom;object-fit:cover}.kg-bookmark-author{white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.kg-bookmark-publisher::before{content:"•";margin:0 .5em}.kg-width-wide img{max-width:85vw}.kg-width-full img{max-width:100vw}.kg-width-wide{margin:auto calc(50% - 50vw);transform:translateX(calc(50vw - 50%))}.kg-width-full{position:relative;width:100vw;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw}.button-underline a{padding:6px 12px}.button-underline a:link{text-decoration:none;text-transform:none}.btn{display:inline-block;margin:5px 0 0;font-weight:600;text-align:center;-ms-touch-action:manipulation;touch-action:manipulation;cursor:pointer;background-image:none;border:1px solid transparent;white-space:nowrap;padding:.5em;font-size:16px;border-radius:0;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;text-decoration:none;text-transform:none}.btn.active:focus,.btn:active:focus,.btn:focus{outline:5px auto -webkit-focus-ring-color;outline-offset:-2px}.btn:focus,.btn:hover{color:#333;text-decoration:none}.btn.active,.btn:active{outline:0;background-image:none;box-shadow:inset 0 3px 5px rgba(0,0,0,.125)}.btn[disabled]{cursor:not-allowed;opacity:.65;box-shadow:none}.btn-primary{color:#fff!important;background-color:#000;border:2px solid #000}.btn-primary:focus{color:#fff;background-color:#444;border-color:#444}.btn-primary.active,.btn-primary:active,.btn-primary:hover{color:#fff;background-color:#444;border-color:#444}.btn-primary.active:focus,.btn-primary.active:hover,.btn-primary:active:focus,.btn-primary:active:hover{color:#fff;background-color:#444;border-color:#444}.btn-primary.active,.btn-primary:active{background-image:none}.btn-primary[disabled]:focus,.btn-primary[disabled]:hover{background-color:#444;border-color:#444}.btn-secondary{background:#fff;border:2px solid rgba(0,0,0,.8);color:rgba(0,0,0,.8)!important;box-shadow:none}.btn-secondary:focus{color:rgba(0,0,0,.8);background-color:#eee;border-color:#000}.btn-secondary.active,.btn-secondary:active,.btn-secondary:hover{color:rgba(0,0,0,.8);background-color:#eee;border-color:#000}.btn-secondary.active:focus,.btn-secondary.active:hover,.btn-secondary:active:focus,.btn-secondary:active:hover{color:#000;background-color:#eee;border-color:#000}.btn-secondary.active,.btn-secondary:active{background-image:none}.btn-secondary[disabled]:focus,.btn-secondary[disabled]:hover{background-color:#eee;border-color:#000}.btn-tertiary{background-color:#eee;border:2px solid rgba(0,0,0,.8);color:rgba(0,0,0,.8)!important;box-shadow:none}.btn-tertiary:focus{color:rgba(0,0,0,.8)!important;background-color:#eee;border-color:#000}.btn-tertiary.active,.btn-tertiary:active,.btn-tertiary:hover{color:rgba(0,0,0,.8)!important;background-color:#eee;border-color:#000}.btn-tertiary.active:focus,.btn-tertiary.active:hover,.btn-tertiary:active:focus,.btn-tertiary:active:hover{color:#000!important;background-color:#eee;border-color:#000}.btn-tertiary.active,.btn-tertiary:active{background-image:none}.btn-tertiary[disabled]:focus,.btn-tertiary[disabled]:hover{background-color:#eee;border-color:#000}.hamburger{position:relative;float:right;background-color:transparent;background-image:none}.hamburger ul{margin:0;padding:0;list-style:none;overflow:hidden;background-color:#fff}.hamburger li a{display:block;padding:5px 20px;text-decoration:none;font-size:1em}.hamburger .menu-btn:hover,.hamburger li a:hover{background:#fff}.hamburger .menu{clear:both;max-height:0;transition:max-height .2s ease-out}.hamburger .menu-icon{cursor:pointer;display:inline-block;float:right;padding:30px 20px;position:relative;user-select:none}.hamburger .menu-icon .navicon{background:#333;display:block;height:2px;position:relative;transition:background .2s ease-out;width:18px}.hamburger .menu-icon .navicon:after,.hamburger .menu-icon .navicon:before{background:#333;content:'';display:block;height:100%;position:absolute;transition:all .2s ease-out;width:100%}.hamburger .menu-icon .navicon:before{top:5px}.hamburger .menu-icon .navicon:after{top:-5px}.hamburger .menu-btn{display:none}.hamburger .menu-btn:checked~.menu{max-height:500px}.hamburger .menu-btn:checked~.menu-icon .navicon{background:0 0}.hamburger .menu-btn:checked~.menu-icon .navicon:before{transform:rotate(-45deg)}.hamburger .menu-btn:checked~.menu-icon .navicon:after{transform:rotate(45deg)}.hamburger .menu-btn:checked~.menu-icon:not(.steps) .navicon:after,.hamburger .menu-btn:checked~.menu-icon:not(.steps) .navicon:before{top:0}@media (min-width:684px){.hamburger li{display:none}.hamburger li a{display:none}.hamburger .menu{display:none}.hamburger .menu-icon{display:none}}.header__right{display:flex;flex-direction:row;align-items:center}@media (max-width:683px){.header__right{flex-direction:row-reverse}}.header__inner{justify-content:space-between;margin:0 auto;width:1200px;max-width:100%}.header-logo,.header__inner{display:flex;align-items:center;flex:0 0 auto;text-decoration:none;font-weight:700;padding-left:10px}.logo__mark{margin-right:10px}.logo__text{font-size:1.1rem;color:#373841;font-family:sans-serif;font-weight:700}.menu{--shadow-color:rgba(0, 0, 0, 0.12);--shadow:0 8px 20px var(--shadow-color);margin-right:18px;padding-right:24px;font-weight:500}@media (max-width:683px){.menu{position:absolute;background:#fafafa;box-shadow:var(--shadow);margin:0;padding:5px;list-style:none;border-radius:5px;z-index:99;border:none;top:50px;right:10px}}.menu a{text-decoration:none;font:1rem/1.62 sans-serif}.menu a:hover{text-decoration:none;color:#000}.menu__inner{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;list-style:none;margin:0;padding:0}@media (max-width:683px){.menu__inner--desktop{display:none}}.menu__inner--mobile{display:none}@media (max-width:683px){.menu__inner--mobile{display:block}}.menu__inner li{text-align:left;flex:0 0 auto}.menu__inner li:not(:first-of-type){margin-left:20px}@media (max-width:683px){.menu__inner{flex-direction:column;align-items:flex-start;padding:0}.menu__inner li{margin-left:0!important;padding:10px}}.pagination{margin:10px 0}figcaption{font-size:.8rem}.paginate{min-width:45px}table td{border-collapse:collapse;border-spacing:0!important}table tr{border-collapse:collapse;border-spacing:0!important}table tbody{border-collapse:collapse;border-spacing:0!important}table{border-collapse:collapse;border-spacing:0!important}a span.yshortcuts,span.yshortcuts{color:#000001;background-color:none;border:none}span.yshortcuts:active,span.yshortcuts:focus,span.yshortcuts:hover{color:#000001;background-color:none;border:none}img{-ms-interpolation-mode:: bicubic}a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important;font-size:inherit!important;font-family:inherit!important;font-weight:inherit!important;line-height:inherit!important}@media only screen and (min-width:600px){.noDesk{display:none!important}.td-padding{padding-left:15px!important;padding-right:15px!important}.mobile-column-left-padding{padding:0!important;mso-alt-padding:0!important}.mobile-column-right-padding{padding:0!important;mso-alt-padding:0!important}.mobile{display:none!important}}@media only screen and (max-width:599px) and (-webkit-min-device-pixel-ratio:1){[class].wrapper{width:100%!important}[class].container{width:100%!important}[class].mobile{width:100%!important;display:block!important}[class].image{width:100%!important;height:auto}[class].center{margin:0 auto!important;text-align:center!important}[class=mobileOff]{width:0!important;display:none!important}[class*=mobileOn]{display:block!important;max-height:none!important}p[class=mobile-padding]{padding-left:0!important;padding-top:10px}.hund{width:100%!important;height:auto!important}.td-padding{padding-left:15px!important;padding-right:15px!important}.mobile-column-left-padding{padding:18px 0 18px 0!important;mso-alt-padding:18px 0 18px 0!important}.mobile-column-right-padding{padding:18px 0 0 0!important;mso-alt-padding:18px 0 0 0!important}.stack{width:100%!important}[class=hide]{display:none!important}[class=Gmail]{display:none!important}.Gmail{display:none!important}.bottom-padding-fix{padding:0 0 18px 0!important;mso-alt-padding:0 0 18px 0}}.button.raised{transition:box-shadow .2s cubic-bezier(.4,0,.2,1);transition:all .2s;box-shadow:0 2px 5px 0 rgba(0,0,0,.26)}.button.raised:hover{box-shadow:0 8px 17px 0 rgba(0,0,0,.2);transition:all .2s;-webkit-box-shadow:0 8px 17px 0 rgba(0,0,0,.2);transition:all .2s;-moz-box-shadow:0 8px 17px 0 rgba(0,0,0,.2);transition:all .2s}.card-1{box-shadow:0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);-webkit-box-shadow:0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);-moz-box-shadow:0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);transition:box-shadow .45s}
+  </style>
+
+  <title>Boris&#39; winter plan – Brekky Wrap</title>
+  <meta name="description" content="Boris Johnson has a plan to get through winter, lots of reopening news in Australia, US markets rallied overnight as oil surged, inflation is everywhere, Australia to ditch its French diesel submarine plan." />
+  <link rel="icon" href="https://brekkywrap.com/images/favicon.png" type="image/png" />
+  <link rel="canonical" href="https://brekkywrap.com/" />
+  <meta name="referrer" content="no-referrer-when-downgrade" />
+  <meta property="og:site_name" content="Brekky Wrap" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Boris&#39; winter plan" />
+  <meta property="og:description" content="Boris Johnson has a plan to get through winter, lots of reopening news in Australia, US markets rallied overnight as oil surged, inflation is everywhere, Australia to ditch its French diesel submarine plan." />
+  <meta property="og:url" content="/2021/boris-winter-plan/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Boris&#39; winter plan" />
+  <meta name="twitter:description" content="Boris Johnson has a plan to get through winter, lots of reopening news in Australia, US markets rallied overnight as oil surged, inflation is everywhere, Australia to ditch its French diesel submarine plan." />
+  <meta name="twitter:url" content="/2021/boris-winter-plan/" />
+  <meta name="twitter:site" content="@brekkywrap" />
+  <link rel="alternate" type="application/rss+xml" title="Brekky Wrap" href="https://brekkywrap.com/rss/" />
+</head>
+    <body>
+      <div id="wrap">
+        <div id="main">
+        <header class="header-home">
+
+          <span class="header__inner">
+            <a href="/" class="header-logo">
+                <img class="hidden-sm" src="https://brekkywrap.com/images/brekky-logo.png" alt="Boris&#39; winter plan" width="300" /><img class="hidden-lg" src="https://brekkywrap.com/images/brekky-logo.png" alt="Boris&#39; winter plan" width="240" />
+            </a>
+
+            <span class="logo__cursor"></span>
+
+        <span class="header__right">
+            <nav class="menu">
+        <ul class="menu__inner menu__inner--desktop">
+          <li><a href="https://brekkywrap.com" title="Return home">Home</a></li>
+          <li><a href="https://brekkywrap.com/faq/" title="Frequently asked questions">FAQ</a></li>
+          <li><a href="https://brekkywrap.com/archive/" title="View the archive">Previous issues</a></li>
+          <li><a href="https://brekkywrap.com" title="Subscribe to Brekky Wrap">Subscribe</a></li>
+          <li><a href="https://brekkywrap.com/rewards/" title="Get free stuff">Get free stuff 🎉</a></li>
+
+        </ul>
+
+        </nav>
+        <!-- hamburger -->
+              <div class="hamburger">
+                <input class="menu-btn" type="checkbox" id="menu-btn" />
+                <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+                <ul class="menu">
+                  <li><a href="https://brekkywrap.com" title="Return home">Home</a></li>
+                  <li><a href="https://brekkywrap.com/faq/" title="Frequently asked questions">FAQ</a></li>
+                  <li><a href="https://brekkywrap.com/archive/" title="View the archive">Previous issues</a></li>
+                  <li><a href="https://brekkywrap.com" title="Subscribe to Brekky Wrap">Subscribe</a></li>
+                  <li><a href="https://brekkywrap.com/rewards/" title="Get free stuff">Get free stuff 🎉</a></li>
+                </ul>
+              </div>
+        <!-- /hamburger -->
+
+        </span>
+        </span>
+
+</header>
+
+
+<section class="section section-intro">
+    <div class="container">
+        <div class="top">
+            <div class="info-content-wide">
+
+<!-- START EMAIL -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+
+  <!-- START CARD 1 -->
+  <tr>
+    <td width="100%" valign="top" align="center" style="padding-top: 0px!important; padding-bottom: 18px!important; mso-padding-alt: 0px 0px 18px 0px;">
+      <table width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper">
+        <tr>
+          <td>
+            <table cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="border-radius: 3px; border-bottom: 2px solid #d4d4d4;" class="card-1" width="100%" valign="top" align="center">
+                  <table style="border-radius: 3px;" width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper" bgcolor="#ffffff">
+                    <tr>
+                      <td align="center">
+                        <table width="600" cellpadding="0" cellspacing="0" border="0" class="container">
+
+                                                  <tr>
+                                                    <td class="td-padding" align="center" style="font-family:'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important;font-weight: 700; font-size: 32px; line-height: 36px; padding-top: 18px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 0px!important; mso-line-height-rule: exactly; mso-padding-alt: 18px 18px 0px 18px;text-align: center;">Boris' winter plan</td>
+                                                  </tr>
+                                                  <tr>
+                                                  <td class="td-padding" align="center" style="font-family:'Open Sans', Helvetica, Arial, sans-serif; vertical-align: top; color: #738a94; font-size: 12px; letter-spacing: 0.2px; text-transform: uppercase; text-align: center; padding-top: 5px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 0px!important; mso-line-height-rule: exactly; mso-padding-alt: 5px 18px 0px 18px;" valign="top">
+                          By <a href="https://brekkywrap.com/authors/justin/" style="color: #08121A; text-decoration: underline;" target="_blank" title="Contact Justin Pyvis">Justin Pyvis</a> –
+                          Delivered on 16 Sep 2021
+                                                </td>
+                                                </tr>
+                                                  <tr>
+                                                    <td class="td-padding" align="left" style="font-family:'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important; font-size: 16px; line-height: 24px; padding-top: 18px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 18px!important; mso-line-height-rule: exactly; mso-padding-alt: 18px 18px 18px 18px;">
+
+<!-- COPY BELOW HERE FOR WEBSITE -->
+<!-- INTRO BOX -->
+<p style="margin-top: 0px;margin-bottom: 0px;line-height: 150%;text-align: left;">Good morning! It was all about reopening plans yesterday, with deets or dates provided by the ACT, NSW, SA, VIC <em>and</em> the NT. Phew.<br><br>
+
+First up was the <strong>ACT</strong>, which has officially abandoned elimination. It <a href="https://www.abc.net.au/news/2021-09-15/act-records-13-new-cases-of-covid-19/100463316" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">will reopen</a> "like our transition out of lockdown last year", gradually reducing restrictions as "it is safe to do so", once double vaccination rates of 70% and then 80% are achieved. However, a full plan will have to wait until after lockdown – this is simply "a guess about what might happen in four weeks' time", as "we need to give more than 100,000 Canberrans the opportunity to get vaccinated in the next four weeks as we suppress our current outbreak".<br><br>
+
+Moving on to <strong>NSW</strong>, Premier Gladys Berejiklian decided to grace us with her presence yesterday, revealing that the state had reached the 80% single vaccination dose milestone (people aged over 16), which was sufficient for her to lift the curfew in local government areas of concern as a "token of appreciation".<br><br>
+
+Berejiklian <a href="https://www.9news.com.au/national/coronavirus-nsw-update-latest-covid-19-case-numbers-september-15-home-quarantine-trial-vaccine-milestone-newmarch-house-lockdown/95f8c840-203d-460c-b5a5-906291d38373" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">also confirmed</a> that some communities – she singled out Byron Bay, which has a first dose vaccination rate of just 55% – "won't be able to participate in the activities vaccinated people will", once the state-wide 70% fully vaccinated threshold is reached. They may even be ring-fenced from the rest of the state, a situation where residents can "do all those things that you're allowed to do but within your local area".<br><br>
+
+Then there was <strong>South Australia</strong>, with Premier Steven Marshall <a href="https://www.theguardian.com/australia-news/live/2021/sep/15/australia-covid-updates-live-nsw-victoria-coronavirus-vaccines-gladys-berejikilian-scott-morrison?page=with:block-614122028f08001fa2d19c37#block-614122028f08001fa2d19c37" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">telling</a> ABC News Breakfast that his state would open its borders in-line with the <em>National Plan</em>. Marshall added that:</p>
+
+<blockquote style="margin: 27px 0; padding: 0 25px 0 25px; border-left: #000000 2px solid; font-size: 17px; font-style: italic; line-height: 27px; letter-spacing: -0.2px;">"I'm confident we can end state lockdowns and state lock-outs once we get to 80% double vaccination", and that SA would not be following the likes of WA and TAS because "we have more porous border here in South Australia... [and] this disease can't be kept out forever.<br><br>
+
+What we've got to do to make sure when it comes in, it comes in on our terms and we've got the ability to isolate those cases when they come and keep some baseline public health social measures in place".</blockquote>
+
+<p style="margin-top: 0px;margin-bottom: 0px;line-height: 150%;text-align: left;">Not so in the <strong>Northern Territory</strong>, where Chief Minister Michael Gunner <a href="https://www.theaustralian.com.au/breaking-news/northern-territory-in-50day-race-to-freedom-under-covid19-road-map/news-story/b7a3e3be14f42f2b1d2b15ef472f6fdc" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">said</a> even at an 80% fully vaccinated rate the territory's "number one objective will be to keep COVID out as much as we possibly can so we can manage it safely", given that "we don't have hundreds of ICU beds". The territory will introduce a traffic light system for domestic travel, ranging from 'Green' (free access), 'Orange' (self-iso until passing a test, if fully vaccinated – the unvaxxed won't be welcome), or 'Red' (self-quarantine for 14 days).<br><br>
+
+Finally, <strong>Victoria's</strong> Premier Daniel Andrews confirmed <a href="https://7news.com.au/lifestyle/health-wellbeing/victoria-covid-cases-on-wednesday-after-dan-andrews-said-he-will-reveal-roadmap-this-weekend-c-3967088" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">he will unveil</a> a roadmap out of lockdown on Sunday. Roughly 68% of Victorians aged over 16 have received a first COVID-19 vaccine dose, meaning some minor restrictions are likely to ease soon.</p>
+
+<!-- INTRO BOX -->
+
+
+                              </td>
+                            </tr>
+                            <!-- END BODY COPY -->
+
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <!-- END CARD 1 -->
+
+<!-- START CARD 2 -->
+<tr>
+  <td width="100%" valign="top" align="center" style="padding-top: 0px!important; padding-bottom: 18px!important; mso-padding-alt: 0px 0px 18px 0px;">
+    <table width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper">
+      <tr>
+        <td>
+          <table cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td style="border-radius: 3px; border-bottom: 2px solid #d4d4d4;" class="card-1" width="100%" valign="top" align="center">
+                <table style="border-radius: 3px;" width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper" bgcolor="#ffffff">
+                  <tr>
+                    <td align="center">
+                      <table width="600" cellpadding="0" cellspacing="0" border="0" class="container">
+
+                        <!-- START BODY COPY -->
+                        <tr>
+                          <td class="td-padding" align="left" style="font-family: 'Open Sans', Helvetica, Arial, sans-serif;font-weight: 600;text-rendering: optimizeLegibility;font-size: 15px;line-height: 15px;text-transform: uppercase;color: #FF6600;padding-top: 18px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 0px!important; mso-line-height-rule: exactly; mso-padding-alt: 18px 18px 0px 18px;">
+                            Markets
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="td-padding" align="left" style="padding-top: 0px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 0px!important; mso-line-height-rule: exactly; mso-padding-alt: 0px 18px 0px 18px;">
+
+
+<!-- START MICROSOFT TABLE PASTE -->
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse;mso-yfti-tbllook:1184;mso-padding-alt:
+ 0cm 5.4pt 0cm 5.4pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width="100%" colspan=5 style='width:100.0%;border:none;border-bottom:
+  solid #D9D9D9 1.0pt;mso-border-bottom-themecolor:background1;mso-border-bottom-themeshade:
+  217;mso-border-bottom-alt:solid #D9D9D9 .5pt;mso-border-bottom-themecolor:
+  background1;mso-border-bottom-themeshade:217;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-bottom:1.5pt;text-align:right;
+  line-height:normal'><span style='font-size:13.0pt;font-family:"Open Sans",sans-serif;
+  mso-fareast-font-family:"Times New Roman";mso-fareast-language:EN-AU'>Daily %
+  change<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width="7%" style='width:7.86%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td width="19%" style='width:19.86%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+  2.0pt;margin-left:0cm;line-height:normal'><span style='font-size:13.0pt;
+  font-family:"Open Sans",sans-serif;mso-fareast-font-family:"Times New Roman";
+  mso-fareast-language:EN-AU'>AUD/USD<o:p></o:p></span></p>
+  </td>
+  <td width="28%" style='width:28.82%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:black'>73.4</span><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p></o:p></span></p>
+  </td>
+  <td width="36%" style='width:36.1%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:#00B050'>+0.3%</span><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p></o:p></span></p>
+  </td>
+  <td width="7%" valign=top style='width:7.36%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td width="7%" style='width:7.86%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td width="19%" style='width:19.86%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+  2.0pt;margin-left:0cm;line-height:normal'><span style='font-size:13.0pt;
+  font-family:"Open Sans",sans-serif;mso-fareast-font-family:"Times New Roman";
+  mso-fareast-language:EN-AU'>10Y&nbsp;Bond<o:p></o:p></span></p>
+  </td>
+  <td width="28%" style='width:28.82%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:black'>1.24</span><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p></o:p></span></p>
+  </td>
+  <td width="36%" style='width:36.1%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:#00B050'>+0.8%</span><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p></o:p></span></p>
+  </td>
+  <td width="7%" valign=top style='width:7.36%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3'>
+  <td width="7%" style='width:7.86%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td width="19%" style='width:19.86%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+  2.0pt;margin-left:0cm;line-height:normal'><span style='font-size:13.0pt;
+  font-family:"Open Sans",sans-serif;mso-fareast-font-family:"Times New Roman";
+  mso-fareast-language:EN-AU'>ASX200<o:p></o:p></span></p>
+  </td>
+  <td width="28%" style='width:28.82%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:black'>7,417</span><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p></o:p></span></p>
+  </td>
+  <td width="36%" style='width:36.1%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:#C00000'>-0.3%</span><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p></o:p></span></p>
+  </td>
+  <td width="7%" valign=top style='width:7.36%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4'>
+  <td width="7%" style='width:7.86%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td width="19%" style='width:19.86%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+  2.0pt;margin-left:0cm;line-height:normal'><span style='font-size:13.0pt;
+  font-family:"Open Sans",sans-serif;mso-fareast-font-family:"Times New Roman";
+  mso-fareast-language:EN-AU'>Brent&nbsp;(<span class=SpellE>bbl</span>)<o:p></o:p></span></p>
+  </td>
+  <td width="28%" style='width:28.82%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:black'>75.5</span><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p></o:p></span></p>
+  </td>
+  <td width="36%" style='width:36.1%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:#00B050'>+2.4%</span><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p></o:p></span></p>
+  </td>
+  <td width="7%" valign=top style='width:7.36%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:5'>
+  <td width="7%" style='width:7.86%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td width="19%" style='width:19.86%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+  2.0pt;margin-left:0cm;line-height:normal'><span style='font-size:13.0pt;
+  font-family:"Open Sans",sans-serif;mso-fareast-font-family:"Times New Roman";
+  mso-fareast-language:EN-AU'>Gold&nbsp;(oz)<o:p></o:p></span></p>
+  </td>
+  <td width="28%" style='width:28.82%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:black'>1,795</span><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p></o:p></span></p>
+  </td>
+  <td width="36%" style='width:36.1%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:#C00000'>-0.7%</span><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p></o:p></span></p>
+  </td>
+  <td width="7%" valign=top style='width:7.36%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:6'>
+  <td width="7%" style='width:7.86%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td width="19%" style='width:19.86%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+  2.0pt;margin-left:0cm;line-height:normal'><span style='font-size:13.0pt;
+  font-family:"Open Sans",sans-serif;mso-fareast-font-family:"Times New Roman";
+  mso-fareast-language:EN-AU'>Iron&nbsp;ore&nbsp;(t)<o:p></o:p></span></p>
+  </td>
+  <td width="28%" style='width:28.82%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:black'>114.3</span><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p></o:p></span></p>
+  </td>
+  <td width="36%" style='width:36.1%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:#C00000'>-5.0%</span><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p></o:p></span></p>
+  </td>
+  <td width="7%" valign=top style='width:7.36%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:7'>
+  <td width="7%" style='width:7.86%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td width="19%" style='width:19.86%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+  2.0pt;margin-left:0cm;line-height:normal'><span style='font-size:13.0pt;
+  font-family:"Open Sans",sans-serif;mso-fareast-font-family:"Times New Roman";
+  mso-fareast-language:EN-AU'>Bitcoin<o:p></o:p></span></p>
+  </td>
+  <td width="28%" style='width:28.82%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:black'>48,017</span><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p></o:p></span></p>
+  </td>
+  <td width="36%" style='width:36.1%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:#00B050'>+2.7%</span><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p></o:p></span></p>
+  </td>
+  <td width="7%" valign=top style='width:7.36%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:8;mso-yfti-lastrow:yes'>
+  <td width="100%" colspan=5 style='width:100.0%;border:none;border-top:solid #D9D9D9 1.0pt;
+  mso-border-top-themecolor:background1;mso-border-top-themeshade:217;
+  mso-border-top-alt:solid #D9D9D9 .5pt;mso-border-top-themecolor:background1;
+  mso-border-top-themeshade:217;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-top:1.5pt;line-height:normal'><i><span
+  style='font-size:9.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";color:black;mso-fareast-language:EN-AU'>Note: Brent oil,
+  gold bullion and iron ore prices are the second futures contract.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+</table>
+
+<!-- END MICROSOFT TABLE PASTE -->
+
+</td>
+</tr>
+
+<tr>
+<td class="td-padding" align="left" style="font-family: 'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important; font-size: 16px; line-height: 24px; padding-top: 18px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 18px!important; mso-line-height-rule: exactly; mso-padding-alt: 18px 18px 18px 18px;">
+
+
+<!-- Start Market commentary -->
+<p style="margin-top: 0px;margin-bottom: 0px;line-height: 150%;text-align: left;">The <strong>US S&amp;P500</strong> added 0.85% overnight as the energy sector rallied on higher oil prices. Markets were also buoyed about the prospects of recovery by the New York Fed's Empire State <a href="https://www.marketwatch.com/story/new-york-manufacturing-activity-soars-in-september-empire-state-factory-index-shows-11631709069" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">business conditions index</a>, which surged to 34.3 – well above forecasts for 17.2 (a reading above zero indicates improving conditions).<br><br>
+
+Locally, the <strong>ASX200</strong> finished the day 0.27% weaker after the poor US lead the night before, with the only positives being real estate, health care and tech. A notable gainer was Pilbara Minerals (+8.41%), which <a href="https://www2.asx.com.au/markets/company/PLS" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">reported</a> that it had auctioned off 8,000 tonnes of lithium spodumene at approximately $US2,500 per tonne. For context, prices were just $US375 per tonne as recently as November 2020.</p>
+<!-- End Market commentary -->
+
+
+                              </td>
+                            </tr>
+                                                          <!-- END BODY COPY -->
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <!-- END CARD 2 -->
+
+<!-- START CARD 3 -->
+<tr>
+  <td width="100%" valign="top" align="center" style="padding-top: 0px!important; padding-bottom: 18px!important; mso-padding-alt: 0px 0px 18px 0px;">
+    <table width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper">
+      <tr>
+        <td>
+          <table cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td style="border-radius: 3px; border-bottom: 2px solid #d4d4d4;" class="card-1" width="100%" valign="top" align="center">
+                <table style="border-radius: 3px;" width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper" bgcolor="#ffffff">
+                  <tr>
+                    <td align="center">
+                      <table width="600" cellpadding="0" cellspacing="0" border="0" class="container">
+                                                   <tr>
+                          <td class="td-padding" align="left" style="font-family: 'Open Sans', Helvetica, Arial, sans-serif;font-weight: 600;text-rendering: optimizeLegibility;font-size: 15px;line-height: 15px;text-transform: uppercase;color: #FF6600;padding-top: 18px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 0px!important; mso-line-height-rule: exactly; mso-padding-alt: 18px 18px 0px 18px;">
+                            Economy
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="td-padding" align="left" style="font-family: 'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important; font-size: 16px; line-height: 24px; padding-top: 18px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 18px!important; mso-line-height-rule: exactly; mso-padding-alt: 18px 18px 18px 18px;">
+
+
+<!-- Start Economic commentary -->
+<p style="margin-top: 0px;margin-bottom: 0px;line-height: 150%;text-align: left;"><strong>"Truly remarkable"</strong>: Those were the words used <a href="https://www.westpac.com.au/about-westpac/media/reports/australian-economic-reports/" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">by Westpac</a>, which revealed that the Westpac-Melbourne Institute Index of Consumer Sentiment increased by 2.0% to 106.2 in September, despite a contracting economy with two major cities locked down. The key factor cited was "the improving vaccine situation".<br><br>
+
+<strong>Under review</strong>: Following calls <a href="https://www.oecd.org/economy/surveys/Australia-2021-OECD-economic-survey-overview.pdf" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">from the OECD</a> for a probe into the RBA's poor performance, Treasurer Josh Frydenberg <a href="https://www.afr.com/politics/federal/frydenberg-indicates-post-election-rba-review-20210915-p58rqo" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">said</a> "That is a real issue, and it's something I will give consideration to in terms of looking at the RBA." For some reason another OECD recommendation, that "the government's fiscal strategy should be regularly evaluated and monitored by an independent fiscal institution", didn't get a mention. 🤔<br><br>
+
+<strong>An inflation rocket</strong>: Consumer prices in the UK <a href="https://www.bloomberg.com/news/articles/2021-09-15/u-k-inflation-surges-at-strongest-pace-in-more-than-nine-years" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">grew 3.2% in August</a>, the fastest rate since March 2012. Analysts had expected a rise of 2.9%. The main contributors were hotels and restaurants (from a low base), along with used cars, fuel, and housing and household services (rent increases).<br><br>
+
+<strong>Canadaflation</strong>: Trudeau has a problem. Four days out from an election and Canada's annual inflation rate <a href="https://www.cbc.ca/news/business/inflation-august-1.6176383" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">hit an 18-year high</a> in August, rising 4.1%, up from 3.7% in July (the highest in a decade). No surprise that the homeowners' replacement cost index component jumped 14%, the most since 1987. Petrol prices also soared, up 32.5% on the year.<br><br>
+
+<strong>China's data dump</strong>: Fresh <a href="https://www.cnbc.com/2021/09/15/chinas-retail-sales-grew-far-slower-than-expected-in-august.html" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">data from China</a> showed that just about everything slowed down in August, with activity for almost every indicator coming in below expectations. Retail sales were hit hardest due to rolling lockdowns during the month, rising just 2.5% from a year earlier, well down from the 8.5% increase in July and far lower than analysts' expectations of a 7% rise.<br><br>
+
+<strong>The best laid plans</strong>: President Xi Jinping's campaign to improve "<a href="https://brekkywrap.com/2021/common-prosperity/" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">common prosperity</a>" has failed on at least one hurdle, after China's biggest cities <a href="https://www.ft.com/content/40187a8f-9776-4036-91ca-665b44cec086" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">were forced</a> to suspend "land auctions after new central government rules failed to rein in prices". Worse, the rules had the opposite effect as demand easily swamped the higher auction supply, "leading to a cascade of high winning bids and ultimately higher apartment prices".<br><br>
+
+<strong>Beware Xi Jinping</strong>: If Xi Jinping thinks something doesn't help "common prosperity", then he will smite it down – US casino operators in Macau <a href="https://www.reuters.com/business/macau-kicks-off-public-gaming-consultation-ahead-casino-rebidding-2021-09-15/" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">lost over $US4 billion</a> in value yesterday "as the government kicked off a regulatory overhaul that could see its officials supervising companies".</p>
+<!-- End Economic commentary -->
+
+</td>
+</tr>
+<!-- END BODY COPY -->
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- END CARD 3 -->
+
+
+<!-- START CARD 4 -->
+<tr>
+  <td width="100%" valign="top" align="center" style="padding-top: 0px!important; padding-bottom: 18px!important; mso-padding-alt: 0px 0px 18px 0px;">
+    <table width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper">
+      <tr>
+        <td>
+          <table cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td style="border-radius: 3px; border-bottom: 2px solid #d4d4d4;" class="card-1" width="100%" valign="top" align="center">
+                <table style="border-radius: 3px;" width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper" bgcolor="#ffffff">
+                  <tr>
+                    <td align="center">
+                      <table width="600" cellpadding="0" cellspacing="0" border="0" class="container">
+                                                   <tr>
+                          <td class="td-padding" align="left" style="font-family: 'Open Sans', Helvetica, Arial, sans-serif;font-weight: 600;text-rendering: optimizeLegibility;font-size: 15px;line-height: 15px;text-transform: uppercase;color: #FF6600;padding-top: 18px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 0px!important; mso-line-height-rule: exactly; mso-padding-alt: 18px 18px 0px 18px;">
+                            Feature
+                          </td>
+                        </tr>
+
+
+<!-- Start feature -->
+
+<tr>
+<td class="td-padding" align="left" style="font-family:'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important;font-weight: 700; font-size: 32px; line-height: 36px; padding-top: 5px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 18px!important; mso-line-height-rule: exactly; mso-padding-alt: 5px 18px 18px 18px;">
+Boris' winter plan
+</td>
+</tr>
+<!-- START HEADER IMAGE -->
+<tr>
+<td align="center" class="hund ripplelink" width="600" style="font-family: 'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important; font-size: 14px; line-height: 21px; text-align: center;">
+<img align="center" width="600" style="border-radius: 3px 3px 0px 0px; width: 100%; max-width: 600px!important" class="hund" src="https://brekkywrap.com/images/2021/boris-winter-plan.jpg" alt="Feature image">
+<em>Plan C is to be avoided at all costs. <a href="https://metro.co.uk/2021/09/14/everything-we-know-about-boris-johnsons-covid-winter-plan-15258362/" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">MetroUK</a></em>
+</td>
+</tr>
+<!-- END HEADER IMAGE -->
+<!-- START BODY COPY -->
+
+<tr>
+<td class="td-padding" align="left" style="font-family: 'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important; font-size: 16px; line-height: 24px; padding-top: 18px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 18px!important; mso-line-height-rule: exactly; mso-padding-alt: 18px 18px 18px 18px;">
+
+<p style="margin-top: 0px;margin-bottom: 0px;line-height: 150%;text-align: left;">UK Prime Minister Boris Johnson <a href="https://www.bbc.com/news/uk-58560031" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">outlined</a> his government's plan for the coming winter, which is traditionally when viruses such as SARS-CoV-2 – what causes the COVID-19 disease – thrive. Johnson said he hoped that the plans would "give us the confidence that we don't have to go back to the lockdowns of the past".<br><br>
+
+<strong>Breaking it down</strong>: There are actually two plans, the creatively named "Plan A" and "Plan B". Plan A involves mostly positive measures, such as:</p>
+
+<ul style="margin: 24px 0 24px 0; line-height: 24px; padding-left: 24px; max-width: 100%;list-style: none;">
+<li style="margin: 6px 0; padding-left: 0; line-height: 24px;">• encouraging the unvaccinated to change their mind;</li>
+<li style="margin: 6px 0; padding-left: 0; line-height: 24px;">• stepping up testing, tracing and self-isolation requirements;</li>
+<li style="margin: 6px 0; padding-left: 0; line-height: 24px;">• offering booster shots to the over 50s and vulnerable;</li>
+<li style="margin: 6px 0; padding-left: 0; line-height: 24px;">• asking businesses to "consider" using the NHS Covid Pass, i.e. its vaccine passport, before letting customers enter; and</li>
+<li style="margin: 6px 0; padding-left: 0; line-height: 24px;">• vaccinating those aged between 12-15 (yes, somehow we were actually ahead of the UK on that one!).</li>
+</ul>
+
+<p style="margin-top: 0px;margin-bottom: 0px;line-height: 150%;text-align: left;">As you might expect, Plan B will only be used when shit really hits the fan. Boris actually did a backflip here and included <em>mandatory</em> vaccine passports as part of this plan, despite having  <a href="https://www.abc.net.au/news/2021-09-13/britain-johnson-ditches-covid-19-vaccine-passports/100456088" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">ruled them out</a> only days earlier. Plan B will also legally mandate mask wearing in certain places, ask people to work from home and "the public would be urged to act more cautiously".<br><br>
+
+<strong>Why this matters</strong>: Australia will have to reopen at some stage. While certain states don't have a choice, other states will be watching and learning not just from the experience in NSW and VIC but also in places such as the UK.<br><br>
+
+<strong>Looking forward</strong>: It's really all about hospitalisations. Plan B will only be activated when the UK's National Health Service is coming under "unsustainable pressure". The UK will also pursue "an international approach", by which it means it will manage risks at the border. That means 'hotspot' designations, vaccine passports and self-isolation for international travel will likely be around for quite some time – even after reopening.
+</p>
+<!-- End feature -->
+
+</td>
+</tr>
+<!-- END BODY COPY -->
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- END CARD 4 -->
+
+<!-- START CARD 5 -->
+<tr>
+<td width="100%" valign="top" align="center" style="padding-top: 0px!important; padding-bottom: 18px!important; mso-padding-alt: 0px 0px 18px 0px;">
+<table width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper">
+<tr>
+  <td>
+    <table cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td style="border-radius: 3px; border-bottom: 2px solid #d4d4d4;" class="card-1" width="100%" valign="top" align="center">
+          <table style="border-radius: 3px;" width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper" bgcolor="#ffffff">
+            <tr>
+              <td align="center">
+                <table width="600" cellpadding="0" cellspacing="0" border="0" class="container">
+                                             <tr>
+                    <td class="td-padding" align="left" style="font-family: 'Open Sans', Helvetica, Arial, sans-serif;font-weight: 600;text-rendering: optimizeLegibility;font-size: 15px;line-height: 15px;text-transform: uppercase;color: #FF6600;padding-top: 18px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 0px!important; mso-line-height-rule: exactly; mso-padding-alt: 18px 18px 0px 18px;">
+                      The Wrap Up
+                    </td>
+                  </tr>
+                  <!-- START BODY COPY -->
+
+                  <tr>
+                    <td class="td-padding" align="left" style="font-family: 'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important; font-size: 16px; line-height: 24px; padding-top: 18px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 0px!important; mso-line-height-rule: exactly; mso-padding-alt: 18px 18px 0px 18px;">
+<ul style="margin: 0 0 24px 0; line-height: 24px; padding-left: 0; max-width: 100%;list-style: none;">
+
+
+<li style="margin: 0 0 6px; padding-left: 0; line-height: 24px;">☢️ Australia has <a href="https://www.abc.net.au/news/2021-09-15/allied-naval-united-states-biden-australia-nuclear-submarines/100465628" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">joined with the US and UK</a> – forming "AUKUS" – in a nuclear submarine technology pact, abandoning its controversial $A90 billion programme to build 12 French-designed diesel submarines.</li>
+<li style="margin: 6px 0; padding-left: 0; line-height: 24px;">💉 Everyone in Queensland aged over 12 <a href="https://www.dailytelegraph.com.au/news/queensland/queenslanders-aged-60-years-and-over-now-eligible-for-pfizer/news-story/108f873aa6ecbdf1323306c8ba8382e0" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">will be eligible</a> for the Pfizer vaccine from this weekend.</li>
+<li style="margin: 6px 0; padding-left: 0; line-height: 24px;">✈️ Foreign airlines <a href="https://www.theguardian.com/australia-news/2021/sep/15/airlines-warn-nsw-may-reopen-to-international-travel-but-with-few-planes-to-service-huge-demand" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">warned</a> that they "wont be able to ramp up operations to meet the mass reopening of international travel into Sydney", as they can't prepare due to a lack of information from the government.</li>
+<li style="margin: 6px 0; padding-left: 0; line-height: 24px;">🧪 Rapid testing is an effective tool for slowing COVID-19's spread. However, it's currently banned in Australia so ahead of a reopening Health Minister Greg Hunt <a href="https://www.smh.com.au/politics/federal/home-quarantine-rapid-testing-will-bring-australians-closer-to-international-travel-20210914-p58rkc.html" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">has asked</a> "the country's medical regulator to urgently consider the widespread use of rapid antigen testing in workplaces and for home use".</li>
+<li style="margin: 6px 0; padding-left: 0; line-height: 24px;">💵 The US Democrats' <a href="https://www.politico.com/news/2021/09/14/house-democrats-tax-plan-511805" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">plan to pay</a> for Biden's infrastructure plan (can't call it stimulus anymore!) involves "40 separate tax increases, collectively worth $2 trillion".</li>
+<li style="margin: 6px 0; padding-left: 0; line-height: 24px;">🙈 Former PM Malcolm Turnbull <a href="https://www.abc.net.au/news/2021-09-15/turnbull-says-christian-porter-blind-trust-outrageous/100462584" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">said</a> Christian Porter's decision to accept funds from a blind trust to pay his personal legal fees "flies in the face of every principle of transparency and accountability in public life".</li>
+<li style="margin: 6px 0; padding-left: 0; line-height: 24px;">🍺 Live in Sydney? Pop into The Gladstone Hotel, temporarily rebranded as The Jabstone, and <a href="https://concreteplayground.com/sydney/food-drink/drink/the-lord-jabstone" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">get a free</a> takeaway tinnie can of Young Henrys beer.</li>
+<li style="margin: 6px 0; padding-left: 0; line-height: 24px;">📉 China's Ministry of Housing and Urban-Rural Development <a href="https://www.reuters.com/business/finance/china-tells-banks-evergrande-wont-be-able-pay-interest-due-sept-20-bloomberg-2021-09-15/" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">said</a> troubled property developer Evergrande will not be able to make interest payments due on 20 September.</li>
+<li style="margin: 6px 0; padding-left: 0; line-height: 24px;">🦗 Cricket Australia <a href="https://www.smh.com.au/sport/cricket/why-ashes-schedule-won-t-shift-despite-england-player-withdrawal-threat-20210915-p58rwa.html" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">is committed</a> to the December-January Ashes schedule, "even if it means significant numbers of [English] players pulling out of the assignment".</li>
+<li style="margin: 6px 0; padding-left: 0; line-height: 24px;">🦠 The 24-year-old anti-lockdown protestor and "TikTok guy" who successfully 'predicted' NSW's case numbers for several days before his insider was cut off <a href="https://www.dailymail.co.uk/news/article-9991637/TikTok-guy-Jon-Bernard-Kairouz-hospital-Covid-19-Sydney-NSW.html" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">is now in hospital</a> with COVID-19.</li>
+<li style="margin: 6px 0; padding-left: 0; line-height: 24px;">🚀 North Korea <a href="https://www.abc.net.au/news/2021-09-15/north-korea-fires-two-ballistic-missiles-in-second-test-in-week/100464468" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">fired off</a> another couple of missiles yesterday, two days after reporting it had tested a new missile for the first time in six months.</li>
+
+</ul>
+
+                              </td>
+                            </tr>
+                            <!-- END BODY COPY -->
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <!-- END CARD 5 -->
+
+
+<!-- STOP COPYING HERE -->
+
+        <!-- SPACER -->
+        <!--[if gte mso 9]>
+        <table align="center" border="0" cellspacing="0" cellpadding="0" width="600">
+          <tr>
+            <td align="center" valign="top" width="600" height="18">
+              <![endif]-->
+              <tr><td height="18px"></td></tr>
+              <!--[if gte mso 9]>
+            </td>
+          </tr>
+        </table>
+        <![endif]-->
+        <!-- END SPACER -->
+
+        <!-- FOOTER -->
+        <tr>
+          <td width="100%" valign="top" align="center">
+            <table width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper">
+              <tr>
+                <td width="100%" valign="top" align="center">
+                  <table width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper">
+                    <tr>
+                      <td align="center">
+                        <table width="600" cellpadding="0" cellspacing="0" border="0" class="container">
+                          <tr>
+                            <td class="td-padding" align="center" style="font-family: 'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important; font-size: 16px; line-height: 24px; padding-top: 0px; padding-left: 0px!important; padding-right: 0px!important; padding-bottom: 18px!important; mso-line-height-rule: exactly; mso-padding-alt: 0px 0px 18px 0px;text-align:center;">
+                              If you were forwarded this Wrap, why not <a href="https://brekkywrap.com" style="color: #212121; text-decoration: underline;" title="Subscribe to Brekky Wrap">sign up for yourself</a> - it's free!
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <!-- FOOTER -->
+
+        <!-- SPACER -->
+        <!--[if gte mso 9]>
+        <table align="center" border="0" cellspacing="0" cellpadding="0" width="600">
+          <tr>
+            <td align="center" valign="top" width="600" height="36">
+              <![endif]-->
+              <tr><td height="36px"></td></tr>
+              <!--[if gte mso 9]>
+            </td>
+          </tr>
+        </table>
+        <![endif]-->
+        <!-- END SPACER -->
+
+      </table>
+      <!-- END EMAIL -->
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="navigation-mobile">
+    <p class="text-center"><a href="https://brekkywrap.com" class="button button-small button-secondary" title="Return home">Return home</a></p>
+</div>
+
+
+</div>
+</div>
+
+        <footer class="footer">
+    <div class="footer-top">
+        <div class="container">
+
+
+                <div class="footer-copyright">
+                    &copy; 2021 Brekky Wrap. Read our <a href="https://brekkywrap.com/privacy/">Privacy Policy</a>.
+                </div>
+
+        </div>
+    </div>
+
+</footer>
+
+    </body>
+</html>
