@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- capture the CSS content as a Nunjucks variable -->
+  
+  <!-- feed it through our cssmin filter to minify -->
+  <style>
+    /*! minireset.css v0.0.4 | MIT License | github.com/jgthms/minireset.css */blockquote,body,dd,dl,dt,fieldset,figure,h1,h2,h3,h4,h5,h6,hr,html,iframe,legend,li,ol,p,pre,textarea,ul{margin:0;padding:0}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:400}ol,ul{margin-left:40px;margin-bottom:1.5rem;padding:0}@media (max-width:683px){ol,ul{margin-left:20px;margin-bottom:1.5rem}}ol ol{list-style-type:lower-alpha}li{margin:.5em 0}blockquote{border-left:2px solid;margin:20px;padding:0 20px;font-style:italic}@media (max-width:683px){blockquote{margin:10px 10px 25px;padding:0 10px}}blockquote:before{content:"\201D";font-family:Georgia,serif;font-size:3.875rem;position:absolute;left:-40px;top:-20px}blockquote p:first-of-type{margin-top:0}blockquote p:last-of-type{margin-bottom:0}button,input,select,textarea{margin:0}html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}embed,iframe,img,object,video{max-width:100%;height:auto}audio{max-width:100%}iframe{border:0}table{border-collapse:collapse;border-spacing:0}td,th{padding:0;text-align:left}html{overflow-x:hidden!important;height:100%;background:#f7f7f7}body{position:relative;overflow-x:hidden!important;height:100%}body:before{content:"";height:100%;float:left;width:0;margin-top:-32767px}a{text-decoration:underline;color:#565e76}.container{margin:0 auto;max-width:1170px;padding:0 1.25rem;width:100%}.row{display:flex;padding:0;width:100%}@media (min-width:880px){.container{padding:0 2rem}}.text-center{text-align:center}.text-left{text-align:left}.hidden-sm{display:none}.hidden-lg{display:block}.header-home{position:relative;z-index:2;background-color:#fff;padding:1.5rem 0 0}.header-home .row{justify-content:space-between;margin-top:.5rem}@media (min-width:880px){.hidden-sm{display:block}.hidden-lg{display:none}.header-home{position:relative;z-index:2;background-color:#fff;padding:1.5rem 0}.header-home .row{justify-content:space-between;margin-top:.5rem}}.full-width{width:100%}.spacer{margin:40px 0}html{font-size:16px;line-height:1.7}body{font-family:'Open Sans',Helvetica,Arial,sans-serif;color:#7b85a0}h1,h2,h3,h4,h5,h6{font-weight:700;color:#3e444e}h1{font-size:2rem;line-height:1.3;margin-bottom:1rem;letter-spacing:-.5px}@media (min-width:880px){h1{font-size:3.5rem;margin-bottom:1.5rem}}h2{font-size:.95rem;line-height:.5rem;margin:1.5rem 0 .15rem;text-transform:uppercase;color:#f60}h3{font-size:1.5rem;margin-bottom:1rem;margin-top:0}@media (min-width:880px){h3{font-size:1.5rem;line-height:2rem}}.header{position:relative;z-index:2;background-color:#fff;padding:1.5rem 0 0}.header-logo{display:flex;align-items:center;flex-shrink:0}.header .row{justify-content:space-between;margin-top:.5rem}.navigation-primary{display:none;margin-left:1.5rem;flex-grow:1;position:relative}.navigation-secondary{display:none;align-self:flex-end}.navigation-mobile{margin-bottom:2rem}@media (min-width:1094px){.navigation-primary,.navigation-secondary{display:flex}.navigation-mobile{display:none}.mobile-nav-trigger{display:none}}@media (min-width:1024px){.navigation-primary{margin-left:2rem}}#wrap{min-height:100%}#main{overflow:auto;padding-bottom:100px}.footer{position:relative;background-color:#1c1c1f;color:#fff;font-size:.9375rem;margin-top:-110px;height:110px;clear:both}.footer-top{padding:3rem 0}.footer-copyright{font-size:.6875rem;color:#becde7;color:#fff;opacity:.75;padding-left:32px}@media (min-width:28rem){.footer-top{padding:2rem 0 0}}.footer a{color:#eee}@media (min-width:56rem){.footer-copyright{padding:0}}.section{padding:2rem 0}@media (min-width:880px){.section{padding:5rem 0}}.section-intro{position:relative;overflow-y:hidden;padding:4rem 0 0}@media (min-width:800px){.section-intro{padding:8rem 0 1rem}}.section-intro::after,.section-intro::before{content:"";position:absolute;width:100%;transform:skewY(-1.8deg);left:0}.section-intro::before{height:120px;top:-40px;background-color:#fff}.button{position:relative;font-weight:600;display:inline-block;border-radius:4px;line-height:1;text-align:center;cursor:pointer;font-size:.875rem;padding:1rem;text-decoration:none}@media (min-width:480px){.button{font-size:1rem}}@media (min-width:480px){.button-regular{padding:1.25rem}}@media (min-width:480px){.button-large{padding:1.5rem}}@media (min-width:480px){.button-small{padding:1rem;font-size:.875rem}}.button-primary{color:#fff;background-color:#4364af}.button-secondary{color:#fff;background-color:#1c1c1f}.button-secondary:hover{background-color:#3d3d43}.button-white{color:#4364af;background-color:#fff;box-shadow:0 8px 16px rgba(51,62,77,.15)}.button-main{color:#000;background-color:#f9c903}.button-main:hover{background-color:#fcd436}.button-black-on-white{color:#3e444e}.button-full-width{width:100%}.button-margin-top{margin-top:2rem}.button-icon-left{margin-right:.75rem;vertical-align:-3px}@media only screen and (min-width:800px){.top{display:flex;align-content:center}}.image-box{width:40%;margin:0 auto}@media (min-width:800px){.image-box{width:60%}.reverse-right{left:65%;position:relative}.reverse-left{right:35%;position:relative}}.image-box img{border-radius:16px;position:relative;top:-40px;width:100%}@media (min-width:800px){.image-box img{top:-80px}}@media only screen and (min-width:800px){.image-box{margin:0;width:35%}}.info-content{color:#1c1c1f}.info-content-wide{color:#1c1c1f;margin:5rem 0}@media only screen and (min-width:800px){.info-content{width:65%;padding-right:6rem;margin-bottom:0}.info-content-wide{width:100%;margin-bottom:0;margin-left:20%;margin-right:20%}}@media only screen and (min-width:1150px){.post-content{padding:2rem;background:#fff;border-radius:15px;margin-bottom:4rem}}.post-content{padding:2rem;background:#fff;border-radius:15px}@media (min-width:800px){.info-content-title{font-size:3rem}}.info-content-description{margin-bottom:2rem}.kg-gallery-card,.kg-image-card{margin:0 0 1.5em}.kg-gallery-container{display:flex;flex-direction:column}.kg-gallery-row{display:flex;flex-direction:row;justify-content:center;position:relative;width:85vw;min-width:100%;margin:auto calc(50% - 50vw);transform:translateX(calc(50vw - 50%))}.kg-gallery-image img{width:100%;height:100%;padding:0 0 10px 0}.kg-gallery-row:not(:first-of-type){margin:10px 0 0 0}.kg-gallery-image:not(:first-of-type){margin:0 0 0 10px}.kg-embed-card{overflow:hidden;position:relative;width:100%}.kg-embed-card iframe{display:block;content:'';top:0;left:0;width:100%}.kg-embed-card figcaption{margin:.5em 0 0}// required by gcsan to properly validate the theme .kg-bookmark-card{width:100%;position:relative}.kg-bookmark-container{display:flex;flex-wrap:wrap;flex-direction:row-reverse;color:currentColor;font-family:inherit;text-decoration:none;border:1px solid rgba(0,0,0,.1)}.kg-bookmark-container:hover{text-decoration:none}.kg-bookmark-content{flex-basis:0;flex-grow:999;padding:20px;order:1}.kg-bookmark-title{font-weight:600}.kg-bookmark-description,.kg-bookmark-metadata{margin-top:.5em;color:#222}.kg-bookmark-metadata{align-items:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#222}.kg-bookmark-description{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;color:#222}.kg-bookmark-icon{display:inline-block;width:1em;height:1em;vertical-align:text-bottom;margin-right:.5em;margin-bottom:.05em}.kg-bookmark-thumbnail{display:flex;flex-basis:24rem;flex-grow:1}.kg-bookmark-thumbnail img{max-width:100%;height:auto;vertical-align:bottom;object-fit:cover}.kg-bookmark-author{white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.kg-bookmark-publisher::before{content:"•";margin:0 .5em}.kg-width-wide img{max-width:85vw}.kg-width-full img{max-width:100vw}.kg-width-wide{margin:auto calc(50% - 50vw);transform:translateX(calc(50vw - 50%))}.kg-width-full{position:relative;width:100vw;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw}.button-underline a{padding:6px 12px}.button-underline a:link{text-decoration:none;text-transform:none}.btn{display:inline-block;margin:5px 0 0;font-weight:600;text-align:center;-ms-touch-action:manipulation;touch-action:manipulation;cursor:pointer;background-image:none;border:1px solid transparent;white-space:nowrap;padding:.5em;font-size:16px;border-radius:0;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;text-decoration:none;text-transform:none}.btn.active:focus,.btn:active:focus,.btn:focus{outline:5px auto -webkit-focus-ring-color;outline-offset:-2px}.btn:focus,.btn:hover{color:#333;text-decoration:none}.btn.active,.btn:active{outline:0;background-image:none;box-shadow:inset 0 3px 5px rgba(0,0,0,.125)}.btn[disabled]{cursor:not-allowed;opacity:.65;box-shadow:none}.btn-primary{color:#fff!important;background-color:#000;border:2px solid #000}.btn-primary:focus{color:#fff;background-color:#444;border-color:#444}.btn-primary.active,.btn-primary:active,.btn-primary:hover{color:#fff;background-color:#444;border-color:#444}.btn-primary.active:focus,.btn-primary.active:hover,.btn-primary:active:focus,.btn-primary:active:hover{color:#fff;background-color:#444;border-color:#444}.btn-primary.active,.btn-primary:active{background-image:none}.btn-primary[disabled]:focus,.btn-primary[disabled]:hover{background-color:#444;border-color:#444}.btn-secondary{background:#fff;border:2px solid rgba(0,0,0,.8);color:rgba(0,0,0,.8)!important;box-shadow:none}.btn-secondary:focus{color:rgba(0,0,0,.8);background-color:#eee;border-color:#000}.btn-secondary.active,.btn-secondary:active,.btn-secondary:hover{color:rgba(0,0,0,.8);background-color:#eee;border-color:#000}.btn-secondary.active:focus,.btn-secondary.active:hover,.btn-secondary:active:focus,.btn-secondary:active:hover{color:#000;background-color:#eee;border-color:#000}.btn-secondary.active,.btn-secondary:active{background-image:none}.btn-secondary[disabled]:focus,.btn-secondary[disabled]:hover{background-color:#eee;border-color:#000}.btn-tertiary{background-color:#eee;border:2px solid rgba(0,0,0,.8);color:rgba(0,0,0,.8)!important;box-shadow:none}.btn-tertiary:focus{color:rgba(0,0,0,.8)!important;background-color:#eee;border-color:#000}.btn-tertiary.active,.btn-tertiary:active,.btn-tertiary:hover{color:rgba(0,0,0,.8)!important;background-color:#eee;border-color:#000}.btn-tertiary.active:focus,.btn-tertiary.active:hover,.btn-tertiary:active:focus,.btn-tertiary:active:hover{color:#000!important;background-color:#eee;border-color:#000}.btn-tertiary.active,.btn-tertiary:active{background-image:none}.btn-tertiary[disabled]:focus,.btn-tertiary[disabled]:hover{background-color:#eee;border-color:#000}.hamburger{position:relative;float:right;background-color:transparent;background-image:none}.hamburger ul{margin:0;padding:0;list-style:none;overflow:hidden;background-color:#fff}.hamburger li a{display:block;padding:5px 20px;text-decoration:none;font-size:1em}.hamburger .menu-btn:hover,.hamburger li a:hover{background:#fff}.hamburger .menu{clear:both;max-height:0;transition:max-height .2s ease-out}.hamburger .menu-icon{cursor:pointer;display:inline-block;float:right;padding:30px 20px;position:relative;user-select:none}.hamburger .menu-icon .navicon{background:#333;display:block;height:2px;position:relative;transition:background .2s ease-out;width:18px}.hamburger .menu-icon .navicon:after,.hamburger .menu-icon .navicon:before{background:#333;content:'';display:block;height:100%;position:absolute;transition:all .2s ease-out;width:100%}.hamburger .menu-icon .navicon:before{top:5px}.hamburger .menu-icon .navicon:after{top:-5px}.hamburger .menu-btn{display:none}.hamburger .menu-btn:checked~.menu{max-height:500px}.hamburger .menu-btn:checked~.menu-icon .navicon{background:0 0}.hamburger .menu-btn:checked~.menu-icon .navicon:before{transform:rotate(-45deg)}.hamburger .menu-btn:checked~.menu-icon .navicon:after{transform:rotate(45deg)}.hamburger .menu-btn:checked~.menu-icon:not(.steps) .navicon:after,.hamburger .menu-btn:checked~.menu-icon:not(.steps) .navicon:before{top:0}@media (min-width:684px){.hamburger li{display:none}.hamburger li a{display:none}.hamburger .menu{display:none}.hamburger .menu-icon{display:none}}.header__right{display:flex;flex-direction:row;align-items:center}@media (max-width:683px){.header__right{flex-direction:row-reverse}}.header__inner{justify-content:space-between;margin:0 auto;width:1200px;max-width:100%}.header-logo,.header__inner{display:flex;align-items:center;flex:0 0 auto;text-decoration:none;font-weight:700;padding-left:10px}.logo__mark{margin-right:10px}.logo__text{font-size:1.1rem;color:#373841;font-family:sans-serif;font-weight:700}.menu{--shadow-color:rgba(0, 0, 0, 0.12);--shadow:0 8px 20px var(--shadow-color);margin-right:18px;padding-right:24px;font-weight:500}@media (max-width:683px){.menu{position:absolute;background:#fafafa;box-shadow:var(--shadow);margin:0;padding:5px;list-style:none;border-radius:5px;z-index:99;border:none;top:50px;right:10px}}.menu a{text-decoration:none;font:1rem/1.62 sans-serif}.menu a:hover{text-decoration:none;color:#000}.menu__inner{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;list-style:none;margin:0;padding:0}@media (max-width:683px){.menu__inner--desktop{display:none}}.menu__inner--mobile{display:none}@media (max-width:683px){.menu__inner--mobile{display:block}}.menu__inner li{text-align:left;flex:0 0 auto}.menu__inner li:not(:first-of-type){margin-left:20px}@media (max-width:683px){.menu__inner{flex-direction:column;align-items:flex-start;padding:0}.menu__inner li{margin-left:0!important;padding:10px}}.pagination{margin:10px 0}figcaption{font-size:.8rem}.paginate{min-width:45px}table td{border-collapse:collapse;border-spacing:0!important}table tr{border-collapse:collapse;border-spacing:0!important}table tbody{border-collapse:collapse;border-spacing:0!important}table{border-collapse:collapse;border-spacing:0!important}a span.yshortcuts,span.yshortcuts{color:#000001;background-color:none;border:none}span.yshortcuts:active,span.yshortcuts:focus,span.yshortcuts:hover{color:#000001;background-color:none;border:none}img{-ms-interpolation-mode:: bicubic}a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important;font-size:inherit!important;font-family:inherit!important;font-weight:inherit!important;line-height:inherit!important}@media only screen and (min-width:600px){.noDesk{display:none!important}.td-padding{padding-left:15px!important;padding-right:15px!important}.mobile-column-left-padding{padding:0!important;mso-alt-padding:0!important}.mobile-column-right-padding{padding:0!important;mso-alt-padding:0!important}.mobile{display:none!important}}@media only screen and (max-width:599px) and (-webkit-min-device-pixel-ratio:1){[class].wrapper{width:100%!important}[class].container{width:100%!important}[class].mobile{width:100%!important;display:block!important}[class].image{width:100%!important;height:auto}[class].center{margin:0 auto!important;text-align:center!important}[class=mobileOff]{width:0!important;display:none!important}[class*=mobileOn]{display:block!important;max-height:none!important}p[class=mobile-padding]{padding-left:0!important;padding-top:10px}.hund{width:100%!important;height:auto!important}.td-padding{padding-left:15px!important;padding-right:15px!important}.mobile-column-left-padding{padding:18px 0 18px 0!important;mso-alt-padding:18px 0 18px 0!important}.mobile-column-right-padding{padding:18px 0 0 0!important;mso-alt-padding:18px 0 0 0!important}.stack{width:100%!important}[class=hide]{display:none!important}[class=Gmail]{display:none!important}.Gmail{display:none!important}.bottom-padding-fix{padding:0 0 18px 0!important;mso-alt-padding:0 0 18px 0}}.button.raised{transition:box-shadow .2s cubic-bezier(.4,0,.2,1);transition:all .2s;box-shadow:0 2px 5px 0 rgba(0,0,0,.26)}.button.raised:hover{box-shadow:0 8px 17px 0 rgba(0,0,0,.2);transition:all .2s;-webkit-box-shadow:0 8px 17px 0 rgba(0,0,0,.2);transition:all .2s;-moz-box-shadow:0 8px 17px 0 rgba(0,0,0,.2);transition:all .2s}.card-1{box-shadow:0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);-webkit-box-shadow:0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);-moz-box-shadow:0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);transition:box-shadow .45s}
+  </style>
+
+  <title>That fella down under – Brekky Wrap</title>
+  <meta name="description" content="It was all about nuclear-powered submarines yesterday, Victoria is slowly reopening, iron ore plunged again, a temporary Kiwi bounce, misleading unemployment data, and China&#39;s Evergrande is in even more trouble." />
+  <link rel="icon" href="https://brekkywrap.com/images/favicon.png" type="image/png" />
+  <link rel="canonical" href="https://brekkywrap.com/" />
+  <meta name="referrer" content="no-referrer-when-downgrade" />
+  <meta property="og:site_name" content="Brekky Wrap" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="That fella down under" />
+  <meta property="og:description" content="It was all about nuclear-powered submarines yesterday, Victoria is slowly reopening, iron ore plunged again, a temporary Kiwi bounce, misleading unemployment data, and China&#39;s Evergrande is in even more trouble." />
+  <meta property="og:url" content="/2021/that-fella-down-under/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="That fella down under" />
+  <meta name="twitter:description" content="It was all about nuclear-powered submarines yesterday, Victoria is slowly reopening, iron ore plunged again, a temporary Kiwi bounce, misleading unemployment data, and China&#39;s Evergrande is in even more trouble." />
+  <meta name="twitter:url" content="/2021/that-fella-down-under/" />
+  <meta name="twitter:site" content="@brekkywrap" />
+  <link rel="alternate" type="application/rss+xml" title="Brekky Wrap" href="https://brekkywrap.com/rss/" />
+</head>
+    <body>
+      <div id="wrap">
+        <div id="main">
+        <header class="header-home">
+
+          <span class="header__inner">
+            <a href="/" class="header-logo">
+                <img class="hidden-sm" src="https://brekkywrap.com/images/brekky-logo.png" alt="That fella down under" width="300" /><img class="hidden-lg" src="https://brekkywrap.com/images/brekky-logo.png" alt="That fella down under" width="240" />
+            </a>
+
+            <span class="logo__cursor"></span>
+
+        <span class="header__right">
+            <nav class="menu">
+        <ul class="menu__inner menu__inner--desktop">
+          <li><a href="https://brekkywrap.com" title="Return home">Home</a></li>
+          <li><a href="https://brekkywrap.com/faq/" title="Frequently asked questions">FAQ</a></li>
+          <li><a href="https://brekkywrap.com/archive/" title="View the archive">Previous issues</a></li>
+          <li><a href="https://brekkywrap.com" title="Subscribe to Brekky Wrap">Subscribe</a></li>
+          <li><a href="https://brekkywrap.com/rewards/" title="Get free stuff">Get free stuff 🎉</a></li>
+
+        </ul>
+
+        </nav>
+        <!-- hamburger -->
+              <div class="hamburger">
+                <input class="menu-btn" type="checkbox" id="menu-btn" />
+                <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+                <ul class="menu">
+                  <li><a href="https://brekkywrap.com" title="Return home">Home</a></li>
+                  <li><a href="https://brekkywrap.com/faq/" title="Frequently asked questions">FAQ</a></li>
+                  <li><a href="https://brekkywrap.com/archive/" title="View the archive">Previous issues</a></li>
+                  <li><a href="https://brekkywrap.com" title="Subscribe to Brekky Wrap">Subscribe</a></li>
+                  <li><a href="https://brekkywrap.com/rewards/" title="Get free stuff">Get free stuff 🎉</a></li>
+                </ul>
+              </div>
+        <!-- /hamburger -->
+
+        </span>
+        </span>
+
+</header>
+
+
+<section class="section section-intro">
+    <div class="container">
+        <div class="top">
+            <div class="info-content-wide">
+
+<!-- START EMAIL -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+
+  <!-- START CARD 1 -->
+  <tr>
+    <td width="100%" valign="top" align="center" style="padding-top: 0px!important; padding-bottom: 18px!important; mso-padding-alt: 0px 0px 18px 0px;">
+      <table width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper">
+        <tr>
+          <td>
+            <table cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="border-radius: 3px; border-bottom: 2px solid #d4d4d4;" class="card-1" width="100%" valign="top" align="center">
+                  <table style="border-radius: 3px;" width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper" bgcolor="#ffffff">
+                    <tr>
+                      <td align="center">
+                        <table width="600" cellpadding="0" cellspacing="0" border="0" class="container">
+
+                                                  <tr>
+                                                    <td class="td-padding" align="center" style="font-family:'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important;font-weight: 700; font-size: 32px; line-height: 36px; padding-top: 18px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 0px!important; mso-line-height-rule: exactly; mso-padding-alt: 18px 18px 0px 18px;text-align: center;">That fella down under</td>
+                                                  </tr>
+                                                  <tr>
+                                                  <td class="td-padding" align="center" style="font-family:'Open Sans', Helvetica, Arial, sans-serif; vertical-align: top; color: #738a94; font-size: 12px; letter-spacing: 0.2px; text-transform: uppercase; text-align: center; padding-top: 5px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 0px!important; mso-line-height-rule: exactly; mso-padding-alt: 5px 18px 0px 18px;" valign="top">
+                          By <a href="https://brekkywrap.com/authors/justin/" style="color: #08121A; text-decoration: underline;" target="_blank" title="Contact Justin Pyvis">Justin Pyvis</a> –
+                          Delivered on 17 Sep 2021
+                                                </td>
+                                                </tr>
+                                                  <tr>
+                                                    <td class="td-padding" align="left" style="font-family:'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important; font-size: 16px; line-height: 24px; padding-top: 18px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 18px!important; mso-line-height-rule: exactly; mso-padding-alt: 18px 18px 18px 18px;">
+
+<!-- COPY BELOW HERE FOR WEBSITE -->
+<!-- INTRO BOX -->
+<p style="margin-top: 0px;margin-bottom: 0px;line-height: 150%;text-align: left;">Good morning! Unsurprisingly there was a bit less news on the pandemic reopening front yesterday given the torrent of announcements made on Wednesday. It was really all about nuclear subs and Australia's link-up with the US and UK to form "AUKUS", which we've covered in more detail in today's <em>Feature</em>. 👇<br><br>
+
+There was, however, quite a bit of action in Victoria, which hit its 70% first vaccination dose target. Premier Daniel Andrews <a href="https://twitter.com/DanielAndrewsMP/status/1438331002728828931" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">announced</a> an easing of restrictions for those in regional Victoria (excluding Ballarat) from midnight tonight, allowing for the reopening of gyms, pools, saunas and steam rooms (with density limits).<br><br>
+
+Those in Melbourne will also get some minor relief, able to travel 10km from their home (up from 5km), have outdoor picnics with one other person or gather with five adults from two households if all are fully vaccinated.<br><br>
+
+The Victorian government <a href="https://7news.com.au/lifestyle/health-wellbeing/victorian-covid-vaccine-mandate-to-be-introduced-for-states-construction-workers-c-3979907" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">also made it</a> <strong>mandatory</strong> for construction workers to get vaccinated, with evidence of a first dose required by 11:59pm on 23 September. As far as we're aware 'no jab, no job' policies have only been used for front-line workers, such as health and police, so this represents a potentially controversial change in policy.<br><br>
+
+Elsewhere, NSW Premier Gladys Berejiklian skipped another presser, leaving it up to Health Minister Brad Hazzard to <a href="https://www.skynews.com.au/australia-news/coronavirus/watch-live-health-minister-brad-hazzard-announces-latest-covid19-cases-in-new-south-wales/news-story/615bc961838a2c11b25ff0b1012c5005" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">break the news</a> that Albury and Lismore would be re-entering lockdown at 6pm last night due to "positive cases in both areas".<br><br>
+
+With all that out of the way, we leave you with this GIF of Minister for Defence Peter Dutton – recently <a href="https://www.afr.com/politics/federal/australia-boosts-korean-military-ties-20210913-p58r4m" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">in South Korea</a> talking military ties – somehow not knowing how to do an elbow bump nearly two years into a global pandemic:</p>
+
+<!-- START IMAGE -->
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <td align="center" class="hund ripplelink" width="600" style="font-family: 'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important; font-size: 14px; line-height: 21px; text-align: center;">
+                                <img align="center" width="600" style="border-radius: 3px 3px 0px 0px; width: 100%; max-width: 600px!important" class="hund" src="https://brekkywrap.com/images/2021/dutton-bump.gif" alt="Peter Dutton attempting an elbow bump.">
+                                <p style="margin-top: 0px;margin-bottom: 0px;line-height: 150%;text-align: center;"><em>Peter Dutton trying to figure out an elbow bump. <a href="https://twitter.com/NewsfightersPod/status/1438246997845331969" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">News Fighters/Twitter</a></em></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="td-padding" align="left" style="font-family: 'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important; font-size: 16px; line-height: 24px; padding-top: 18px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 0!important; mso-line-height-rule: exactly; mso-padding-alt: 18px 18px 18px 0;">
+<!-- END IMAGE -->
+
+<!-- INTRO BOX -->
+
+                              </td>
+                            </tr>
+                            <!-- END BODY COPY -->
+
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <!-- END CARD 1 -->
+
+
+
+<!-- START CARD 2 -->
+<tr>
+  <td width="100%" valign="top" align="center" style="padding-top: 0px!important; padding-bottom: 18px!important; mso-padding-alt: 0px 0px 18px 0px;">
+    <table width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper">
+      <tr>
+        <td>
+          <table cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td style="border-radius: 3px; border-bottom: 2px solid #d4d4d4;" class="card-1" width="100%" valign="top" align="center">
+                <table style="border-radius: 3px;" width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper" bgcolor="#ffffff">
+                  <tr>
+                    <td align="center">
+                      <table width="600" cellpadding="0" cellspacing="0" border="0" class="container">
+
+                        <!-- START BODY COPY -->
+                        <tr>
+                          <td class="td-padding" align="left" style="font-family: 'Open Sans', Helvetica, Arial, sans-serif;font-weight: 600;text-rendering: optimizeLegibility;font-size: 15px;line-height: 15px;text-transform: uppercase;color: #FF6600;padding-top: 18px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 0px!important; mso-line-height-rule: exactly; mso-padding-alt: 18px 18px 0px 18px;">
+                            Markets
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="td-padding" align="left" style="padding-top: 0px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 0px!important; mso-line-height-rule: exactly; mso-padding-alt: 0px 18px 0px 18px;">
+
+
+<!-- START MICROSOFT TABLE PASTE -->
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse;mso-yfti-tbllook:1184;mso-padding-alt:
+ 0cm 5.4pt 0cm 5.4pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width="100%" colspan=5 style='width:100.0%;border:none;border-bottom:
+  solid #D9D9D9 1.0pt;mso-border-bottom-themecolor:background1;mso-border-bottom-themeshade:
+  217;mso-border-bottom-alt:solid #D9D9D9 .5pt;mso-border-bottom-themecolor:
+  background1;mso-border-bottom-themeshade:217;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-bottom:1.5pt;text-align:right;
+  line-height:normal'><span style='font-size:13.0pt;font-family:"Open Sans",sans-serif;
+  mso-fareast-font-family:"Times New Roman";mso-fareast-language:EN-AU'>Daily %
+  change<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width="7%" style='width:7.86%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td width="19%" style='width:19.86%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+  2.0pt;margin-left:0cm;line-height:normal'><span style='font-size:13.0pt;
+  font-family:"Open Sans",sans-serif;mso-fareast-font-family:"Times New Roman";
+  mso-fareast-language:EN-AU'>AUD/USD<o:p></o:p></span></p>
+  </td>
+  <td width="28%" style='width:28.82%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:black'>72.9</span><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p></o:p></span></p>
+  </td>
+  <td width="36%" style='width:36.1%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:#C00000'>-0.7%</span><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p></o:p></span></p>
+  </td>
+  <td width="7%" valign=top style='width:7.36%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td width="7%" style='width:7.86%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td width="19%" style='width:19.86%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+  2.0pt;margin-left:0cm;line-height:normal'><span style='font-size:13.0pt;
+  font-family:"Open Sans",sans-serif;mso-fareast-font-family:"Times New Roman";
+  mso-fareast-language:EN-AU'>10Y&nbsp;Bond<o:p></o:p></span></p>
+  </td>
+  <td width="28%" style='width:28.82%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:black'>1.30</span><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p></o:p></span></p>
+  </td>
+  <td width="36%" style='width:36.1%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:#00B050'>+4.8%</span><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p></o:p></span></p>
+  </td>
+  <td width="7%" valign=top style='width:7.36%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3'>
+  <td width="7%" style='width:7.86%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td width="19%" style='width:19.86%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+  2.0pt;margin-left:0cm;line-height:normal'><span style='font-size:13.0pt;
+  font-family:"Open Sans",sans-serif;mso-fareast-font-family:"Times New Roman";
+  mso-fareast-language:EN-AU'>ASX200<o:p></o:p></span></p>
+  </td>
+  <td width="28%" style='width:28.82%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:black'>7,460</span><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p></o:p></span></p>
+  </td>
+  <td width="36%" style='width:36.1%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:#00B050'>+0.6%</span><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p></o:p></span></p>
+  </td>
+  <td width="7%" valign=top style='width:7.36%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4'>
+  <td width="7%" style='width:7.86%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td width="19%" style='width:19.86%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+  2.0pt;margin-left:0cm;line-height:normal'><span style='font-size:13.0pt;
+  font-family:"Open Sans",sans-serif;mso-fareast-font-family:"Times New Roman";
+  mso-fareast-language:EN-AU'>Brent&nbsp;(<span class=SpellE>bbl</span>)<o:p></o:p></span></p>
+  </td>
+  <td width="28%" style='width:28.82%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:black'>75.7</span><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p></o:p></span></p>
+  </td>
+  <td width="36%" style='width:36.1%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:#00B050'>+0.3%</span><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p></o:p></span></p>
+  </td>
+  <td width="7%" valign=top style='width:7.36%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:5'>
+  <td width="7%" style='width:7.86%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td width="19%" style='width:19.86%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+  2.0pt;margin-left:0cm;line-height:normal'><span style='font-size:13.0pt;
+  font-family:"Open Sans",sans-serif;mso-fareast-font-family:"Times New Roman";
+  mso-fareast-language:EN-AU'>Gold&nbsp;(oz)<o:p></o:p></span></p>
+  </td>
+  <td width="28%" style='width:28.82%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:black'>1,754</span><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p></o:p></span></p>
+  </td>
+  <td width="36%" style='width:36.1%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:#C00000'>-2.3%</span><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p></o:p></span></p>
+  </td>
+  <td width="7%" valign=top style='width:7.36%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:6'>
+  <td width="7%" style='width:7.86%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td width="19%" style='width:19.86%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+  2.0pt;margin-left:0cm;line-height:normal'><span style='font-size:13.0pt;
+  font-family:"Open Sans",sans-serif;mso-fareast-font-family:"Times New Roman";
+  mso-fareast-language:EN-AU'>Iron&nbsp;ore&nbsp;(t)<o:p></o:p></span></p>
+  </td>
+  <td width="28%" style='width:28.82%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:black'>107.3</span><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p></o:p></span></p>
+  </td>
+  <td width="36%" style='width:36.1%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:#C00000'>-6.1%</span><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p></o:p></span></p>
+  </td>
+  <td width="7%" valign=top style='width:7.36%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:7'>
+  <td width="7%" style='width:7.86%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p>&nbsp;</o:p></span></p>
+  </td>
+  <td width="19%" style='width:19.86%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+  2.0pt;margin-left:0cm;line-height:normal'><span style='font-size:13.0pt;
+  font-family:"Open Sans",sans-serif;mso-fareast-font-family:"Times New Roman";
+  mso-fareast-language:EN-AU'>Bitcoin<o:p></o:p></span></p>
+  </td>
+  <td width="28%" style='width:28.82%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:black'>47,341</span><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p></o:p></span></p>
+  </td>
+  <td width="36%" style='width:36.1%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:#C00000'>-1.4%</span><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p></o:p></span></p>
+  </td>
+  <td width="7%" valign=top style='width:7.36%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";mso-fareast-language:EN-AU'><o:p>&nbsp;</o:p></span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:8;mso-yfti-lastrow:yes'>
+  <td width="100%" colspan=5 style='width:100.0%;border:none;border-top:solid #D9D9D9 1.0pt;
+  mso-border-top-themecolor:background1;mso-border-top-themeshade:217;
+  mso-border-top-alt:solid #D9D9D9 .5pt;mso-border-top-themecolor:background1;
+  mso-border-top-themeshade:217;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-top:1.5pt;line-height:normal'><i><span
+  style='font-size:9.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Times New Roman";color:black;mso-fareast-language:EN-AU'>Note: Brent oil, gold
+  bullion and iron ore prices are the second futures contract.<o:p></o:p></span></i></p>
+  </td>
+ </tr>
+</table>
+
+<!-- END MICROSOFT TABLE PASTE -->
+
+</td>
+</tr>
+
+<tr>
+<td class="td-padding" align="left" style="font-family: 'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important; font-size: 16px; line-height: 24px; padding-top: 18px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 18px!important; mso-line-height-rule: exactly; mso-padding-alt: 18px 18px 18px 18px;">
+
+
+<!-- Start Market commentary -->
+<p style="margin-top: 0px;margin-bottom: 0px;line-height: 150%;text-align: left;">The <strong>US S&amp;P500</strong> fell 0.16% overnight, recovering from being down nearly 1% in early trade as <a href="https://www.reuters.com/world/us/us-retail-sales-unexpectedly-rise-august-weekly-jobless-claims-climb-2021-09-16/" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">retail sales</a> jumped a stronger-than-expected 0.7% in August, "likely boosted by back-to-school shopping and child tax credit payments from the government". Initial jobless claims <a href="https://finance.yahoo.com/news/weekly-jobless-claims-week-ended-september-11-2021-190708680.html" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">rose slightly</a>, snapping a two-week streak of declines, but Hurricane Ida likely played a temporary role in keeping people out of work.<br><br>
+
+Locally, the <strong>ASX200</strong> added 0.58% with strong gains in the energy sector (+1.32%) following a rise in oil prices on Wednesday night. The <strong>iron ore price</strong> (-6.1%) continued to sink as fresh data <a href="https://www.mining.com/iron-ore-price-dives-7-on-chinas-lower-steel-output-data/" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">showed</a> declining steel production and Evergrande's woes worsen (see below), fuelling doubts about the resilience of its hugely important property sector.</p>
+<!-- End Market commentary -->
+
+
+                              </td>
+                            </tr>
+                                                          <!-- END BODY COPY -->
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <!-- END CARD 2 -->
+
+<!-- START CARD 3 -->
+<tr>
+  <td width="100%" valign="top" align="center" style="padding-top: 0px!important; padding-bottom: 18px!important; mso-padding-alt: 0px 0px 18px 0px;">
+    <table width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper">
+      <tr>
+        <td>
+          <table cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td style="border-radius: 3px; border-bottom: 2px solid #d4d4d4;" class="card-1" width="100%" valign="top" align="center">
+                <table style="border-radius: 3px;" width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper" bgcolor="#ffffff">
+                  <tr>
+                    <td align="center">
+                      <table width="600" cellpadding="0" cellspacing="0" border="0" class="container">
+                                                   <tr>
+                          <td class="td-padding" align="left" style="font-family: 'Open Sans', Helvetica, Arial, sans-serif;font-weight: 600;text-rendering: optimizeLegibility;font-size: 15px;line-height: 15px;text-transform: uppercase;color: #FF6600;padding-top: 18px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 0px!important; mso-line-height-rule: exactly; mso-padding-alt: 18px 18px 0px 18px;">
+                            Economy
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="td-padding" align="left" style="font-family: 'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important; font-size: 16px; line-height: 24px; padding-top: 18px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 18px!important; mso-line-height-rule: exactly; mso-padding-alt: 18px 18px 18px 18px;">
+
+
+<!-- Start Economic commentary -->
+<p style="margin-top: 0px;margin-bottom: 0px;line-height: 150%;text-align: left;"><strong>Short-lived</strong>: Kiwi GDP <a href="https://www.stats.govt.nz/indicators/gross-domestic-product-gdp" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">soared 2.8%</a> in the June quarter, well above <a href="https://www.nasdaq.com/articles/new-zealand-economy-surges-in-q2-beating-expectations-2021-09-15" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">expectations</a> for a 1.3% rise. The growth was flattering as it was largely due to strong goods exports, with services exports understandably in the doldrums (-43%) and consumption and investment activity both slipping from the previous quarter. It will also be completely wiped out in the current quarter due to the ongoing lockdowns.<br><br>
+
+<strong>Misleading statistics</strong>: Australia's unemployment rate <a href="https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia/latest-release" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">fell to 4.5%</a> in August (from 4.6% in July), the lowest rate since November 2008 despite over half the country's population being in lockdown. The reason was because people stopped trying – Australia's participation rate plummeted 0.8 percentage points to 65.2%, more than offsetting the 1.1% fall in employment and 3.7% decline in hours worked.<br><br>
+
+<strong>Wither Victoria</strong>: It turns out people don't like being locked down for extended periods. The ABS <a href="https://www.abs.gov.au/media-centre/media-releases/australias-population-growth-close-zero" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">released</a> Australia's population figures for the March quarter, with "population growth slowing to a near stand-still in the year to March 2021". Every state and territory managed to eke out a little bit of growth except for Victoria, which lost 0.6% of its population (42,900 people).<br><br>
+
+<strong>Contagion risks rise</strong>: China's embattled property developer, Evergrande ($US300 billion in debt with declining sales), <a href="https://www.reuters.com/business/china-evergrande-applies-bond-trading-suspension-after-downgrade-2021-09-16/" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">suspended trading</a> of its onshore corporate bonds until further notice.</p>
+<!-- End Economic commentary -->
+
+</td>
+</tr>
+<!-- END BODY COPY -->
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- END CARD 3 -->
+
+
+<!-- START CARD 4 -->
+<tr>
+  <td width="100%" valign="top" align="center" style="padding-top: 0px!important; padding-bottom: 18px!important; mso-padding-alt: 0px 0px 18px 0px;">
+    <table width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper">
+      <tr>
+        <td>
+          <table cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td style="border-radius: 3px; border-bottom: 2px solid #d4d4d4;" class="card-1" width="100%" valign="top" align="center">
+                <table style="border-radius: 3px;" width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper" bgcolor="#ffffff">
+                  <tr>
+                    <td align="center">
+                      <table width="600" cellpadding="0" cellspacing="0" border="0" class="container">
+                                                   <tr>
+                          <td class="td-padding" align="left" style="font-family: 'Open Sans', Helvetica, Arial, sans-serif;font-weight: 600;text-rendering: optimizeLegibility;font-size: 15px;line-height: 15px;text-transform: uppercase;color: #FF6600;padding-top: 18px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 0px!important; mso-line-height-rule: exactly; mso-padding-alt: 18px 18px 0px 18px;">
+                            Feature
+                          </td>
+                        </tr>
+
+
+<!-- Start feature -->
+
+<tr>
+<td class="td-padding" align="left" style="font-family:'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important;font-weight: 700; font-size: 32px; line-height: 36px; padding-top: 5px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 18px!important; mso-line-height-rule: exactly; mso-padding-alt: 5px 18px 18px 18px;">
+That fella down under
+</td>
+</tr>
+<!-- START HEADER IMAGE -->
+<tr>
+<td align="center" class="hund ripplelink" width="600" style="font-family: 'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important; font-size: 14px; line-height: 21px; text-align: center;">
+<img align="center" width="600" style="border-radius: 3px 3px 0px 0px; width: 100%; max-width: 600px!important" class="hund" src="https://brekkywrap.com/images/2021/that-fella-down-under.jpg" alt="Feature image">
+<em>You may not know my name but cheers for the nuclear subs, mate. <a href="https://www.townsvillebulletin.com.au/breaking-news/joe-biden-forgets-scott-morrisons-name-in-historic-nuclear-auukus-announcement/news-story/95ead13c67d9d79e0a5255c4506c92af" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">Townsville Bulletin</a></em>
+</td>
+</tr>
+<!-- END HEADER IMAGE -->
+<!-- START BODY COPY -->
+
+<tr>
+<td class="td-padding" align="left" style="font-family: 'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important; font-size: 16px; line-height: 24px; padding-top: 18px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 18px!important; mso-line-height-rule: exactly; mso-padding-alt: 18px 18px 18px 18px;">
+
+<p style="margin-top: 0px;margin-bottom: 0px;line-height: 150%;text-align: left;">Yesterday morning US President Joe Biden, UK Prime Minister Boris Johnson and our very own ScoMo – together known as "AUKUS" – released a <a href="https://www.pm.gov.au/media/joint-leaders-statement-aukus" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">joint statement</a> announcing that their respective countries would share technology covering cyber security, artificial intelligence, underwater systems and long-range strike capabilities.<br><br>
+
+There were two important takeaways. One, Joe Biden forgot ScoMo's name, <a href="https://twitter.com/GBNEWS/status/1438250398033326087" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">calling him</a> "that fella down under". Two, Australia will ditch its $A90 billion order for a dozen diesel submarines from France, <a href="https://twitter.com/jekearsley/status/1438249196721561602" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">to be replaced</a> with eight nuclear-powered subs from either the UK or US.<br><br>
+
+<strong>Stepping back</strong>: The subs on order from France have been plagued with issues from the get-go. For whatever reason, then-PM Malcolm Turnbull decided not to purchase 'off the rack', instead opting for a customised, scaled-down diesel version of France's nuclear-powered Barracuda sub, which the French military procures <a href="https://www.defensenews.com/global/europe/2019/07/12/france-launches-first-barracuda-class-nuclear-attack-sub/" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">for about</a> $A2.3 billion a pop.<br><br>
+
+Originally slated to cost $A40 billion (so ~50% more than an off-the-rack Barracuda), the Commonwealth recently <a href="https://www.abc.net.au/news/2021-05-10/taxpayers-paying-french-submarine-naval-group-legal-fees/100127510" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">estimated</a> the true cost at closer to $A90 billion.<br><br>
+
+Asked yesterday about how much the yet-to-be started French subs had cost so far, ScoMo <a href="https://www.sbs.com.au/news/why-australia-s-new-defence-pact-with-the-us-and-britain-is-so-significant/a647fd82-b0d1-49c7-aa68-97fbf8db3a4a" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">said</a> taxpayers had already paid a whopping $A2.4 billion. Compensation will also have to be paid to the French for breaking the deal.<br><br>
+
+<strong>Why this matters</strong>: One word – China. Tensions in the Indo-Pacific have been heating up of late, whether it be trade disputes, North Korean rockets or the <a href="https://www.defensenews.com/opinion/commentary/2020/04/17/chinas-island-fortifications-are-a-challenge-to-international-norms/" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">several artificial islands</a> China has created with runways long enough to handle Chinese military aircraft. Modern nuclear subs can <a href="https://www.wired.co.uk/article/nuclear-submarine-astute" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">theoretically</a> remain underwater for up to 25 years, making them well-suited for long-range military exercises in the Indo-Pacific.<br><br>
+
+<strong>Looking forward</strong>: Australia will get access to UK and US technology to build a new fleet of nuclear-powered submarines in Australia, making it only the seventh country in the world to possess the efficient, long-range subs.<br><br>
+
+They should be considerably cheaper than the French subs, given that the designs will be purchased off-the-rack but <a href="https://www.adelaidenow.com.au/news/south-australia/adelaide-submarines-deal-link-tipped-in-mystery-biden-announcement/news-story/08732a6aceb3da1aa338394c2693930f" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">assembled in Adelaide</a>, in much the same way that breweries make their beer in Australia "under supervision of" or "under license from" the intellectual property owner.<br><br>
+
+But don't expect to see them anytime soon. ScoMo confirmed that it will be <a href="https://www.heraldsun.com.au/news/world/what-australias-nuclear-submarine-deal-with-us-and-uk-means/news-story/483e71ee12d9ce92affee4185a07ae7d" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">at least</a> 12-18 months before Australia even decides which subs it wants (likely the <a href="https://en.wikipedia.org/wiki/Virginia-class_submarine" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">US Virginia class</a>). Then, of course, they have to be produced.</p>
+
+<!-- End feature -->
+
+</td>
+</tr>
+<!-- END BODY COPY -->
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- END CARD 4 -->
+
+<!-- START CARD 5 -->
+<tr>
+<td width="100%" valign="top" align="center" style="padding-top: 0px!important; padding-bottom: 18px!important; mso-padding-alt: 0px 0px 18px 0px;">
+<table width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper">
+<tr>
+  <td>
+    <table cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td style="border-radius: 3px; border-bottom: 2px solid #d4d4d4;" class="card-1" width="100%" valign="top" align="center">
+          <table style="border-radius: 3px;" width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper" bgcolor="#ffffff">
+            <tr>
+              <td align="center">
+                <table width="600" cellpadding="0" cellspacing="0" border="0" class="container">
+                                             <tr>
+                    <td class="td-padding" align="left" style="font-family: 'Open Sans', Helvetica, Arial, sans-serif;font-weight: 600;text-rendering: optimizeLegibility;font-size: 15px;line-height: 15px;text-transform: uppercase;color: #FF6600;padding-top: 18px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 0px!important; mso-line-height-rule: exactly; mso-padding-alt: 18px 18px 0px 18px;">
+                      The Wrap Up
+                    </td>
+                  </tr>
+                  <!-- START BODY COPY -->
+
+                  <tr>
+                    <td class="td-padding" align="left" style="font-family: 'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important; font-size: 16px; line-height: 24px; padding-top: 18px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 0px!important; mso-line-height-rule: exactly; mso-padding-alt: 18px 18px 0px 18px;">
+<ul style="margin: 0 0 24px 0; line-height: 24px; padding-left: 0; max-width: 100%;list-style: none;">
+
+
+<li style="margin: 0 0 6px; padding-left: 0; line-height: 24px;">🔨 China's three biggest publicly traded medical aesthetics companies <a href="https://www.ft.com/content/b3a91ec0-2ce6-4b59-bb11-779eecfd440f" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">have lost</a> a third of their value ($US17 billion) purely from the fear of being the next target of Xi Jinping's "common prosperity" drive.</li>
+<li style="margin: 6px 0; padding-left: 0; line-height: 24px;">🚀 SpaceX <a href="https://www.9news.com.au/world/spacex-launch-inspiration4-mission-first-all-civilian-flight-sends-tourists-into-space-and-not-astronauts-live-updates/7d31d647-d7ee-4913-809d-c89f2affb36e" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">successfully launched</a> four civilians into space, the first ever space flight without a professional astronaut on board.</li>
+<li style="margin: 6px 0; padding-left: 0; line-height: 24px;">🥝 New Zealand's Prime Minister Jacinda Ardern <a href="https://www.france24.com/en/live-news/20210916-australian-nuclear-subs-will-be-banned-from-new-zealand-waters-ardern" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">confirmed</a> that Australia's nuclear submarines will be banned from New Zealand waters.</li>
+<li style="margin: 6px 0; padding-left: 0; line-height: 24px;">💉 Moderna's President Stephen Hoge <a href="https://www.reuters.com/business/healthcare-pharmaceuticals/moderna-says-covid-19-vaccine-protection-wanes-makes-case-booster-2021-09-15/" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">said its vaccine</a> is "great" for the first six months, "but you can't count on that being stable out to a year and beyond". A third dose will "significantly" extend immunity "throughout much of next year".</li>
+<li style="margin: 6px 0; padding-left: 0; line-height: 24px;">🪓 Former Attorney General and current Industry Minister Christian Porter's position on the front bench <a href="https://www.smh.com.au/politics/federal/christian-porter-s-cabinet-position-in-doubt-as-pm-waits-for-advice-20210916-p58s3j.html" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">is at risk</a> after he accepted anonymous donations to cover his legal fees.</li>
+<li style="margin: 6px 0; padding-left: 0; line-height: 24px;">⛓️ A 64-year-old fugitive <a href="https://www.cbsnews.com/news/australia-fugitive-turns-self-in-30-years-after-prison-escape-blames-covid/" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">turned himself in</a> after almost 30 years on the run, because Sydney's COVID-19 lockdown made it impossible for him to find work.</li>
+<li style="margin: 6px 0; padding-left: 0; line-height: 24px;">🐱‍💻 The Scottish government gave prisoners "unhackable" phones (at a cost of $A5.7 million), which were <a href="https://www.itv.com/news/2021-09-13/the-unhackable-phones-given-to-prisoners-which-were-then-hacked-to-buy-drugs" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">promptly hacked</a> and used to buy drugs.</li>
+<li style="margin: 6px 0; padding-left: 0; line-height: 24px;">🏆 Tickets to next week's AFL Grand Final in Perth <a href="https://www.news.com.au/sport/afl/general-public-tickets-to-afl-grand-final-sold-out-in-a-flash/news-story/41ac48bf7c23d12542ed946b26cebfc8" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">sold out</a> in under 10 minutes, with the queue five times bigger than the one last year's final, held at The Gabba in Brisbane.</li>
+<li style="margin: 6px 0; padding-left: 0; line-height: 24px;">👷‍♂️ Companies around the world are <a href="https://money.com/labor-shortage-jobs-no-drug-tests/" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">finding it difficult</a> to hire people, leading to "9% of employers worldwide... eliminating job screenings or drug tests in order to attract and retain talent".</li>
+
+</ul>
+
+                              </td>
+                            </tr>
+                            <!-- END BODY COPY -->
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <!-- END CARD 5 -->
+
+
+<!-- STOP COPYING HERE -->
+
+        <!-- SPACER -->
+        <!--[if gte mso 9]>
+        <table align="center" border="0" cellspacing="0" cellpadding="0" width="600">
+          <tr>
+            <td align="center" valign="top" width="600" height="18">
+              <![endif]-->
+              <tr><td height="18px"></td></tr>
+              <!--[if gte mso 9]>
+            </td>
+          </tr>
+        </table>
+        <![endif]-->
+        <!-- END SPACER -->
+
+        <!-- FOOTER -->
+        <tr>
+          <td width="100%" valign="top" align="center">
+            <table width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper">
+              <tr>
+                <td width="100%" valign="top" align="center">
+                  <table width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper">
+                    <tr>
+                      <td align="center">
+                        <table width="600" cellpadding="0" cellspacing="0" border="0" class="container">
+                          <tr>
+                            <td class="td-padding" align="center" style="font-family: 'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important; font-size: 16px; line-height: 24px; padding-top: 0px; padding-left: 0px!important; padding-right: 0px!important; padding-bottom: 18px!important; mso-line-height-rule: exactly; mso-padding-alt: 0px 0px 18px 0px;text-align:center;">
+                              If you were forwarded this Wrap, why not <a href="https://brekkywrap.com" style="color: #212121; text-decoration: underline;" title="Subscribe to Brekky Wrap">sign up for yourself</a> - it's free!
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <!-- FOOTER -->
+
+        <!-- SPACER -->
+        <!--[if gte mso 9]>
+        <table align="center" border="0" cellspacing="0" cellpadding="0" width="600">
+          <tr>
+            <td align="center" valign="top" width="600" height="36">
+              <![endif]-->
+              <tr><td height="36px"></td></tr>
+              <!--[if gte mso 9]>
+            </td>
+          </tr>
+        </table>
+        <![endif]-->
+        <!-- END SPACER -->
+
+      </table>
+      <!-- END EMAIL -->
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="navigation-mobile">
+    <p class="text-center"><a href="https://brekkywrap.com" class="button button-small button-secondary" title="Return home">Return home</a></p>
+</div>
+
+
+</div>
+</div>
+
+        <footer class="footer">
+    <div class="footer-top">
+        <div class="container">
+
+
+                <div class="footer-copyright">
+                    &copy; 2021 Brekky Wrap. Read our <a href="https://brekkywrap.com/privacy/">Privacy Policy</a>.
+                </div>
+
+        </div>
+    </div>
+
+</footer>
+
+    </body>
+</html>
