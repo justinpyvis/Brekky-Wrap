@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- capture the CSS content as a Nunjucks variable -->
+  
+  <!-- feed it through our cssmin filter to minify -->
+  <style>
+    /*! minireset.css v0.0.4 | MIT License | github.com/jgthms/minireset.css */blockquote,body,dd,dl,dt,fieldset,figure,h1,h2,h3,h4,h5,h6,hr,html,iframe,legend,li,ol,p,pre,textarea,ul{margin:0;padding:0}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:400}ol,ul{margin-left:40px;margin-bottom:1.5rem;padding:0}@media (max-width:683px){ol,ul{margin-left:20px;margin-bottom:1.5rem}}ol ol{list-style-type:lower-alpha}li{margin:.5em 0}blockquote{border-left:2px solid;margin:20px;padding:0 20px;font-style:italic}@media (max-width:683px){blockquote{margin:10px 10px 25px;padding:0 10px}}blockquote:before{content:"\201D";font-family:Georgia,serif;font-size:3.875rem;position:absolute;left:-40px;top:-20px}blockquote p:first-of-type{margin-top:0}blockquote p:last-of-type{margin-bottom:0}button,input,select,textarea{margin:0}html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}embed,iframe,img,object,video{max-width:100%;height:auto}audio{max-width:100%}iframe{border:0}table{border-collapse:collapse;border-spacing:0}td,th{padding:0;text-align:left}html{overflow-x:hidden!important;height:100%;background:#f7f7f7}body{position:relative;overflow-x:hidden!important;height:100%}body:before{content:"";height:100%;float:left;width:0;margin-top:-32767px}a{text-decoration:underline;color:#565e76}.container{margin:0 auto;max-width:1170px;padding:0 1.25rem;width:100%}.row{display:flex;padding:0;width:100%}@media (min-width:880px){.container{padding:0 2rem}}.text-center{text-align:center}.text-left{text-align:left}.hidden-sm{display:none}.hidden-lg{display:block}.header-home{position:relative;z-index:2;background-color:#fff;padding:1.5rem 0 0}.header-home .row{justify-content:space-between;margin-top:.5rem}@media (min-width:880px){.hidden-sm{display:block}.hidden-lg{display:none}.header-home{position:relative;z-index:2;background-color:#fff;padding:1.5rem 0}.header-home .row{justify-content:space-between;margin-top:.5rem}}.full-width{width:100%}.spacer{margin:40px 0}html{font-size:16px;line-height:1.7}body{font-family:'Open Sans',Helvetica,Arial,sans-serif;color:#7b85a0}h1,h2,h3,h4,h5,h6{font-weight:700;color:#3e444e}h1{font-size:2rem;line-height:1.3;margin-bottom:1rem;letter-spacing:-.5px}@media (min-width:880px){h1{font-size:3.5rem;margin-bottom:1.5rem}}h2{font-size:.95rem;line-height:.5rem;margin:1.5rem 0 .15rem;text-transform:uppercase;color:#f60}h3{font-size:1.5rem;margin-bottom:1rem;margin-top:0}@media (min-width:880px){h3{font-size:1.5rem;line-height:2rem}}.header{position:relative;z-index:2;background-color:#fff;padding:1.5rem 0 0}.header-logo{display:flex;align-items:center;flex-shrink:0}.header .row{justify-content:space-between;margin-top:.5rem}.navigation-primary{display:none;margin-left:1.5rem;flex-grow:1;position:relative}.navigation-secondary{display:none;align-self:flex-end}.navigation-mobile{margin-bottom:2rem}@media (min-width:1094px){.navigation-primary,.navigation-secondary{display:flex}.navigation-mobile{display:none}.mobile-nav-trigger{display:none}}@media (min-width:1024px){.navigation-primary{margin-left:2rem}}#wrap{min-height:100%}#main{overflow:auto;padding-bottom:100px}.footer{position:relative;background-color:#1c1c1f;color:#fff;font-size:.9375rem;margin-top:-110px;height:110px;clear:both}.footer-top{padding:3rem 0}.footer-copyright{font-size:.6875rem;color:#becde7;color:#fff;opacity:.75;padding-left:32px}@media (min-width:28rem){.footer-top{padding:2rem 0 0}}.footer a{color:#eee}@media (min-width:56rem){.footer-copyright{padding:0}}.section{padding:2rem 0}@media (min-width:880px){.section{padding:5rem 0}}.section-intro{position:relative;overflow-y:hidden;padding:4rem 0 0}@media (min-width:800px){.section-intro{padding:8rem 0 1rem}}.section-intro::after,.section-intro::before{content:"";position:absolute;width:100%;transform:skewY(-1.8deg);left:0}.section-intro::before{height:120px;top:-40px;background-color:#fff}.button{position:relative;font-weight:600;display:inline-block;border-radius:4px;line-height:1;text-align:center;cursor:pointer;font-size:.875rem;padding:1rem;text-decoration:none}@media (min-width:480px){.button{font-size:1rem}}@media (min-width:480px){.button-regular{padding:1.25rem}}@media (min-width:480px){.button-large{padding:1.5rem}}@media (min-width:480px){.button-small{padding:1rem;font-size:.875rem}}.button-primary{color:#fff;background-color:#4364af}.button-secondary{color:#fff;background-color:#1c1c1f}.button-secondary:hover{background-color:#3d3d43}.button-white{color:#4364af;background-color:#fff;box-shadow:0 8px 16px rgba(51,62,77,.15)}.button-main{color:#000;background-color:#f9c903}.button-main:hover{background-color:#fcd436}.button-black-on-white{color:#3e444e}.button-full-width{width:100%}.button-margin-top{margin-top:2rem}.button-icon-left{margin-right:.75rem;vertical-align:-3px}@media only screen and (min-width:800px){.top{display:flex;align-content:center}}.image-box{width:40%;margin:0 auto}@media (min-width:800px){.image-box{width:60%}.reverse-right{left:65%;position:relative}.reverse-left{right:35%;position:relative}}.image-box img{border-radius:16px;position:relative;top:-40px;width:100%}@media (min-width:800px){.image-box img{top:-80px}}@media only screen and (min-width:800px){.image-box{margin:0;width:35%}}.info-content{color:#1c1c1f}.info-content-wide{color:#1c1c1f;margin:5rem 0}@media only screen and (min-width:800px){.info-content{width:65%;padding-right:6rem;margin-bottom:0}.info-content-wide{width:100%;margin-bottom:0;margin-left:20%;margin-right:20%}}@media only screen and (min-width:1150px){.post-content{padding:2rem;background:#fff;border-radius:15px;margin-bottom:4rem}}.post-content{padding:2rem;background:#fff;border-radius:15px}@media (min-width:800px){.info-content-title{font-size:3rem}}.info-content-description{margin-bottom:2rem}.kg-gallery-card,.kg-image-card{margin:0 0 1.5em}.kg-gallery-container{display:flex;flex-direction:column}.kg-gallery-row{display:flex;flex-direction:row;justify-content:center;position:relative;width:85vw;min-width:100%;margin:auto calc(50% - 50vw);transform:translateX(calc(50vw - 50%))}.kg-gallery-image img{width:100%;height:100%;padding:0 0 10px 0}.kg-gallery-row:not(:first-of-type){margin:10px 0 0 0}.kg-gallery-image:not(:first-of-type){margin:0 0 0 10px}.kg-embed-card{overflow:hidden;position:relative;width:100%}.kg-embed-card iframe{display:block;content:'';top:0;left:0;width:100%}.kg-embed-card figcaption{margin:.5em 0 0}// required by gcsan to properly validate the theme .kg-bookmark-card{width:100%;position:relative}.kg-bookmark-container{display:flex;flex-wrap:wrap;flex-direction:row-reverse;color:currentColor;font-family:inherit;text-decoration:none;border:1px solid rgba(0,0,0,.1)}.kg-bookmark-container:hover{text-decoration:none}.kg-bookmark-content{flex-basis:0;flex-grow:999;padding:20px;order:1}.kg-bookmark-title{font-weight:600}.kg-bookmark-description,.kg-bookmark-metadata{margin-top:.5em;color:#222}.kg-bookmark-metadata{align-items:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#222}.kg-bookmark-description{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;color:#222}.kg-bookmark-icon{display:inline-block;width:1em;height:1em;vertical-align:text-bottom;margin-right:.5em;margin-bottom:.05em}.kg-bookmark-thumbnail{display:flex;flex-basis:24rem;flex-grow:1}.kg-bookmark-thumbnail img{max-width:100%;height:auto;vertical-align:bottom;object-fit:cover}.kg-bookmark-author{white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.kg-bookmark-publisher::before{content:"•";margin:0 .5em}.kg-width-wide img{max-width:85vw}.kg-width-full img{max-width:100vw}.kg-width-wide{margin:auto calc(50% - 50vw);transform:translateX(calc(50vw - 50%))}.kg-width-full{position:relative;width:100vw;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw}.button-underline a{padding:6px 12px}.button-underline a:link{text-decoration:none;text-transform:none}.btn{display:inline-block;margin:5px 0 0;font-weight:600;text-align:center;-ms-touch-action:manipulation;touch-action:manipulation;cursor:pointer;background-image:none;border:1px solid transparent;white-space:nowrap;padding:.5em;font-size:16px;border-radius:0;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;text-decoration:none;text-transform:none}.btn.active:focus,.btn:active:focus,.btn:focus{outline:5px auto -webkit-focus-ring-color;outline-offset:-2px}.btn:focus,.btn:hover{color:#333;text-decoration:none}.btn.active,.btn:active{outline:0;background-image:none;box-shadow:inset 0 3px 5px rgba(0,0,0,.125)}.btn[disabled]{cursor:not-allowed;opacity:.65;box-shadow:none}.btn-primary{color:#fff!important;background-color:#000;border:2px solid #000}.btn-primary:focus{color:#fff;background-color:#444;border-color:#444}.btn-primary.active,.btn-primary:active,.btn-primary:hover{color:#fff;background-color:#444;border-color:#444}.btn-primary.active:focus,.btn-primary.active:hover,.btn-primary:active:focus,.btn-primary:active:hover{color:#fff;background-color:#444;border-color:#444}.btn-primary.active,.btn-primary:active{background-image:none}.btn-primary[disabled]:focus,.btn-primary[disabled]:hover{background-color:#444;border-color:#444}.btn-secondary{background:#fff;border:2px solid rgba(0,0,0,.8);color:rgba(0,0,0,.8)!important;box-shadow:none}.btn-secondary:focus{color:rgba(0,0,0,.8);background-color:#eee;border-color:#000}.btn-secondary.active,.btn-secondary:active,.btn-secondary:hover{color:rgba(0,0,0,.8);background-color:#eee;border-color:#000}.btn-secondary.active:focus,.btn-secondary.active:hover,.btn-secondary:active:focus,.btn-secondary:active:hover{color:#000;background-color:#eee;border-color:#000}.btn-secondary.active,.btn-secondary:active{background-image:none}.btn-secondary[disabled]:focus,.btn-secondary[disabled]:hover{background-color:#eee;border-color:#000}.btn-tertiary{background-color:#eee;border:2px solid rgba(0,0,0,.8);color:rgba(0,0,0,.8)!important;box-shadow:none}.btn-tertiary:focus{color:rgba(0,0,0,.8)!important;background-color:#eee;border-color:#000}.btn-tertiary.active,.btn-tertiary:active,.btn-tertiary:hover{color:rgba(0,0,0,.8)!important;background-color:#eee;border-color:#000}.btn-tertiary.active:focus,.btn-tertiary.active:hover,.btn-tertiary:active:focus,.btn-tertiary:active:hover{color:#000!important;background-color:#eee;border-color:#000}.btn-tertiary.active,.btn-tertiary:active{background-image:none}.btn-tertiary[disabled]:focus,.btn-tertiary[disabled]:hover{background-color:#eee;border-color:#000}.hamburger{position:relative;float:right;background-color:transparent;background-image:none}.hamburger ul{margin:0;padding:0;list-style:none;overflow:hidden;background-color:#fff}.hamburger li a{display:block;padding:5px 20px;text-decoration:none;font-size:1em}.hamburger .menu-btn:hover,.hamburger li a:hover{background:#fff}.hamburger .menu{clear:both;max-height:0;transition:max-height .2s ease-out}.hamburger .menu-icon{cursor:pointer;display:inline-block;float:right;padding:30px 20px;position:relative;user-select:none}.hamburger .menu-icon .navicon{background:#333;display:block;height:2px;position:relative;transition:background .2s ease-out;width:18px}.hamburger .menu-icon .navicon:after,.hamburger .menu-icon .navicon:before{background:#333;content:'';display:block;height:100%;position:absolute;transition:all .2s ease-out;width:100%}.hamburger .menu-icon .navicon:before{top:5px}.hamburger .menu-icon .navicon:after{top:-5px}.hamburger .menu-btn{display:none}.hamburger .menu-btn:checked~.menu{max-height:500px}.hamburger .menu-btn:checked~.menu-icon .navicon{background:0 0}.hamburger .menu-btn:checked~.menu-icon .navicon:before{transform:rotate(-45deg)}.hamburger .menu-btn:checked~.menu-icon .navicon:after{transform:rotate(45deg)}.hamburger .menu-btn:checked~.menu-icon:not(.steps) .navicon:after,.hamburger .menu-btn:checked~.menu-icon:not(.steps) .navicon:before{top:0}@media (min-width:684px){.hamburger li{display:none}.hamburger li a{display:none}.hamburger .menu{display:none}.hamburger .menu-icon{display:none}}.header__right{display:flex;flex-direction:row;align-items:center}@media (max-width:683px){.header__right{flex-direction:row-reverse}}.header__inner{justify-content:space-between;margin:0 auto;width:1200px;max-width:100%}.header-logo,.header__inner{display:flex;align-items:center;flex:0 0 auto;text-decoration:none;font-weight:700;padding-left:10px}.logo__mark{margin-right:10px}.logo__text{font-size:1.1rem;color:#373841;font-family:sans-serif;font-weight:700}.menu{--shadow-color:rgba(0, 0, 0, 0.12);--shadow:0 8px 20px var(--shadow-color);margin-right:18px;padding-right:24px;font-weight:500}@media (max-width:683px){.menu{position:absolute;background:#fafafa;box-shadow:var(--shadow);margin:0;padding:5px;list-style:none;border-radius:5px;z-index:99;border:none;top:50px;right:10px}}.menu a{text-decoration:none;font:1rem/1.62 sans-serif}.menu a:hover{text-decoration:none;color:#000}.menu__inner{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;list-style:none;margin:0;padding:0}@media (max-width:683px){.menu__inner--desktop{display:none}}.menu__inner--mobile{display:none}@media (max-width:683px){.menu__inner--mobile{display:block}}.menu__inner li{text-align:left;flex:0 0 auto}.menu__inner li:not(:first-of-type){margin-left:20px}@media (max-width:683px){.menu__inner{flex-direction:column;align-items:flex-start;padding:0}.menu__inner li{margin-left:0!important;padding:10px}}.pagination{margin:10px 0}figcaption{font-size:.8rem}.paginate{min-width:45px}table td{border-collapse:collapse;border-spacing:0!important}table tr{border-collapse:collapse;border-spacing:0!important}table tbody{border-collapse:collapse;border-spacing:0!important}table{border-collapse:collapse;border-spacing:0!important}a span.yshortcuts,span.yshortcuts{color:#000001;background-color:none;border:none}span.yshortcuts:active,span.yshortcuts:focus,span.yshortcuts:hover{color:#000001;background-color:none;border:none}img{-ms-interpolation-mode:: bicubic}a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important;font-size:inherit!important;font-family:inherit!important;font-weight:inherit!important;line-height:inherit!important}@media only screen and (min-width:600px){.hidden-sm-600{display:block!important}.hidden-lg-600{display:none!important}.noDesk{display:none!important}.td-padding{padding-left:15px!important;padding-right:15px!important}.mobile-column-left-padding{padding:0!important;mso-alt-padding:0!important}.mobile-column-right-padding{padding:0!important;mso-alt-padding:0!important}.mobile{display:none!important}}@media only screen and (max-width:599px) and (-webkit-min-device-pixel-ratio:1){.hidden-sm-600{display:none!important}.hidden-lg-600{display:block!important}[class].wrapper{width:100%!important}[class].container{width:100%!important}[class].mobile{width:100%!important;display:block!important}[class].image{width:100%!important;height:auto}[class].center{margin:0 auto!important;text-align:center!important}[class=mobileOff]{width:0!important;display:none!important}[class*=mobileOn]{display:block!important;max-height:none!important}p[class=mobile-padding]{padding-left:0!important;padding-top:10px}.hund{width:100%!important;height:auto!important}.td-padding{padding-left:15px!important;padding-right:15px!important}.mobile-column-left-padding{padding:18px 0 18px 0!important;mso-alt-padding:18px 0 18px 0!important}.mobile-column-right-padding{padding:18px 0 0 0!important;mso-alt-padding:18px 0 0 0!important}.stack{width:100%!important}[class=hide]{display:none!important}.bottom-padding-fix{padding:0 0 18px 0!important;mso-alt-padding:0 0 18px 0}}.button.raised{transition:box-shadow .2s cubic-bezier(.4,0,.2,1);transition:all .2s;box-shadow:0 2px 5px 0 rgba(0,0,0,.26)}.button.raised:hover{box-shadow:0 8px 17px 0 rgba(0,0,0,.2);transition:all .2s;-webkit-box-shadow:0 8px 17px 0 rgba(0,0,0,.2);transition:all .2s;-moz-box-shadow:0 8px 17px 0 rgba(0,0,0,.2);transition:all .2s}.card-1{box-shadow:0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);-webkit-box-shadow:0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);-moz-box-shadow:0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);transition:box-shadow .45s}
+  </style>
+
+  <title>The metaverse – Brekky Wrap</title>
+  <meta name="description" content="What the metaverse is all about, retail sales rebound, euro area inflation is boiling over, China still slowing, US wages rising as the country could already be in recession." />
+  <link rel="icon" href="https://brekkywrap.com/images/favicon.png" type="image/png" />
+  <link rel="canonical" href="https://brekkywrap.com/" />
+  <meta name="referrer" content="no-referrer-when-downgrade" />
+  <meta property="og:site_name" content="Brekky Wrap" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="The metaverse" />
+  <meta property="og:description" content="What the metaverse is all about, retail sales rebound, euro area inflation is boiling over, China still slowing, US wages rising as the country could already be in recession." />
+  <meta property="og:url" content="/2021/the-metaverse/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="The metaverse" />
+  <meta name="twitter:description" content="What the metaverse is all about, retail sales rebound, euro area inflation is boiling over, China still slowing, US wages rising as the country could already be in recession." />
+  <meta name="twitter:url" content="/2021/the-metaverse/" />
+  <meta name="twitter:site" content="@brekkywrap" />
+  <link rel="alternate" type="application/rss+xml" title="Brekky Wrap" href="https://brekkywrap.com/rss/" />
+  
+</head>
+    <body>
+      <div id="wrap">
+        <div id="main">
+        <header class="header-home">
+
+          <span class="header__inner">
+            <a href="/" class="header-logo">
+                <img class="hidden-sm" src="https://brekkywrap.com/images/brekky-logo.png" alt="The metaverse" width="300" /><img class="hidden-lg" src="https://brekkywrap.com/images/brekky-logo.png" alt="The metaverse" width="240" />
+            </a>
+
+            <span class="logo__cursor"></span>
+
+        <span class="header__right">
+            <nav class="menu">
+        <ul class="menu__inner menu__inner--desktop">
+          <li><a href="https://brekkywrap.com" title="Return home">Home</a></li>
+          <li><a href="https://brekkywrap.com/faq/" title="Frequently asked questions">FAQ</a></li>
+          <li><a href="https://brekkywrap.com/archive/" title="View the archive">Previous issues</a></li>
+          <li><a href="https://brekkywrap.com" title="Subscribe to Brekky Wrap">Subscribe</a></li>
+          <li><a href="https://brekkywrap.com/rewards/" title="Get free stuff">Get free stuff 🎉</a></li>
+
+        </ul>
+
+        </nav>
+        <!-- hamburger -->
+              <div class="hamburger">
+                <input class="menu-btn" type="checkbox" id="menu-btn" />
+                <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+                <ul class="menu">
+                  <li><a href="https://brekkywrap.com" title="Return home">Home</a></li>
+                  <li><a href="https://brekkywrap.com/faq/" title="Frequently asked questions">FAQ</a></li>
+                  <li><a href="https://brekkywrap.com/archive/" title="View the archive">Previous issues</a></li>
+                  <li><a href="https://brekkywrap.com" title="Subscribe to Brekky Wrap">Subscribe</a></li>
+                  <li><a href="https://brekkywrap.com/rewards/" title="Get free stuff">Get free stuff 🎉</a></li>
+                </ul>
+              </div>
+        <!-- /hamburger -->
+
+        </span>
+        </span>
+
+</header>
+
+
+<section class="section section-intro">
+    <div class="container">
+        <div class="top">
+            <div class="info-content-wide">
+
+<!-- START EMAIL -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+
+  <!-- START CARD 1 -->
+  <tr>
+    <td width="100%" valign="top" align="center" style="padding-top: 0px!important; padding-bottom: 18px!important; mso-padding-alt: 0px 0px 18px 0px;">
+      <table width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper">
+        <tr>
+          <td>
+            <table cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="border-radius: 3px; border-bottom: 2px solid #d4d4d4;" class="card-1" width="100%" valign="top" align="center">
+                  <table style="border-radius: 3px;" width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper" bgcolor="#ffffff">
+                    <tr>
+                      <td align="center">
+                        <table width="600" cellpadding="0" cellspacing="0" border="0" class="container">
+
+                                                  <tr>
+                                                    <td class="td-padding" align="center" style="font-family:'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important;font-weight: 700; font-size: 32px; line-height: 36px; padding-top: 18px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 0px!important; mso-line-height-rule: exactly; mso-padding-alt: 18px 18px 0px 18px;text-align: center;">The metaverse</td>
+                                                  </tr>
+                                                  <tr>
+                                                  <td class="td-padding" align="center" style="font-family:'Open Sans', Helvetica, Arial, sans-serif; vertical-align: top; color: #738a94; font-size: 12px; letter-spacing: 0.2px; text-transform: uppercase; text-align: center; padding-top: 5px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 0px!important; mso-line-height-rule: exactly; mso-padding-alt: 5px 18px 0px 18px;" valign="top">
+                          By <a href="https://brekkywrap.com/authors/justin/" style="color: #08121A; text-decoration: underline;" target="_blank" title="Contact Justin Pyvis">Justin Pyvis</a> –
+                          Delivered on 01 Nov 2021
+                                                </td>
+                                                </tr>
+                                                  <tr>
+                                                    <td class="td-padding" align="left" style="font-family:'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important; font-size: 16px; line-height: 24px; padding-top: 18px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 18px!important; mso-line-height-rule: exactly; mso-padding-alt: 18px 18px 18px 18px;">
+
+<!-- COPY BELOW HERE FOR WEBSITE -->
+<!-- INTRO BOX -->
+<p style="margin-top: 0px;margin-bottom: 0px;line-height: 150%;text-align: left;">Good morning! Today's the day – Australia's international border is officially open once again, although if you're planning a trip you'll only be able to return to New South Wales and Victoria.<br><br>
+
+Speaking of borders, the Hermit State (WA) <a href="https://www.watoday.com.au/national/all-visitors-to-wa-from-nsw-and-victoria-will-need-to-be-double-jabbed-20211030-p594l4.html" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">tightened</a> restrictions further by requiring travellers from NSW, VIC and the ACT to be fully vaccinated, "with other states likely to follow suit... once borders come down and other states start allowing Victoria, NSW and the ACT travellers to enter".<br><br>
+
+Perhaps as a sign of how the vaccine shortage has quickly moved to surplus, WA also made Pfizer booster shots <a href="https://www.watoday.com.au/national/all-visitors-to-wa-from-nsw-and-victoria-will-need-to-be-double-jabbed-20211030-p594l4.html" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">available</a> from today (no appointment required) for those who had their second dose over 6 months ago, with NSW to do the same <a href="https://www.forbesadvocate.com.au/story/7491053/covid-19-booster-shots-to-roll-out-in-nsw/?cs=719" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">from next week</a>.<br><br>
+
+Speaking of NSW, the state government is <a href="https://www.smh.com.au/national/nsw/nsw-considers-pushing-back-re-opening-date-for-the-unvaccinated-20211029-p594af.html" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">reportedly considering</a> "pushing back the reopening date for unvaccinated people in a bid to boost the state's inoculation coverage, with senior ministers now eyeing a potential double-dose rate of 95%".<br><br>
+
+No doubt everyone is eyeing off the ACT, which has an enviable 99.3% first dose take-up (people aged 12+).</p>
+
+<!-- INTRO BOX -->
+
+
+                              </td>
+                            </tr>
+                            <!-- END BODY COPY -->
+
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <!-- END CARD 1 -->
+
+
+<!-- START COVID CARD -->
+<tr>
+  <td width="100%" valign="top" align="center" style="padding-top: 0px!important; padding-bottom: 18px!important; mso-padding-alt: 0px 0px 18px 0px;">
+    <table width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper">
+      <tr>
+        <td>
+          <table cellpadding="0" cellspacing="0" border="0" align="center">
+            <tr>
+              <td style="border-radius: 3px; border-bottom: 2px solid #f7f7f7;" width="100%" valign="top" align="center">
+                <table style="border-radius: 3px;" width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper" bgcolor="#f7f7f7">
+                  <tr>
+                    <td align="center">
+                      <table width="600" cellpadding="0" cellspacing="0" border="0" class="container">
+                        <!-- START BODY COPY -->
+
+                        <tr>
+                          <td class="td-padding" align="center" style="font-family:'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important; font-size: 16px; line-height: 24px; padding-top: 18px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 18px!important; mso-line-height-rule: exactly; mso-padding-alt: 18px 18px 18px 18px;text-align:center;">
+
+<p style="margin-top: 5px;margin-bottom: 10px;line-height: 100%;text-align: center;">
+<strong>Fully vaccinated population (aged 12+)</strong>
+</p>
+
+<div align="center" class="hidden-sm-600">
+<table width="550" cellpadding="0" cellspacing="0" border="0" align="center">
+  <tr>
+    <td>
+  <div><!--[if mso]>
+    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.covid19.act.gov.au/restrictions/the-acts-pathway-forward" style="height:65px;v-text-anchor:middle;width:65px;" arcsize="50%" strokecolor="#9BEAA9" fillcolor="#9BEAA9">
+      <w:anchorlock/>
+      <center style="color:#444444;font-family:sans-serif;font-size:13px;font-weight:bold;">91.8%</center>
+    </v:roundrect>
+  <![endif]--><a href="https://www.covid19.act.gov.au/restrictions/the-acts-pathway-forward"
+  style="background-color:#9BEAA9;border:1px solid #9BEAA9;border-radius:32.5px;color:#444444;display:inline-block;font-family:sans-serif;font-size:13px;font-weight:bold;line-height:65px;text-align:center;text-decoration:none;width:65px;-webkit-text-size-adjust:none;mso-hide:all;">91.8%</a></div>
+</td>
+<td>
+  <div><!--[if mso]>
+    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.nsw.gov.au/covid-19/easing-covid-19-restrictions" style="height:65px;v-text-anchor:middle;width:65px;" arcsize="50%" strokecolor="#A5E0A5" fillcolor="#A5E0A5">
+      <w:anchorlock/>
+      <center style="color:#444444;font-family:sans-serif;font-size:13px;font-weight:bold;">86.3%</center>
+    </v:roundrect>
+  <![endif]--><a href="https://www.nsw.gov.au/covid-19/easing-covid-19-restrictions"
+  style="background-color:#A5E0A5;border:1px solid #A5E0A5;border-radius:32.5px;color:#444444;display:inline-block;font-family:sans-serif;font-size:13px;font-weight:bold;line-height:65px;text-align:center;text-decoration:none;width:65px;-webkit-text-size-adjust:none;mso-hide:all;">86.3%</a></div>
+</td>
+<td>
+  <div><!--[if mso]>
+    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.coronavirus.vic.gov.au/victorias-roadmap" style="height:65px;v-text-anchor:middle;width:65px;" arcsize="50%" strokecolor="#B9CA9D" fillcolor="#B9CA9D">
+      <w:anchorlock/>
+      <center style="color:#444444;font-family:sans-serif;font-size:13px;font-weight:bold;">78.8%</center>
+    </v:roundrect>
+  <![endif]--><a href="https://www.coronavirus.vic.gov.au/victorias-roadmap"
+  style="background-color:#B9CA9D;border:1px solid #B9CA9D;border-radius:32.5px;color:#444444;display:inline-block;font-family:sans-serif;font-size:13px;font-weight:bold;line-height:65px;text-align:center;text-decoration:none;width:65px;-webkit-text-size-adjust:none;mso-hide:all;">78.8%</a></div>
+</td>
+<td>
+  <div><!--[if mso]>
+    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.coronavirus.tas.gov.au/transition-plan" style="height:65px;v-text-anchor:middle;width:65px;" arcsize="50%" strokecolor="#C3C099" fillcolor="#C3C099">
+      <w:anchorlock/>
+      <center style="color:#444444;font-family:sans-serif;font-size:13px;font-weight:bold;">71.7%</center>
+    </v:roundrect>
+  <![endif]--><a href="https://www.coronavirus.tas.gov.au/transition-plan"
+  style="background-color:#C3C099;border:1px solid #C3C099;border-radius:32.5px;color:#444444;display:inline-block;font-family:sans-serif;font-size:13px;font-weight:bold;line-height:65px;text-align:center;text-decoration:none;width:65px;-webkit-text-size-adjust:none;mso-hide:all;">71.7%</a></div>
+</td>
+<td>
+  <div><!--[if mso]>
+    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.covid-19.sa.gov.au/response" style="height:65px;v-text-anchor:middle;width:65px;" arcsize="50%" strokecolor="#D7AB90" fillcolor="#D7AB90">
+      <w:anchorlock/>
+      <center style="color:#444444;font-family:sans-serif;font-size:13px;font-weight:bold;">63.8%</center>
+    </v:roundrect>
+  <![endif]--><a href="https://www.covid-19.sa.gov.au/response"
+  style="background-color:#D7AB90;border:1px solid #D7AB90;border-radius:32.5px;color:#444444;display:inline-block;font-family:sans-serif;font-size:13px;font-weight:bold;line-height:65px;text-align:center;text-decoration:none;width:65px;-webkit-text-size-adjust:none;mso-hide:all;">63.8%</a></div>
+</td>
+<td>
+  <div><!--[if mso]>
+    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.covid19.qld.gov.au/government-actions/queenslands-covid19-vaccine-plan" style="height:65px;v-text-anchor:middle;width:65px;" arcsize="50%" strokecolor="#D7AB90" fillcolor="#D7AB90">
+      <w:anchorlock/>
+      <center style="color:#444444;font-family:sans-serif;font-size:13px;font-weight:bold;">61.6%</center>
+    </v:roundrect>
+  <![endif]--><a href="https://www.covid19.qld.gov.au/government-actions/queenslands-covid19-vaccine-plan"
+  style="background-color:#D7AB90;border:1px solid #D7AB90;border-radius:32.5px;color:#444444;display:inline-block;font-family:sans-serif;font-size:13px;font-weight:bold;line-height:65px;text-align:center;text-decoration:none;width:65px;-webkit-text-size-adjust:none;mso-hide:all;">61.6%</a></div>
+</td>
+<td>
+  <div><!--[if mso]>
+    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://coronavirus.nt.gov.au/stay-safe/freedoms-and-restrictions#/travel_categories" style="height:65px;v-text-anchor:middle;width:65px;" arcsize="50%" strokecolor="#D7AB90" fillcolor="#D7AB90">
+      <w:anchorlock/>
+      <center style="color:#444444;font-family:sans-serif;font-size:13px;font-weight:bold;">61.3%</center>
+    </v:roundrect>
+  <![endif]--><a href="https://coronavirus.nt.gov.au/stay-safe/freedoms-and-restrictions#/travel_categories"
+  style="background-color:#D7AB90;border:1px solid #D7AB90;border-radius:32.5px;color:#444444;display:inline-block;font-family:sans-serif;font-size:13px;font-weight:bold;line-height:65px;text-align:center;text-decoration:none;width:65px;-webkit-text-size-adjust:none;mso-hide:all;">61.3%</a></div>
+</td>
+<td>
+  <div><!--[if mso]>
+    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://brekkywrap.com/images/2021/mcgowan-cartoon-borders.jpg" style="height:65px;v-text-anchor:middle;width:65px;" arcsize="50%" strokecolor="#D7AB90" fillcolor="#D7AB90">
+      <w:anchorlock/>
+      <center style="color:#444444;font-family:sans-serif;font-size:13px;font-weight:bold;">60.5%</center>
+    </v:roundrect>
+  <![endif]--><a href="https://brekkywrap.com/images/2021/mcgowan-cartoon-borders.jpg"
+  style="background-color:#D7AB90;border:1px solid #D7AB90;border-radius:32.5px;color:#444444;display:inline-block;font-family:sans-serif;font-size:13px;font-weight:bold;line-height:65px;text-align:center;text-decoration:none;width:65px;-webkit-text-size-adjust:none;mso-hide:all;">60.5%</a></div>
+</td>
+</tr>
+</table>
+  <table width="550" cellpadding="0" cellspacing="0" border="0" align="center">
+  <tr>
+<td width="65px" style="width:65px;text-align:center;font-weight:bold;text-decoration:none;border:none;-webkit-text-size-adjust:none;">
+<div>ACT</div>
+</td>
+<td width="65px" style="width:65px;text-align:center;font-weight:bold;text-decoration:none;border:none;-webkit-text-size-adjust:none;">
+<div>NSW</div>
+</td>
+<td width="65px" style="width:65px;text-align:center;font-weight:bold;text-decoration:none;border:none;-webkit-text-size-adjust:none;">
+<div>VIC</div>
+</td>
+<td width="65px" style="width:65px;text-align:center;font-weight:bold;text-decoration:none;border:none;-webkit-text-size-adjust:none;">
+<div>TAS</div>
+</td>
+<td width="65px" style="width:65px;text-align:center;font-weight:bold;text-decoration:none;border:none;-webkit-text-size-adjust:none;">
+<div>SA</div>
+</td>
+<td width="65px" style="width:65px;text-align:center;font-weight:bold;text-decoration:none;border:none;-webkit-text-size-adjust:none;">
+<div>QLD</div>
+</td>
+<td width="65px" style="width:65px;text-align:center;font-weight:bold;text-decoration:none;border:none;-webkit-text-size-adjust:none;">
+<div>NT</div>
+</td>
+<td width="65px" style="width:65px;text-align:center;font-weight:bold;text-decoration:none;border:none;-webkit-text-size-adjust:none;">
+<div>WA</div>
+</td>
+  </tr>
+  </table>
+</div>
+<!-- web browsers only -->
+<div align="center" class="hidden-lg-600" style="display:none;mso-hide:all;">
+<table width="96%" cellpadding="0" cellspacing="0" border="0" align="center">
+  <tr>
+    <td>
+  <div><a href="https://www.covid19.act.gov.au/restrictions/the-acts-pathway-forward"
+  style="background-color:#9BEAA9;border:1px solid #9BEAA9;border-radius:16px;color:#444444;display:inline-block;font-family:sans-serif;font-size:10px;font-weight:bold;line-height:32px;text-align:center;text-decoration:none;width:32px;-webkit-text-size-adjust:none;mso-hide:all;">91.8%</a></div>
+</td>
+<td>
+  <div><a href="https://www.nsw.gov.au/covid-19/easing-covid-19-restrictions"
+  style="background-color:#A5E0A5;border:1px solid #A5E0A5;border-radius:16px;color:#444444;display:inline-block;font-family:sans-serif;font-size:10px;font-weight:bold;line-height:32px;text-align:center;text-decoration:none;width:32px;-webkit-text-size-adjust:none;mso-hide:all;">86.3%</a></div>
+</td>
+<td>
+  <div><a href="https://www.coronavirus.vic.gov.au/victorias-roadmap"
+  style="background-color:#B9CA9D;border:1px solid #B9CA9D;border-radius:16px;color:#444444;display:inline-block;font-family:sans-serif;font-size:10px;font-weight:bold;line-height:32px;text-align:center;text-decoration:none;width:32px;-webkit-text-size-adjust:none;mso-hide:all;">78.8%</a></div>
+</td>
+<td>
+  <div><a href="https://www.coronavirus.tas.gov.au/transition-plan"
+  style="background-color:#C3C099;border:1px solid #C3C099;border-radius:16px;color:#444444;display:inline-block;font-family:sans-serif;font-size:10px;font-weight:bold;line-height:32px;text-align:center;text-decoration:none;width:32px;-webkit-text-size-adjust:none;mso-hide:all;">71.7%</a></div>
+</td>
+<td>
+  <div><a href="https://www.covid-19.sa.gov.au/response"
+  style="background-color:#D7AB90;border:1px solid #D7AB90;border-radius:16px;color:#444444;display:inline-block;font-family:sans-serif;font-size:10px;font-weight:bold;line-height:32px;text-align:center;text-decoration:none;width:32px;-webkit-text-size-adjust:none;mso-hide:all;">63.8%</a></div>
+</td>
+<td>
+  <div><a href="https://www.covid19.qld.gov.au/government-actions/queenslands-covid19-vaccine-plan"
+  style="background-color:#D7AB90;border:1px solid #D7AB90;border-radius:16px;color:#444444;display:inline-block;font-family:sans-serif;font-size:10px;font-weight:bold;line-height:32px;text-align:center;text-decoration:none;width:32px;-webkit-text-size-adjust:none;mso-hide:all;">61.6%</a></div>
+</td>
+<td>
+  <div><a href="https://coronavirus.nt.gov.au/stay-safe/freedoms-and-restrictions#/travel_categories"
+  style="background-color:#D7AB90;border:1px solid #D7AB90;border-radius:16px;color:#444444;display:inline-block;font-family:sans-serif;font-size:10px;font-weight:bold;line-height:32px;text-align:center;text-decoration:none;width:32px;-webkit-text-size-adjust:none;mso-hide:all;">61.3%</a></div>
+</td>
+<td>
+  <div><a href="https://brekkywrap.com/images/2021/mcgowan-cartoon-borders.jpg"
+  style="background-color:#D7AB90;border:1px solid #D7AB90;border-radius:16px;color:#444444;display:inline-block;font-family:sans-serif;font-size:10px;font-weight:bold;line-height:32px;text-align:center;text-decoration:none;width:32px;-webkit-text-size-adjust:none;mso-hide:all;">60.5%</a></div>
+</td>
+</tr>
+</table>
+  <table width="96%" cellpadding="0" cellspacing="0" border="0" align="center">
+  <tr>
+<td width="32px" style="width:32px;text-align:center;font-family:sans-serif;font-size:10px;font-weight:bold;text-decoration:none;border:none;-webkit-text-size-adjust:none;mso-hide:all;">
+<div>ACT</div>
+</td>
+<td width="32px" style="width:32px;text-align:center;font-family:sans-serif;font-size:10px;font-weight:bold;text-decoration:none;border:none;-webkit-text-size-adjust:none;mso-hide:all;">
+<div>NSW</div>
+</td>
+<td width="32px" style="width:32px;text-align:center;font-family:sans-serif;font-size:10px;font-weight:bold;text-decoration:none;border:none;-webkit-text-size-adjust:none;mso-hide:all;">
+<div>VIC</div>
+</td>
+<td width="32px" style="width:32px;text-align:center;font-family:sans-serif;font-size:10px;font-weight:bold;text-decoration:none;border:none;-webkit-text-size-adjust:none;mso-hide:all;">
+<div>TAS</div>
+</td>
+<td width="32px" style="width:32px;text-align:center;font-family:sans-serif;font-size:10px;font-weight:bold;text-decoration:none;border:none;-webkit-text-size-adjust:none;mso-hide:all;">
+<div>SA</div>
+</td>
+<td width="32px" style="width:32px;text-align:center;font-family:sans-serif;font-size:10px;font-weight:bold;text-decoration:none;border:none;-webkit-text-size-adjust:none;mso-hide:all;">
+<div>QLD</div>
+</td>
+<td width="32px" style="width:32px;text-align:center;font-family:sans-serif;font-size:10px;font-weight:bold;text-decoration:none;border:none;-webkit-text-size-adjust:none;mso-hide:all;">
+<div>NT</div>
+</td>
+<td width="32px" style="width:32px;text-align:center;font-family:sans-serif;font-size:10px;font-weight:bold;text-decoration:none;border:none;-webkit-text-size-adjust:none;mso-hide:all;">
+<div>WA</div>
+</td>
+  </tr>
+  </table>
+</div>
+<!-- end website only -->
+                          </td>
+                        </tr>
+                        <!-- END BODY COPY -->
+
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<!-- END COVID CARD -->
+
+<!-- START CARD 2 -->
+<tr>
+  <td width="100%" valign="top" align="center" style="padding-top: 0px!important; padding-bottom: 18px!important; mso-padding-alt: 0px 0px 18px 0px;">
+    <table width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper">
+      <tr>
+        <td>
+          <table cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td style="border-radius: 3px; border-bottom: 2px solid #d4d4d4;" class="card-1" width="100%" valign="top" align="center">
+                <table style="border-radius: 3px;" width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper" bgcolor="#ffffff">
+                  <tr>
+                    <td align="center">
+                      <table width="600" cellpadding="0" cellspacing="0" border="0" class="container">
+
+                        <!-- START BODY COPY -->
+                        <tr>
+                          <td class="td-padding" align="left" style="font-family: 'Open Sans', Helvetica, Arial, sans-serif;font-weight: 600;text-rendering: optimizeLegibility;font-size: 15px;line-height: 15px;text-transform: uppercase;color: #FF6600;padding-top: 18px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 0px!important; mso-line-height-rule: exactly; mso-padding-alt: 18px 18px 0px 18px;">
+                            Markets
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="td-padding" align="left" style="padding-top: 0px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 0px!important; mso-line-height-rule: exactly; mso-padding-alt: 0px 18px 0px 18px;">
+
+
+<!-- START MICROSOFT TABLE PASTE -->
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="100%"
+ style='width:100.0%;border-collapse:collapse;mso-yfti-tbllook:1184;mso-padding-alt:
+ 0cm 5.4pt 0cm 5.4pt'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width="100%" colspan=5 style='width:100.0%;border:none;border-bottom:
+  solid #D9D9D9 1.0pt;mso-border-bottom-themecolor:background1;mso-border-bottom-themeshade:
+  217;mso-border-bottom-alt:solid #D9D9D9 .5pt;mso-border-bottom-themecolor:
+  background1;mso-border-bottom-themeshade:217;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-bottom:1.5pt;text-align:right;
+  line-height:normal'><span style='font-size:13.0pt;font-family:"Open Sans",sans-serif;
+  mso-fareast-font-family:"Open Sans";mso-fareast-language:EN-AU'>Daily %
+  change</span></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width="7%" style='width:7.86%;padding:.75pt .75pt .75pt .75pt'></td>
+  <td width="19%" style='width:19.86%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+  2.0pt;margin-left:0cm;line-height:normal'><span style='font-size:13.0pt;
+  font-family:"Open Sans",sans-serif;mso-fareast-font-family:"Open Sans";
+  mso-fareast-language:EN-AU'>AUD/USD</span></p>
+  </td>
+  <td width="28%" style='width:28.82%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:black'>75.3</span></p>
+  </td>
+  <td width="36%" style='width:36.1%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:#C00000'>-0.1%</span></p>
+  </td>
+  <td width="7%" valign=top style='width:7.36%;padding:.75pt .75pt .75pt .75pt'></td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td width="7%" style='width:7.86%;padding:.75pt .75pt .75pt .75pt'></td>
+  <td width="19%" style='width:19.86%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+  2.0pt;margin-left:0cm;line-height:normal'><span style='font-size:13.0pt;
+  font-family:"Open Sans",sans-serif;mso-fareast-font-family:"Open Sans";
+  mso-fareast-language:EN-AU'>AU&nbsp;Yield&nbsp;(%)</span></p>
+  </td>
+  <td width="28%" style='width:28.82%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:black'>1.95</span></p>
+  </td>
+  <td width="36%" style='width:36.1%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:#C00000'>-0.3%</span></p>
+  </td>
+  <td width="7%" valign=top style='width:7.36%;padding:.75pt .75pt .75pt .75pt'></td>
+ </tr>
+ <tr style='mso-yfti-irow:3'>
+  <td width="7%" style='width:7.86%;padding:.75pt .75pt .75pt .75pt'></td>
+  <td width="19%" style='width:19.86%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+  2.0pt;margin-left:0cm;line-height:normal'><span style='font-size:13.0pt;
+  font-family:"Open Sans",sans-serif;mso-fareast-font-family:"Open Sans";
+  mso-fareast-language:EN-AU'>US&nbsp;Yield&nbsp;(%)</span></p>
+  </td>
+  <td width="28%" style='width:28.82%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:black'>1.56</span></p>
+  </td>
+  <td width="36%" style='width:36.1%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:#C00000'>-0.7%</span></p>
+  </td>
+  <td width="7%" valign=top style='width:7.36%;padding:.75pt .75pt .75pt .75pt'></td>
+ </tr>
+ <tr style='mso-yfti-irow:4'>
+  <td width="7%" style='width:7.86%;padding:.75pt .75pt .75pt .75pt'></td>
+  <td width="19%" style='width:19.86%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+  2.0pt;margin-left:0cm;line-height:normal'><span style='font-size:13.0pt;
+  font-family:"Open Sans",sans-serif;mso-fareast-font-family:"Open Sans";
+  mso-fareast-language:EN-AU'>ASX200</span></p>
+  </td>
+  <td width="28%" style='width:28.82%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:black'>7,324</span></p>
+  </td>
+  <td width="36%" style='width:36.1%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:#C00000'>-1.4%</span></p>
+  </td>
+  <td width="7%" valign=top style='width:7.36%;padding:.75pt .75pt .75pt .75pt'></td>
+ </tr>
+ <tr style='mso-yfti-irow:5'>
+  <td width="7%" style='width:7.86%;padding:.75pt .75pt .75pt .75pt'></td>
+  <td width="19%" style='width:19.86%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+  2.0pt;margin-left:0cm;line-height:normal'><span style='font-size:13.0pt;
+  font-family:"Open Sans",sans-serif;mso-fareast-font-family:"Open Sans";
+  mso-fareast-language:EN-AU'>S&amp;P500</span></p>
+  </td>
+  <td width="28%" style='width:28.82%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:black'>4,605</span></p>
+  </td>
+  <td width="36%" style='width:36.1%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:#00B050'>+0.2%</span></p>
+  </td>
+  <td width="7%" valign=top style='width:7.36%;padding:.75pt .75pt .75pt .75pt'></td>
+ </tr>
+ <tr style='mso-yfti-irow:6'>
+  <td width="7%" style='width:7.86%;padding:.75pt .75pt .75pt .75pt'></td>
+  <td width="19%" style='width:19.86%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+  2.0pt;margin-left:0cm;line-height:normal'><span style='font-size:13.0pt;
+  font-family:"Open Sans",sans-serif;mso-fareast-font-family:"Open Sans";
+  mso-fareast-language:EN-AU'>Brent&nbsp;(<span class=SpellE>bbl</span>)</span></p>
+  </td>
+  <td width="28%" style='width:28.82%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:black'>84.4</span></p>
+  </td>
+  <td width="36%" style='width:36.1%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:#C00000'>-0.2%</span></p>
+  </td>
+  <td width="7%" valign=top style='width:7.36%;padding:.75pt .75pt .75pt .75pt'></td>
+ </tr>
+ <tr style='mso-yfti-irow:7'>
+  <td width="7%" style='width:7.86%;padding:.75pt .75pt .75pt .75pt'></td>
+  <td width="19%" style='width:19.86%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+  2.0pt;margin-left:0cm;line-height:normal'><span style='font-size:13.0pt;
+  font-family:"Open Sans",sans-serif;mso-fareast-font-family:"Open Sans";
+  mso-fareast-language:EN-AU'>Gold&nbsp;(oz)</span></p>
+  </td>
+  <td width="28%" style='width:28.82%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:black'>1,785</span></p>
+  </td>
+  <td width="36%" style='width:36.1%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:#C00000'>-0.9%</span></p>
+  </td>
+  <td width="7%" valign=top style='width:7.36%;padding:.75pt .75pt .75pt .75pt'></td>
+ </tr>
+ <tr style='mso-yfti-irow:8'>
+  <td width="7%" style='width:7.86%;padding:.75pt .75pt .75pt .75pt'></td>
+  <td width="19%" style='width:19.86%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+  2.0pt;margin-left:0cm;line-height:normal'><span style='font-size:13.0pt;
+  font-family:"Open Sans",sans-serif;mso-fareast-font-family:"Open Sans";
+  mso-fareast-language:EN-AU'>Iron&nbsp;ore&nbsp;(t)</span></p>
+  </td>
+  <td width="28%" style='width:28.82%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:black'>104.0</span></p>
+  </td>
+  <td width="36%" style='width:36.1%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:#C00000'>-6.1%</span></p>
+  </td>
+  <td width="7%" valign=top style='width:7.36%;padding:.75pt .75pt .75pt .75pt'></td>
+ </tr>
+ <tr style='mso-yfti-irow:9'>
+  <td width="7%" style='width:7.86%;padding:.75pt .75pt .75pt .75pt'></td>
+  <td width="19%" style='width:19.86%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+  2.0pt;margin-left:0cm;line-height:normal'><span style='font-size:13.0pt;
+  font-family:"Open Sans",sans-serif;mso-fareast-font-family:"Open Sans";
+  mso-fareast-language:EN-AU'>Bitcoin</span></p>
+  </td>
+  <td width="28%" style='width:28.82%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:black'>60,966</span></p>
+  </td>
+  <td width="36%" style='width:36.1%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-top:2.0pt;margin-right:0cm;
+  margin-bottom:2.0pt;margin-left:0cm;text-align:right;line-height:normal'><span
+  style='font-size:13.0pt;font-family:"Open Sans",sans-serif;color:#C00000'>-1.4%</span></p>
+  </td>
+  <td width="7%" valign=top style='width:7.36%;padding:.75pt .75pt .75pt .75pt'></td>
+ </tr>
+ <tr style='mso-yfti-irow:10;mso-yfti-lastrow:yes'>
+  <td width="100%" colspan=5 style='width:100.0%;border:none;border-top:solid #D9D9D9 1.0pt;
+  mso-border-top-themecolor:background1;mso-border-top-themeshade:217;
+  mso-border-top-alt:solid #D9D9D9 .5pt;mso-border-top-themecolor:background1;
+  mso-border-top-themeshade:217;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-top:1.5pt;line-height:normal'><i><span
+  style='font-size:9.0pt;font-family:"Open Sans",sans-serif;mso-fareast-font-family:
+  "Open Sans";color:black;mso-fareast-language:EN-AU'>Note: Brent oil, gold
+  bullion and iron ore prices are the second futures contract. Bond yields are
+  10-year Treasuries.</span></i></p>
+  </td>
+ </tr>
+</table>
+<!-- END MICROSOFT TABLE PASTE -->
+
+</td>
+</tr>
+
+<tr>
+<td class="td-padding" align="left" style="font-family: 'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important; font-size: 16px; line-height: 24px; padding-top: 18px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 18px!important; mso-line-height-rule: exactly; mso-padding-alt: 18px 18px 18px 18px;">
+
+
+<!-- Start Market commentary -->
+<p style="margin-top: 0px;margin-bottom: 0px;line-height: 150%;text-align: left;">The <strong>US S&amp;P500</strong> added 0.19% on Friday despite falls to Apple (-1.8%) and Amazon (-2.2%), which dropped on disappointing earnings reports. Amazon also <a href="https://www.geekwire.com/2021/amazon-delivers-big-earnings-miss-jassy-warns-q4-will-bring-several-billion-dollars-additional-costs/" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">warned</a> that its entire fourth-quarter profit could be wiped out due to "labour supply shortages, increased wage costs, global supply chain issues, and increased freight and shipping costs".<br><br>
+
+Locally, the <strong>ASX200</strong> plunged 1.44% with every sector finishing in the red as the risk of a rate hike being pulled forward increased after the RBA again failed to defend its 0.1% target on the April 2024 bond, which <a href="https://www.rba.gov.au/statistics/ags-target/" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">shot up</a> to 0.775%. A notable mover was ambitious lithium play Vulcan Energy, which fell 16.5% after it emerged from a trading halt induced by a short seller <a href="https://www.mining.com/vulcan-energy-accused-of-misleading-investors-with-positive-pfs-report/" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">calling it</a> the "God of Empty Promises".</p>
+<!-- End Market commentary -->
+
+
+                              </td>
+                            </tr>
+                                                          <!-- END BODY COPY -->
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <!-- END CARD 2 -->
+
+<!-- START CARD 3 -->
+<tr>
+  <td width="100%" valign="top" align="center" style="padding-top: 0px!important; padding-bottom: 18px!important; mso-padding-alt: 0px 0px 18px 0px;">
+    <table width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper">
+      <tr>
+        <td>
+          <table cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td style="border-radius: 3px; border-bottom: 2px solid #d4d4d4;" class="card-1" width="100%" valign="top" align="center">
+                <table style="border-radius: 3px;" width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper" bgcolor="#ffffff">
+                  <tr>
+                    <td align="center">
+                      <table width="600" cellpadding="0" cellspacing="0" border="0" class="container">
+                                                   <tr>
+                          <td class="td-padding" align="left" style="font-family: 'Open Sans', Helvetica, Arial, sans-serif;font-weight: 600;text-rendering: optimizeLegibility;font-size: 15px;line-height: 15px;text-transform: uppercase;color: #FF6600;padding-top: 18px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 0px!important; mso-line-height-rule: exactly; mso-padding-alt: 18px 18px 0px 18px;">
+                            Economy
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="td-padding" align="left" style="font-family: 'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important; font-size: 16px; line-height: 24px; padding-top: 18px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 18px!important; mso-line-height-rule: exactly; mso-padding-alt: 18px 18px 18px 18px;">
+
+
+<!-- Start Economic commentary -->
+<p style="margin-top: 0px;margin-bottom: 0px;line-height: 150%;text-align: left;"><strong>Spending freedom</strong>: Retail sales in Australia <a href="https://www.abs.gov.au/media-centre/media-releases/retail-sales-13-some-restrictions-ease" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">increased</a> 1.3% in September, the first rise since May "as some restrictions were eased or lifted" in NSW, with only locked-down VIC and the ACT reporting declining sales.<br><br>
+
+<strong>China still slowing</strong>: The official gauge of factory activity in China, the NBS PMI, showed <a href="https://www.wsj.com/articles/chinas-manufacturing-activity-contracts-for-second-straight-month-11635645642" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">a second straight</a> monthly contraction in October. At just 49.2, it was the lowest reading since the outbreak of the pandemic in February 2020 (a reading under 50 indicates a contraction from the prior month).<br><br>
+
+Officials at the statistics bureau blamed "the power shortage and soaring raw material prices" for the decline, as China's government continues to meddle in the sector to achieve energy-efficiency targets and to clear the skies ahead of the Beijing Winter Olympics.<br><br>
+
+<strong>Red, red hot</strong>: Prices in the euro area <a href="https://www.politico.eu/article/eurozone-inflation-surges-to-4-1-percent-amid-strong-growth/" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">rose 4.1%</a> in October from a year earlier, with core inflation (which excludes energy and food) hitting 2.1%, the highest in nearly two decades. ECB President Christine Lagarde insists it's still "transitory", despite revising "its inflation projections upward the last five times" it met.<br><br>
+
+<strong>Speaking of transitory...</strong>: It seems some of that "transitory" inflation might be becoming stickier, as US employers <a href="https://www.reuters.com/world/us/us-consumer-spending-rises-solidly-september-inflation-stays-hot-2021-10-29/" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">boosted wages</a> by the most on record in the third quarter. Meanwhile, consumer spending jumped 0.6% in September and the core PCE index, the Fed's preferred inflation measure, increased 3.6% for a fourth straight month.<br><br>
+
+<strong>Already in recession?</strong>: A new paper by professors at Dartmouth College and University College London <a href="https://www.nber.org/papers/w29372" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">argues that</a> "downward movements in consumer expectations in the last six months suggest the economy in the United States is entering recession now (Autumn 2021) even though employment and wage growth figures suggest otherwise".</p>
+<!-- End Economic commentary -->
+
+</td>
+</tr>
+<!-- END BODY COPY -->
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- END CARD 3 -->
+
+
+<!-- START PROMO CARD -->
+<tr>
+  <td width="100%" valign="top" align="center" style="padding-top: 0px!important; padding-bottom: 18px!important; mso-padding-alt: 0px 0px 18px 0px;">
+    <table width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper">
+      <tr>
+        <td>
+          <table cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td style="border-radius: 3px; border-bottom: 2px solid #f7f7f7;" width="100%" valign="top" align="center">
+                <table style="border-radius: 3px;" width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper" bgcolor="#f7f7f7">
+                  <tr>
+                    <td align="center">
+                      <table width="600" cellpadding="0" cellspacing="0" border="0" class="container">
+                        <!-- START BODY COPY -->
+
+                        <tr>
+                        <td class="td-padding" align="center" style="font-family:'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important;font-weight: 700; font-size: 24px; line-height: 28px; padding-top: 18px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 5px!important; mso-line-height-rule: exactly; mso-padding-alt: 18px 18px 5px 18px;text-align:center;">
+                        Share Brekky Wrap, get free stuff
+                        </td>
+                        </tr>
+
+                        <tr>
+                          <td class="td-padding" align="center" style="font-family:'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important; font-size: 16px; line-height: 24px; padding-top: 18px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 18px!important; mso-line-height-rule: exactly; mso-padding-alt: 18px 18px 18px 18px;text-align:center;">
+
+<p style="margin-top: 0px;margin-bottom: 18px;line-height: 150%;text-align: center;">Have friends or co-workers who'd love Brekky Wrap? Give them your unique referral link (below) and unlock <a href="https://brekkywrap.com/rewards/" style="color: #08121A; text-decoration: underline;" target="_blank" title="View our rewards">awesome rewards</a> when they subscribe.<br><br>
+
+<a href="https://brekkywrap.com/?rh_ref={{subscriber.rh_code}}" style="color: #08121A; text-decoration: underline; font-weight:bold;" target="_blank" title="Use this code to invite your friends!">https://brekkywrap.com/?rh_ref={{subscriber.rh_code}}</a><br><br>
+
+P.S. You have referred <strong>{{subscriber.rh_totref}}</strong> people so far. <a href="https://hub.brekkywrap.com/?subscriber_id={{subscriber.rh_subid}}" style="color: #08121A; text-decoration: underline;" target="_blank" title="Invite your friends!">Check your reward status here</a>.</p>
+
+                          </td>
+                        </tr>
+                        <!-- END BODY COPY -->
+
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<!-- END PROMO CARD -->
+
+<!-- START CARD 4 -->
+<tr>
+  <td width="100%" valign="top" align="center" style="padding-top: 0px!important; padding-bottom: 18px!important; mso-padding-alt: 0px 0px 18px 0px;">
+    <table width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper">
+      <tr>
+        <td>
+          <table cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td style="border-radius: 3px; border-bottom: 2px solid #d4d4d4;" class="card-1" width="100%" valign="top" align="center">
+                <table style="border-radius: 3px;" width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper" bgcolor="#ffffff">
+                  <tr>
+                    <td align="center">
+                      <table width="600" cellpadding="0" cellspacing="0" border="0" class="container">
+                                                   <tr>
+                          <td class="td-padding" align="left" style="font-family: 'Open Sans', Helvetica, Arial, sans-serif;font-weight: 600;text-rendering: optimizeLegibility;font-size: 15px;line-height: 15px;text-transform: uppercase;color: #FF6600;padding-top: 18px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 0px!important; mso-line-height-rule: exactly; mso-padding-alt: 18px 18px 0px 18px;">
+                            Feature
+                          </td>
+                        </tr>
+
+
+<!-- Start feature -->
+
+<tr>
+<td class="td-padding" align="left" style="font-family:'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important;font-weight: 700; font-size: 32px; line-height: 36px; padding-top: 5px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 18px!important; mso-line-height-rule: exactly; mso-padding-alt: 5px 18px 18px 18px;">
+The metaverse
+</td>
+</tr>
+<!-- START HEADER IMAGE -->
+<tr>
+<td align="center" class="hund ripplelink" width="600" style="font-family: 'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important; font-size: 14px; line-height: 21px; text-align: center;">
+<img align="center" width="600" style="border-radius: 3px 3px 0px 0px; width: 100%; max-width: 600px!important" class="hund" src="https://brekkywrap.com/images/2021/facebook-meta-zuckerberg.png" alt="Feature image">
+<em>Zuckerberg wants to control the metaverse. <a href="https://www.youtube.com/watch?v=SAL2JZxpoGY" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">Guardian News</a></em>
+</td>
+</tr>
+<!-- END HEADER IMAGE -->
+<!-- START BODY COPY -->
+
+<tr>
+<td class="td-padding" align="left" style="font-family: 'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important; font-size: 16px; line-height: 24px; padding-top: 18px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 18px!important; mso-line-height-rule: exactly; mso-padding-alt: 18px 18px 18px 18px;">
+
+<p style="margin-top: 0px;margin-bottom: 0px;line-height: 150%;text-align: left;">Last week, Facebook – the scandal-ridden company that owns Facebook, Instagram and WhatsApp – <a href="https://www.cnet.com/tech/services-and-software/facebook-renames-itself-meta-amid-controversy/" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">renamed itself</a> "Meta", to better reflect its goal of being "a company that builds technology to connect people and the metaverse is the next frontier, just like social networking was when we got started".<br><br>
+
+<strong>Stepping back</strong>: The 'metaverse' is straight out of <a href="https://en.wikipedia.org/wiki/Metaverse" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">science fiction</a> –  Neal Stephenson's 1992 novel <em>Snow Crash</em>, to be precise – and describes "a virtual reality-based successor to the internet... where humans, as avatars, interact with each other and software agents, in a three-dimensional virtual space that uses the metaphor of the real world".<br><br>
+
+<strong>Why this matters</strong>: A lot of money is being thrown at the metaverse. Facebook (now Meta) <a href="https://www.theverge.com/2021/10/25/22745381/facebook-reality-labs-10-billion-metaverse" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">has committed</a> to spend at least $US10 billion this year alone, and both Microsoft and the creator of Fortnite, Epic Games, are also investing in this space.<br><br>
+
+<strong>Looking forward</strong>: Expect to get blasted with advertising spruiking the metaverse as the greatest thing since sliced bread (and more <a href="https://www.youtube.com/watch?v=SAL2JZxpoGY" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">cringe videos</a> of Mark Zuckerberg living in it), but really it's just parts of the internet (say, Zoom meetings) experienced through virtual/augmented reality instead of a computer monitor.<br><br>
+
+However, a metaverse built by Facebook sounds like a living <em>nightmare</em> to us. Virtual offices, meetings, gatherings that you can't escape, all under the watchful eye of Mark Zuckerberg who will ensure it's overflowing with product placements to help pay for it all (or a hefty monthly subscription).<br><br>
+
+If Meta creates the metaverse, you can count us out.</p>
+
+<!-- End feature -->
+
+</td>
+</tr>
+<!-- END BODY COPY -->
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- END CARD 4 -->
+
+<!-- START CARD 5 -->
+<tr>
+<td width="100%" valign="top" align="center" style="padding-top: 0px!important; padding-bottom: 18px!important; mso-padding-alt: 0px 0px 18px 0px;">
+<table width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper">
+<tr>
+  <td>
+    <table cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td style="border-radius: 3px; border-bottom: 2px solid #d4d4d4;" class="card-1" width="100%" valign="top" align="center">
+          <table style="border-radius: 3px;" width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper" bgcolor="#ffffff">
+            <tr>
+              <td align="center">
+                <table width="600" cellpadding="0" cellspacing="0" border="0" class="container">
+                                             <tr>
+                    <td class="td-padding" align="left" style="font-family: 'Open Sans', Helvetica, Arial, sans-serif;font-weight: 600;text-rendering: optimizeLegibility;font-size: 15px;line-height: 15px;text-transform: uppercase;color: #FF6600;padding-top: 18px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 0px!important; mso-line-height-rule: exactly; mso-padding-alt: 18px 18px 0px 18px;">
+                      The Wrap Up
+                    </td>
+                  </tr>
+                  <!-- START BODY COPY -->
+
+                  <tr>
+                    <td class="td-padding" align="left" style="font-family: 'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important; font-size: 16px; line-height: 24px; padding-top: 18px; padding-left: 18px!important; padding-right: 18px!important; padding-bottom: 0px!important; mso-line-height-rule: exactly; mso-padding-alt: 18px 18px 0px 18px;">
+
+
+<table style="margin: 0 0 16px 0; font-family: 'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important; font-size: 16px; line-height: 24px;">
+<tr><td style="vertical-align: top; padding:0 5px 5px 0;">🚗</td><td style="margin:0; padding:0 0 6px 0;font-family: 'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important; font-size: 16px; line-height: 24px;">Australia's shadow attorney-general Tim Smith <a href="https://twitter.com/bridgerollo/status/1454633627967311872" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">resigned</a> from the shadow cabinet on Sunday after being caught drink driving.</td></tr>
+<tr><td style="vertical-align: top; padding:0 5px 5px 0;">🦗</td><td style="margin:0; padding:0 0 6px 0;font-family: 'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important; font-size: 16px; line-height: 24px;">England <a href="https://www.espncricinfo.com/series/icc-men-s-t20-world-cup-2021-22-1267897/australia-vs-england-26th-match-group-1-1273737/full-scorecard" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">embarrassed</a> Australia in the T20 World Cup, chasing down a meagre total of 125 with 50 balls to spare and eight wickets in hand.</td></tr>
+<tr><td style="vertical-align: top; padding:0 5px 5px 0;">👮‍♂️</td><td style="margin:0; padding:0 0 6px 0;font-family: 'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important; font-size: 16px; line-height: 24px;">You can take the player out of Collingwood... Jordan De Goey <a href="https://www.abc.net.au/news/2021-10-31/collingwood-player-jordan-de-goey-arrested-in-new-york-city/100583470" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">was charged</a> with assault and forcible touching by the New York City Police Department over an alleged incident that took place early on Saturday morning.</td></tr>
+<tr><td style="vertical-align: top; padding:0 5px 5px 0;">🏡</td><td style="margin:0; padding:0 0 6px 0;font-family: 'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important; font-size: 16px; line-height: 24px;">Australia <a href="https://www.health.gov.au/ministers/the-hon-greg-hunt-mp/media/minister-hunts-press-conference-in-melbourne-on-29-october-2021-on-new-funding-to-support-covid-19-cases-at-home-and-covid-19-vaccination-rollout" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">will increasingly</a> look to treat COVID-19 patients at home rather than in the hospital, with most cases expected to be less severe now that the national vaccination rate is approaching 80%.</td></tr>
+<tr><td style="vertical-align: top; padding:0 5px 5px 0;">🕊️</td><td style="margin:0; padding:0 0 6px 0;font-family: 'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important; font-size: 16px; line-height: 24px;">Australian television icon Bert Newton died on the weekend and <a href="https://www.abc.net.au/news/2021-10-31/bert-newton-state-funeral-announced/100583494" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">will receive</a> a Victorian state funeral.</td></tr>
+<tr><td style="vertical-align: top; padding:0 5px 5px 0;">🥝</td><td style="margin:0; padding:0 0 6px 0;font-family: 'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important; font-size: 16px; line-height: 24px;">Anyone in New Zealand <a href="https://www.health.gov.au/news/recommencing-quarantine-free-travel-from-new-zealand-to-australia" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">is now allowed</a> to travel to Australia quarantine-free "to jurisdictions that are ready", provided they have been there for 14 days prior to departure.</td></tr>
+<tr><td style="vertical-align: top; padding:0 5px 5px 0;">🌐</td><td style="margin:0; padding:0 0 6px 0;font-family: 'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important; font-size: 16px; line-height: 24px;">Every G20 government <a href="https://www.9news.com.au/world/g20-endorses-global-corporate-minimum-tax-at-rome-summit/0dff98a3-4d58-4a6b-a88d-29f6479f5bdd" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">signed off</a> on a global minimum corporate tax rate of 15%.</td></tr>
+<tr><td style="vertical-align: top; padding:0 5px 5px 0;">🏉</td><td style="margin:0; padding:0 0 6px 0;font-family: 'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important; font-size: 16px; line-height: 24px;">A pitch invader <a href="https://www.news.com.au/sport/rugby/serial-pitch-invader-jarvo-crashes-all-blacks-anthem-against-wales/news-story/4d6b1d96258fb1d18b922692bca2e6d2" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">managed</a> to sneak onto the field and line up with the All Blacks for the start of the national anthems.</td></tr>
+<tr><td style="vertical-align: top; padding:0 5px 5px 0;">🏭</td><td style="margin:0; padding:0 0 6px 0;font-family: 'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important; font-size: 16px; line-height: 24px;">The G20 <a href="https://www.npr.org/2021/10/31/1050928998/g-20-carbon-neutrality-cop26-coal-financing" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">agreed</a> to reach carbon neutrality by "around mid-century", and to also end public financing for coal-fired power generation abroad.</td></tr>
+<tr><td style="vertical-align: top; padding:0 5px 5px 0;">☢️</td><td style="margin:0; padding:0 0 6px 0;font-family: 'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important; font-size: 16px; line-height: 24px;">Asked if <a href="https://www.smh.com.au/world/europe/i-don-t-think-i-know-french-president-macron-says-scott-morrison-lied-to-him-20211101-p594sx.html" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">he believed</a> ScoMo lied to him over the submarine deal, France's President Emmanuel Macron said "I don't think, I know".</td></tr>
+<tr><td style="vertical-align: top; padding:0 5px 5px 0;">🗳️</td><td style="margin:0; padding:0 0 6px 0;font-family: 'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important; font-size: 16px; line-height: 24px;">US President Joe Biden's <a href="https://www.nbcnews.com/politics/meet-the-press/biden-s-job-rating-sinks-42-percent-nbc-news-poll-n1282781" style="color: #08121A; text-decoration: underline;" target="_blank" title="View source">approval rating</a> has fallen to 42%, lower than any other modern first-year president's approval at a similar point in time, excluding Donald Trump.</td></tr>
+</table>
+
+</ul>
+
+                              </td>
+                            </tr>
+                            <!-- END BODY COPY -->
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr><!-- END CARD 5 -->
+<!-- STOP COPYING HERE -->
+<!-- SPACER -->
+        <!--[if gte mso 9]>
+        <table align="center" border="0" cellspacing="0" cellpadding="0" width="600">
+          <tr>
+            <td align="center" valign="top" width="600" height="18">
+              <![endif]-->
+              <tr><td height="18px"></td></tr>
+              <!--[if gte mso 9]>
+            </td>
+          </tr>
+        </table>
+        <![endif]--><!-- END SPACER --><!-- FOOTER -->
+        <tr>
+          <td width="100%" valign="top" align="center">
+            <table width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper">
+              <tr>
+                <td width="100%" valign="top" align="center">
+                  <table width="600" cellpadding="0" cellspacing="0" border="0" align="center" class="wrapper">
+                    <tr>
+                      <td align="center">
+                        <table width="600" cellpadding="0" cellspacing="0" border="0" class="container">
+                          <tr>
+                            <td class="td-padding" align="center" style="font-family: 'Open Sans', Helvetica, Arial, sans-serif; color: #212121!important; font-size: 16px; line-height: 24px; padding-top: 0px; padding-left: 0px!important; padding-right: 0px!important; padding-bottom: 18px!important; mso-line-height-rule: exactly; mso-padding-alt: 0px 0px 18px 0px;text-align:center;">
+                              If you were forwarded this Wrap, why not <a href="https://brekkywrap.com" style="color: #212121; text-decoration: underline;" title="Subscribe to Brekky Wrap">sign up for yourself</a> - it's free!
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <!-- FOOTER -->
+        <!-- SPACER -->
+        <!--[if gte mso 9]>
+        <table align="center" border="0" cellspacing="0" cellpadding="0" width="600">
+          <tr>
+            <td align="center" valign="top" width="600" height="36">
+              <![endif]-->
+              <tr><td height="36px"></td></tr>
+              <!--[if gte mso 9]>
+            </td>
+          </tr>
+        </table>
+        <![endif]-->
+        <!-- END SPACER -->
+      </table>
+      <!-- END EMAIL -->
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="navigation-mobile">
+    <p class="text-center"><a href="https://brekkywrap.com" class="button button-small button-secondary" title="Return home">Return home</a></p>
+</div>
+
+
+</div>
+</div>
+
+        <footer class="footer">
+    <div class="footer-top">
+        <div class="container">
+
+
+                <div class="footer-copyright">
+                    &copy; 2021 Brekky Wrap. Read our <a href="https://brekkywrap.com/privacy/">Privacy Policy</a>.
+                </div>
+
+        </div>
+    </div>
+
+</footer>
+
+    </body>
+</html>
